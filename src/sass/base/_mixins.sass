@@ -1,0 +1,37 @@
+@function max($numbers...)
+  @return m#{a}x(#{$numbers})
+
+@function min($numbers...)
+  @return m#{i}n(#{$numbers})
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal)
+  @font-face
+    font-family: $font-family
+    src: url('#{$file-path}.woff2') format("woff2")
+    font-weight: $weight
+    font-style: $style
+    font-display: swap
+
+@mixin visually-hidden
+  position: absolute !important
+  clip: rect(1px 1px 1px 1px)
+  clip: rect(1px, 1px, 1px, 1px)
+  padding: 0 !important
+  border: 0 !important
+  height: 1px !important
+  width: 1px !important
+  overflow: hidden
+
+@mixin placeholder
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+@mixin flexbox
+  display: flex
+  flex-wrap: wrap

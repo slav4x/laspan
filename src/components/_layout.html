@@ -1,0 +1,26 @@
+{% set site_title = site_title | default('Title') %}
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="language" content="Russian">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>{{ site_title }}</title>
+		<link rel="preload" href="./fonts/VelaSans-GX/VelaSans-GX.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="stylesheet" href="./css/libs.css?cb">
+		<link rel="stylesheet" href="./css/main.css?cb">
+	</head>
+	<body>
+
+		{% include 'components/_header.html' %}
+
+		{% block content %}{% endblock %}
+
+		{% include 'components/_footer.html' %}
+
+		<script defer src="./js/libs.js?cb"></script>
+		<script defer src="./js/main.js?cb"></script>
+	</body>
+</html>
