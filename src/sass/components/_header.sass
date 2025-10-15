@@ -1,1 +1,286 @@
+.header
+	background: #fff
+	border-bottom: 1px solid rgba(0,0,0,0.1)
+	position: relative
+	z-index: 60
+	.container
+		@include flexbox
+		align-items: center
+	&-logo
+		@include flexbox
+		align-items: center
+		gap: 30px
+		&__svg
+			display: block
+		&__text
+			font-size: 14px
+			line-height: 1.4
+			letter-spacing: -0.03em
+	&-main
+		flex: 1
+		margin-left: auto
+		max-width: 1280px
+		position: relative
+	&-top,
+	&-bottom
+		@include flexbox
+		align-items: center
+		height: 55px
+	&-top
+		border-bottom: 1px solid rgba(0,0,0,0.1)
+		&__nav
+			@include flexbox
+			align-items: center
+			height: 100%
+			gap: 30px
+			font-weight: 500
+			font-size: 15px
+			line-height: 20px
+			padding: 0 20px
+			margin-right: auto
+			li
+				height: 100%
+				position: relative
+				a
+					@include flexbox
+					align-items: center
+					height: 100%
+					transition: var(--transition-ms)
+					&:hover
+						color: var(--color-red)
+			&-dropdown
+				@include flexbox
+				align-items: center
+				gap: 8px
+				&::after
+					content: ''
+					display: block
+					vertical-align: middle
+					width: 10px
+					height: 6px
+					background: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 1.11772L12.8632 6.0536e-08L7 5.76457L1.13683 6.0536e-08L0 1.11772L7 8L14 1.11772Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat center / cover
+					transition: var(--transition-ms)
+				&:hover
+					&::after
+						transform: rotate(180deg)
+					.header-top__nav-submenu
+						opacity: 1
+						pointer-events: auto
+					& > a
+						color: var(--color-text) !important
+			&-submenu
+				position: absolute
+				top: 100%
+				left: -12px
+				background: #fff
+				z-index: 20
+				border: 1px solid rgba(0,0,0,.1)
+				border-top: 0
+				padding: 12px
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				gap: 6px
+				line-height: 1.4
+				opacity: 0
+				pointer-events: none
+				transition: var(--transition-ms)
+		&__btn
+			@include flexbox
+			align-items: center
+			gap: 20px
+			background: var(--color-red)
+			color: #fff
+			font-size: 17px
+			line-height: 23px
+			letter-spacing: -0.02em
+			font-weight: 700
+			padding: 0 36px
+			height: 55px
+			margin-bottom: -1px
+			transition: var(--transition-ms)
+			&::after
+				content: ''
+				display: block
+				width: 34px
+				height: 21px
+				background: url("data:image/svg+xml,%3Csvg width='34' height='21' viewBox='0 0 34 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.601051' y='0.601051' width='32.7979' height='19.7979' rx='9.89895' stroke='white' stroke-width='1.2021'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.645 14.821L21.8084 10.9321C22.0639 10.6935 22.0639 10.3065 21.8084 10.0679L17.645 6.17898C17.3896 5.94034 16.9753 5.94034 16.7199 6.17898C16.4644 6.41763 16.4644 6.80454 16.7199 7.04319L19.7664 9.88892L12 9.88892L12 11.1111L19.7664 11.1111L16.7199 13.9568C16.4644 14.1955 16.4644 14.5824 16.7199 14.821C16.9753 15.0597 17.3896 15.0597 17.645 14.821Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center
+			&:hover
+				background: var(--color-red-hover)
+		&__city
+			padding: 0 20px
+			@include flexbox
+			align-items: center
+			gap: 16px
+			border-left: 1px solid rgba(0,0,0,.1)
+			height: 100%
+			cursor: pointer
+			&::before
+				content: ''
+				display: block
+				width: 20px
+				height: 20px
+				background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.6673 8.68055C16.6673 13.2037 11.334 17.9167 10.0007 17.9167C8.66732 17.9167 3.33398 13.2037 3.33398 8.68055C3.33398 5.03701 6.31875 2.08333 10.0007 2.08333C13.6825 2.08333 16.6673 5.03701 16.6673 8.68055Z' stroke='%23E31E24' stroke-width='1.25'/%3E%3Ccircle cx='2.5' cy='2.5' r='2.5' transform='matrix(-1 0 0 1 12.5 5.83333)' stroke='%23E31E24' stroke-width='1.25'/%3E%3C/svg%3E%0A") no-repeat center
+			&::after
+				content: ''
+				display: block
+				width: 14px
+				height: 8px
+				background: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 1.11772L12.8632 6.0536e-08L7 5.76457L1.13683 6.0536e-08L0 1.11772L7 8L14 1.11772Z' fill='%232F3E50'/%3E%3C/svg%3E%0A") no-repeat center
+			&-text
+				@include flexbox
+				flex-direction: column
+				gap: 4px
+				min-width: 130px
+			&-label
+				font-size: 12px
+				line-height: 16px
+				font-weight: 500
+				color: rgba(47, 62, 80, 0.6)
+			&-selected
+				font-size: 14px
+				line-height: 20px
+				color: #2F3E50
+				text-transform: uppercase
+				font-weight: 700
+				letter-spacing: 0.05em
+				transition: var(--transition-ms)
+			&:hover .header-top__city-selected
+				color: var(--color-red)
+	&-bottom
+		&__nav
+			@include flexbox
+			align-items: center
+			height: 100%
+			margin-right: auto
+			li
+				height: 100%
+				a
+					@include flexbox
+					align-items: center
+					height: 100%
+					gap: 10px
+					padding: 0 20px
+					font-size: 16px
+					letter-spacing: 0.02em
+					font-weight: 600
+					transition: var(--transition-ms)
+					&:hover
+						background: #F7F7F7
+				&[data-category]
+					a::after
+						content: ''
+						display: block
+						width: 14px
+						height: 8px
+						background: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 1.11772L12.8632 6.0536e-08L7 5.76457L1.13683 6.0536e-08L0 1.11772L7 8L14 1.11772Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat center
+						transition: var(--transition-ms)
+				&.is-active a
+					background: #F7F7F7
+					&::after
+						transform: rotate(180deg)
+		&__phone
+			@include flexbox
+			align-items: center
+			gap: 12px
+			font-size: 20px
+			line-height: 26px
+			font-weight: 700
+			transition: var(--transition-ms)
+			&::after
+				content: ''
+				display: block
+				width: 18px
+				height: 18px
+				background: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.16925 0.146243C3.8835 0.209243 3.717 0.310493 3.27825 0.695243C3.1095 0.841493 2.87775 1.03949 2.763 1.13174C2.64825 1.22399 2.44125 1.41524 2.30625 1.55474C1.48725 2.40074 1.01025 3.40874 0.8415 4.65974C0.79425 4.99724 0.78975 5.77349 0.83025 6.11999C1.0935 8.33399 2.2995 10.5997 4.608 13.2075C5.013 13.6642 5.9625 14.6182 6.35625 14.9602C8.14725 16.524 9.801 17.3632 11.5088 17.5747C11.799 17.6107 12.573 17.6107 12.8475 17.577C13.9883 17.4285 14.994 16.9785 15.795 16.2585C15.9008 16.164 16.1438 15.9457 16.3373 15.7725C16.5308 15.6015 16.7355 15.4057 16.7918 15.3405C17.3093 14.7285 17.163 14.0512 16.3373 13.23C16.0335 12.9285 15.1898 12.204 14.8343 11.9385C14.2628 11.5132 13.7993 11.3085 13.329 11.2792C12.9735 11.2567 12.6405 11.3467 12.3368 11.5492C12.1343 11.6842 11.502 12.24 11.2095 12.5392C10.8315 12.9285 10.6133 13.0477 10.2353 13.068C9.5175 13.104 8.69625 12.6135 7.5915 11.493C6.36075 10.242 5.43375 8.93924 5.166 8.08199C5.09625 7.86149 5.04 7.55324 5.04 7.40474C5.04 7.23599 5.10075 6.99749 5.18625 6.82199C5.28975 6.61724 5.49 6.41024 5.79825 6.19874C6.0795 6.00299 6.77025 5.40224 6.91425 5.22674C7.056 5.05574 7.21575 4.73174 7.25625 4.53374C7.353 4.07249 7.2405 3.52349 6.91875 2.89124C6.7815 2.62124 6.417 2.02274 6.05475 1.47374C5.5035 0.638993 5.022 0.211493 4.545 0.137243C4.36725 0.107993 4.34475 0.107993 4.16925 0.146243Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat center
+				transition: var(--transition-ms)
+			&:hover
+				color: var(--color-red)
+				&::after
+					background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.16925 0.146243C3.8835 0.209243 3.717 0.310493 3.27825 0.695243C3.1095 0.841493 2.87775 1.03949 2.763 1.13174C2.64825 1.22399 2.44125 1.41524 2.30625 1.55474C1.48725 2.40074 1.01025 3.40874 0.8415 4.65974C0.79425 4.99724 0.78975 5.77349 0.83025 6.11999C1.0935 8.33399 2.2995 10.5997 4.608 13.2075C5.013 13.6642 5.9625 14.6182 6.35625 14.9602C8.14725 16.524 9.801 17.3632 11.5088 17.5747C11.799 17.6107 12.573 17.6107 12.8475 17.577C13.9883 17.4285 14.994 16.9785 15.795 16.2585C15.9008 16.164 16.1438 15.9457 16.3373 15.7725C16.5308 15.6015 16.7355 15.4057 16.7918 15.3405C17.3093 14.7285 17.163 14.0512 16.3373 13.23C16.0335 12.9285 15.1898 12.204 14.8343 11.9385C14.2628 11.5132 13.7993 11.3085 13.329 11.2792C12.9735 11.2567 12.6405 11.3467 12.3368 11.5492C12.1343 11.6842 11.502 12.24 11.2095 12.5392C10.8315 12.9285 10.6133 13.0477 10.2353 13.068C9.5175 13.104 8.69625 12.6135 7.5915 11.493C6.36075 10.242 5.43375 8.93924 5.166 8.08199C5.09625 7.86149 5.04 7.55324 5.04 7.40474C5.04 7.23599 5.10075 6.99749 5.18625 6.82199C5.28975 6.61724 5.49 6.41024 5.79825 6.19874C6.0795 6.00299 6.77025 5.40224 6.91425 5.22674C7.056 5.05574 7.21575 4.73174 7.25625 4.53374C7.353 4.07249 7.2405 3.52349 6.91875 2.89124C6.7815 2.62124 6.417 2.02274 6.05475 1.47374C5.5035 0.638993 5.022 0.211493 4.545 0.137243C4.36725 0.107993 4.34475 0.107993 4.16925 0.146243Z' fill='%23E31E24'/%3E%3C/svg%3E%0A")
+	&-dropdown
+		position: absolute
+		top: calc(100% + 1px)
+		border-left: 1px solid rgba(0,0,0,.1)
+		border-bottom: 1px solid rgba(0,0,0,.1)
+		left: 0
+		right: var(--pos-right, 0px)
+		background: #fff
+		opacity: 0
+		pointer-events: none
+		transition: var(--transition-ms)
+		&.is-open
+			opacity: 1
+			pointer-events: auto
+		&__category
+			display: none
+			&.is-active
+				@include flexbox
+		&__sidebar
+			width: 549px
+			border-right: 1px solid rgba(0,0,0,.1)
+			&-nav
+				li
+					a
+						display: block
+						padding: 16px 20px
+						line-height: 24px
+						letter-spacing: -0.03em
+						font-weight: 600
+						transition: var(--transition-ms)
+						position: relative
+						span
+							border-bottom: 1px solid transparent
+							transition: var(--transition-ms)
+						&::after
+							content: '>'
+							display: block
+							position: absolute
+							top: 50%
+							transform: translateY(-50%)
+							right: 20px
+							transition: var(--transition-ms)
+						&:hover
+							background: #F7F7F7
+							span
+								border-color: #000
+							&::after
+								transform: translateY(-50%) rotate(180deg)
+					&.is-active a
+						background: #F7F7F7
+						span
+							border-color: #000
+						&::after
+							transform: translateY(-50%) rotate(180deg)
 
+		&__main
+			flex: 1
+			padding: 20px
+			&-content
+				display: none
+				&.is-active
+					@include flexbox
+					flex-direction: column
+					align-items: flex-start
+					gap: 24px
+				img
+					width: 100%
+					height: 420px
+					object-fit: cover
+					object-position: center
+			&-text
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				gap: 8px
+				max-width: 780px
+				b
+					font-size: 16px
+					line-height: 1.4
+					letter-spacing: -0.03em
+					font-weight: 600
+				p
+					font-size: 14px
+					line-height: 1.4
+					letter-spacing: -0.03em
+					opacity: 0.7
