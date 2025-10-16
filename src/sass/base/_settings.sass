@@ -8,6 +8,7 @@ body
     background: #fff
     color: var(--color-black)
     min-width: 420px
+    counter-reset: titleCounter
 
 ul
     list-style: none
@@ -49,13 +50,83 @@ input, textarea
         flex-direction: column
         align-items: flex-start
         gap: 18px
+        &__counter
+            padding: 50px 0
+            border-top: 1px solid var(--color-border)
+            @include flexbox
+            flex-direction: column
+            align-items: flex-start
+            gap: 12px
+            position: relative
+            padding-left: 90px
+            counter-increment: titleCounter
+            &-description
+                line-height: 1.6
+                font-weight: 600
+            &::before
+                content: counter(titleCounter, decimal-leading-zero)
+                position: absolute
+                top: 0
+                bottom: 0
+                margin: auto 0
+                left: 0
+                width: 32px
+                height: 24px
+                line-height: 24px
+                font-size: 22px
+                line-height: 1.4
+                letter-spacing: -0.03em
+                font-weight: 600
+            &::after
+                content: ''
+                position: absolute
+                top: 0
+                bottom: 0
+                margin: auto 0
+                left: 48px
+                width: 26px
+                height: 1px
+                background: var(--color-black)
     &-title
         font-size: 52px
         line-height: 1.1
         letter-spacing: -0.02em
         font-weight: 700
+        &-md
+            font-size: 40px
+            line-height: 1.1
+            font-weight: 600
+            letter-spacing: -0.03em
+            span
+                font-weight: 500
     &-description
         max-width: 600px
         line-height: 1.6
         font-weight: 500
         color: rgba(0,0,0,.7)
+
+.btn
+    @include flexbox
+    align-items: center
+    justify-content: center
+    font-weight: 600
+    line-height: 1
+    text-align: center
+    width: 100%
+    transition: var(--transition-ms)
+    &-sm
+        height: 74px
+        letter-spacing: -0.03em
+    &-md
+        height: 84px
+        letter-spacing: -0.03em
+    &-outlined
+        border: 1px solid #ABABAB
+        &:hover
+            border-color: var(--color-yellow)
+            background: var(--color-yellow)
+    &-red
+        background: var(--color-red)
+        color: var(--color-white)
+        &:hover
+            background: var(--color-red-hover)

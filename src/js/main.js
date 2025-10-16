@@ -128,6 +128,17 @@ document.addEventListener('DOMContentLoaded', () => {
   header.addEventListener('focusout', (e) => {
     if (!header.contains(e.relatedTarget)) closeDropdown();
   });
+
+  const manufacturedCarousel = document.querySelector('.manufactured-carousel');
+  if (manufacturedCarousel) {
+    new Splide(manufacturedCarousel, {
+      type: 'loop',
+      perPage: 1,
+      focus: 0,
+      omitEnd: true,
+      pagination: false,
+    }).mount();
+  }
 });
 
 function updateDropdownPos() {

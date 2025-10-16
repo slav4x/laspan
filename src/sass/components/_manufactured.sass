@@ -1,0 +1,177 @@
+.manufactured
+	overflow: hidden
+	&-row
+		@include flexbox
+	&-col
+		width: 50%
+		position: relative
+		&:nth-child(1)
+			padding: 80px 0 75px
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 64px
+		&:nth-child(2)
+			border-left: 1px solid var(--color-border)
+			padding: 80px 100px
+			padding-right: 0
+			&::before,
+			&::after
+				content: ''
+				position: absolute
+				left: 0
+				right: -10000px
+				height: 1px
+				background: var(--color-border)
+			&::before
+				top: 0
+			&::after
+				bottom: 0
+		.section-title-md
+			font-weight: 700
+	&-grid
+		@include flexbox
+		align-items: flex-start
+		margin-top: 64px
+		gap: 64px
+	&-list
+		@include flexbox
+		flex-direction: column
+		align-items: flex-start
+		gap: 28px
+		flex: 1
+		li
+			b
+				font-size: 16px
+				line-height: 1
+				letter-spacing: 0.03em
+				text-transform: uppercase
+				opacity: 0.6
+				font-weight: 500
+			p
+				font-size: 17px
+				line-height: 1.4
+				margin-top: 6px
+				letter-spacing: -0.03em
+				font-weight: 600
+		&:nth-child(2)
+			max-width: 320px
+	&-description
+		line-height: 1.4
+		letter-spacing: -0.03em
+		margin-top: 24px
+		max-width: 440px
+	&-decor
+		@include flexbox
+		align-items: center
+		justify-content: space-between
+		margin-top: 64px
+		&__list
+			@include flexbox
+			align-items: center
+			gap: 10px
+			a
+				display: block
+				position: relative
+				&:hover
+					span
+						opacity: 1
+				&.manufactured-decor__more
+					width: 64px
+					height: 64px
+					@include flexbox
+					align-items: center
+					justify-content: center
+					text-align: center
+					border: 1px solid var(--color-red)
+					color: var(--color-red)
+					border-radius: 100%
+					font-weight: 500
+					font-size: 15px
+					transition: var(--transition-ms)
+					&:hover
+						background: var(--color-red)
+						color: var(--color-white)
+			img
+				width: 64px
+				height: 64px
+				border-radius: 100%
+				object-fit: cover
+				object-position: center
+			span
+				background: #f5f5f5
+				position: absolute
+				top: 100%
+				left: 0
+				z-index: 10
+				width: max-content
+				padding: 4px
+				font-size: 12px
+				line-height: 16px
+				opacity: 0
+				pointer-events: none
+				transition: var(--transition-ms)
+				font-weight: 500
+		.btn
+			max-width: 250px
+	&-total
+		@include flexbox
+		align-items: center
+		gap: 64px
+		width: 100%
+		&__price
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 12px
+			b
+				font-size: 44px
+				line-height: 1.2
+				letter-spacing: -0.03em
+				font-weight: 600
+				span
+					font-size: 24px
+					line-height: 1.2
+					font-weight: 700
+			p
+				font-size: 14px
+				line-height: 1.4
+				letter-spacing: -0.03em
+				opacity: 0.7
+		.btn
+			max-width: 360px
+	&-carousel
+		width: 100%
+		flex: 1
+		.splide
+			&__arrow
+				width: 94px
+				height: 94px
+				border-radius: 0
+				background: rgba(255,255,255,.5)
+				opacity: 1
+				transition: var(--transition-ms)
+				color: var(--color-black)
+				&--next
+					right: 0
+				&--prev
+					left: 0
+				&:hover
+					background: var(--color-red)
+					color: var(--color-white)
+				svg
+					display: block
+					width: 10px
+					height: 18px
+					transform: none
+					// transition: var(--transition-ms)
+			&__track,
+			&__list
+				height: 100%
+			&__slide
+				@include flexbox
+				align-items: center
+				justify-content: center
+		img
+			width: 100%
+			max-height: 100%
