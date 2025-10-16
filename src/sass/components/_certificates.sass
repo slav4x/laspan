@@ -1,0 +1,56 @@
+.certificates
+	&-grid
+		margin-top: 60px
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		gap: 28px
+	&-item
+		background: #fff
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
+		border-radius: 4px
+		display: block
+		&__image
+			padding: 40px 60px
+			@include flexbox
+			align-items: center
+			justify-content: center
+			height: 480px
+			img
+				max-height: 100%
+		&__info
+			@include flexbox
+			align-items: flex-start
+			flex-direction: column
+			gap: 12px
+			border-top: 1px solid rgba(136, 136, 136, 0.18)
+			padding: 30px
+			padding-right: 110px
+			position: relative
+			b
+				font-size: 22px
+				line-height: 1.2
+				letter-spacing: -0.03em
+				font-weight: 600
+			p
+				font-size: 16px
+				line-height: 1.4
+				letter-spacing: -0.03em
+				color: rgba(0,0,0,.7)
+				font-weight: 500
+			&::after
+				content: ''
+				position: absolute
+				top: 30px
+				right: 30px
+				width: 60px
+				height: 60px
+				background-color: #fff
+				background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2.62268e-07H0V6H2V2H6V2.62268e-07Z' fill='black'/%3E%3Cpath d='M10 16H16V10H14L14 14H10V16Z' fill='black'/%3E%3Cpath d='M16 6V2.62268e-07L10 0V2L14 2V6L16 6Z' fill='black'/%3E%3Cpath d='M7.86805e-07 10L0 16L6 16L6 14H2L2 10L7.86805e-07 10Z' fill='black'/%3E%3C/svg%3E%0A")
+				background-repeat: no-repeat
+				background-position: center
+				border-radius: 100%
+				border: 1px solid rgba(136, 136, 136, 0.18)
+				transition: var(--transition-ms)
+		&:hover .certificates-item__info::after
+			background-color: var(--color-red)
+			background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2.62268e-07H0V6H2V2H6V2.62268e-07Z' fill='white'/%3E%3Cpath d='M10 16H16V10H14L14 14H10V16Z' fill='white'/%3E%3Cpath d='M16 6V2.62268e-07L10 0V2L14 2V6L16 6Z' fill='white'/%3E%3Cpath d='M7.86805e-07 10L0 16L6 16L6 14H2L2 10L7.86805e-07 10Z' fill='white'/%3E%3C/svg%3E%0A")

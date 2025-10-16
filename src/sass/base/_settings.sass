@@ -29,6 +29,9 @@ button
 input, textarea
     background: transparent
 
+.fancybox__container
+    --fancybox-bg: rgba(0, 0, 0, .4)
+
 .container
     margin: 0 auto
     max-width: 1760px
@@ -36,3 +39,23 @@ input, textarea
     padding: 0 20px
     position: relative
     z-index: 5
+
+.section
+    padding: 125px 0
+    &-gray
+        background: var(--color-gray)
+    &-head
+        @include flexbox
+        flex-direction: column
+        align-items: flex-start
+        gap: 18px
+    &-title
+        font-size: 52px
+        line-height: 1.1
+        letter-spacing: -0.02em
+        font-weight: 700
+    &-description
+        max-width: 600px
+        line-height: 1.6
+        font-weight: 500
+        color: rgba(0,0,0,.7)
