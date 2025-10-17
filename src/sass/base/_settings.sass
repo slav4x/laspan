@@ -43,8 +43,11 @@ input, textarea
 
 .section
     padding: 125px 0
+    width: 100%
     &-gray
         background: var(--color-gray)
+    &-border
+        border-top: 1px solid var(--color-border)
     &-head
         @include flexbox
         flex-direction: column
@@ -120,6 +123,9 @@ input, textarea
     &-md
         height: 84px
         letter-spacing: -0.03em
+    &-lg
+        height: 94px
+        letter-spacing: -0.03em
     &-outlined
         border: 1px solid #ABABAB
         &:hover
@@ -130,3 +136,8 @@ input, textarea
         color: var(--color-white)
         &:hover
             background: var(--color-red-hover)
+    &-dark
+        background: var(--color-dark)
+        color: var(--color-white)
+        &:hover
+            background: #2d3d46

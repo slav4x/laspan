@@ -139,6 +139,39 @@ document.addEventListener('DOMContentLoaded', () => {
       pagination: false,
     }).mount();
   }
+
+  const objectsCarousel = document.querySelector('.objects-carousel');
+  if (objectsCarousel) {
+    const thumbs = new Splide('.objects-carousel__thumbs', {
+      type: 'slide',
+      rewind: true,
+      pagination: false,
+      arrows: true,
+      isNavigation: true,
+      autoWidth: true,
+      perPage: 1,
+      drag: 'free',
+      snap: true,
+      keyboard: 'global',
+      speed: 500,
+    });
+
+    const main = new Splide('.objects-carousel__main', {
+      rewind: true,
+      pagination: false,
+      arrows: false,
+      autoplay: false,
+      pauseOnHover: true,
+      keyboard: 'global',
+      autoHeight: true,
+      speed: 1000,
+    });
+
+    main.sync(thumbs);
+
+    thumbs.mount();
+    main.mount();
+  }
 });
 
 function updateDropdownPos() {
