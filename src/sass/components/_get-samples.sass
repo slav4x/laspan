@@ -1,0 +1,63 @@
+.get-samples
+	background: url(../img/get-samples-bg.jpg) no-repeat center / cover
+	color: var(--color-white)
+	position: relative
+	overflow: hidden
+	&::before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background: #162228
+		opacity: 0.9
+	&-content
+		max-width: 760px
+	&-description
+		font-size: 24px
+		line-height: 1.2
+		font-weight: 500
+		opacity: 0.8
+		margin-top: 24px
+	&-form
+		max-width: 640px
+		margin-top: 80px
+		&__agree
+			margin-top: 20px
+			font-size: 16px
+			line-height: 1.6
+			letter-spacing: -0.02em
+			font-weight: 500
+			color: rgba(255,255,255,.7)
+			a
+				color: #fff
+				border-bottom: 1px solid rgba(255,255,255,.3)
+	&-image
+		position: absolute
+		top: -200px
+		bottom: -200px
+		right: 20px
+		img
+			width: 760px
+			position: absolute
+			top: 190px
+			right: 60px
+		&__bg
+			@include flexbox
+			margin-right: -200px
+			transform: rotate(8deg)
+			span
+				display: block
+				height: 900px
+				&:nth-child(1)
+					width: 300px
+					background: var(--color-red)
+				&:nth-child(2)
+					width: 380px
+					background: var(--color-red)
+					opacity: 0.7
+				&:nth-child(3)
+					width: 300px
+					background: var(--color-white)
+					opacity: 0.2
