@@ -17,21 +17,11 @@ import gulpIf from 'gulp-if';
 import listing from 'is-pagelist';
 import typograf from 'gulp-typograf';
 import babel from 'gulp-babel';
-import vinylFTP from 'vinyl-ftp';
-import log from 'fancy-log';
 
 const browserSync = browserSyncLib.create();
 const sass = gulpSass(dartSass);
 
 const isProd = process.env.NODE_ENV === 'production';
-
-const ftpConfig = {
-  host: process.env.FTP_HOST,
-  user: process.env.FTP_USER,
-  password: process.env.FTP_PASS,
-  parallel: 5,
-  log,
-};
 
 export async function clean() {
   await rm('app', { recursive: true, force: true });
@@ -107,6 +97,7 @@ export function serve() {
   browserSync.init({
     server: { baseDir: 'app' },
     online: true,
+    ui: false,
   });
 
   watch(['src/**/*.html', 'src/components/**/*.html'], html);
@@ -116,15 +107,6 @@ export function serve() {
   watch('src/js/vendor/**/*.js', libsJs);
   watch('src/img/**/*', img);
   watch('src/resources/**/*', resources);
-}
-
-export function deploy() {
-  const conn = vinylFTP.create(ftpConfig);
-  return src('app/**/*', { base: 'app', buffer: false })
-    .pipe(conn.dest(`/domains/${process.env.SUBDOMAIN}.${process.env.DOMAIN}`))
-    .on('end', () => {
-      log(`🚀 Деплой завершен: https://${process.env.SUBDOMAIN}.${process.env.DOMAIN}`);
-    });
 }
 
 export const build = series(clean, parallel(libsJs, js, libsStyle, style, html, img, resources), pageList);
