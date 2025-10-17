@@ -169,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     main.sync(thumbs);
 
-    thumbs.mount();
     main.mount();
+    thumbs.mount();
   }
 });
 
