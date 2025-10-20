@@ -172,6 +172,25 @@ document.addEventListener('DOMContentLoaded', () => {
     main.mount();
     thumbs.mount();
   }
+
+  const lazyVideos = document.querySelectorAll('.lazy-video');
+  lazyVideos.forEach((video) => {
+    const source = video.querySelector('source');
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        if (entries[0].isIntersecting) {
+          source.src = source.dataset.src;
+          video.load();
+          video.play();
+          obs.disconnect();
+        }
+      },
+      { rootMargin: '0px 0px 0px 0px' }
+    );
+
+    observer.observe(video);
+  });
 });
 
 function updateDropdownPos() {

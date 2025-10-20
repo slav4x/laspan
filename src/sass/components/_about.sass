@@ -1,0 +1,63 @@
+.about
+	background: var(--color-black)
+	color: var(--color-white)
+	position: relative
+	&-bg
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		object-fit: cover
+		object-position: center
+		opacity: 0.5
+	&-label
+		font-size: 16px
+		line-height: 14px
+		text-transform: uppercase
+		letter-spacing: 0.05em
+		font-weight: 600
+		margin-bottom: 24px
+		display: block
+	&-title
+		font-size: 65px
+		line-height: 1
+		font-weight: 600
+		max-width: 1370px
+		span
+			color: var(--color-yellow)
+	&-description
+		margin-top: 36px
+		max-width: 650px
+		font-size: 22px
+		line-height: 1.4
+		letter-spacing: -0.03em
+		font-weight: 500
+		color: rgba(255,255,255,.7)
+		span
+			font-weight: 600
+			color: var(--color-white)
+	&-list
+		margin-top: 180px
+		@include flexbox
+		align-items: flex-start
+		gap: 72px
+		li
+			b
+				font-size: 88px
+				line-height: 1.2
+				font-weight: 500
+				span
+					font-size: 24px
+					line-height: 1.2
+					letter-spacing: 0.1em
+					font-weight: 600
+					display: inline-block
+					margin-left: 16px
+				sup
+					font-size: 48px
+					top: -0.7em
+			p
+				margin-top: 16px
+				line-height: 1.3
+				font-weight: 500
