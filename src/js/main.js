@@ -175,21 +175,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const lazyVideos = document.querySelectorAll('.lazy-video');
   lazyVideos.forEach((video) => {
-    const source = video.querySelector('source');
-
     const observer = new IntersectionObserver(
       (entries, obs) => {
-        if (entries[0].isIntersecting) {
-          source.src = source.dataset.src;
-          video.load();
-          video.play();
-          obs.disconnect();
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const vid = entry.target;
+            const src = vid.querySelector('source');
+            if (!src || !src.dataset.src) return;
+            src.src = src.dataset.src;
+            vid.load();
+            vid.play();
+            obs.unobserve(vid);
+          }
+        });
       },
       { rootMargin: '0px 0px 0px 0px' }
     );
 
     observer.observe(video);
+  });
+
+  const lazyIframes = document.querySelectorAll('.lazy-iframe');
+  lazyIframes.forEach((iframe) => {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const src = el.dataset.src;
+
+            if (!src) return;
+
+            el.src = src;
+            obs.unobserve(el);
+          }
+        });
+      },
+      { rootMargin: '0px 0px 0px 0px' }
+    );
+
+    observer.observe(iframe);
   });
 });
 
