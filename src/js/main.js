@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const ensureDefaultContent = (categoryEl) => {
-    const activeSidebarItem = categoryEl.querySelector('.header-dropdown__sidebar-nav li.is-active');
-    if (activeSidebarItem) {
-      showContent(categoryEl, activeSidebarItem.dataset.content);
+    const activeSidelaminateProgressBarItem = categoryEl.querySelector('.header-dropdown__sidelaminateProgressBar-nav li.is-active');
+    if (activeSidelaminateProgressBarItem) {
+      showContent(categoryEl, activeSidelaminateProgressBarItem.dataset.content);
       return;
     }
-    const firstItem = categoryEl.querySelector('.header-dropdown__sidebar-nav li[data-content]');
+    const firstItem = categoryEl.querySelector('.header-dropdown__sidelaminateProgressBar-nav li[data-content]');
     if (firstItem) {
       firstItem.classList.add('is-active');
       showContent(categoryEl, firstItem.dataset.content);
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const allContent = categoryEl.querySelectorAll('.header-dropdown__main-content');
     allContent.forEach((c) => c.classList.toggle('is-active', c.dataset.content === contentId));
 
-    const sidebarItems = categoryEl.querySelectorAll('.header-dropdown__sidebar-nav li[data-content]');
-    sidebarItems.forEach((li) => li.classList.toggle('is-active', li.dataset.content === contentId));
+    const sidelaminateProgressBarItems = categoryEl.querySelectorAll('.header-dropdown__sidelaminateProgressBar-nav li[data-content]');
+    sidelaminateProgressBarItems.forEach((li) => li.classList.toggle('is-active', li.dataset.content === contentId));
   };
 
   if (nav) {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   dropdown?.addEventListener('mouseover', (e) => {
     const currentCategory = e.target.closest('.header-dropdown__category.is-active');
-    const li = e.target.closest('.header-dropdown__sidebar-nav li[data-content]');
+    const li = e.target.closest('.header-dropdown__sidelaminateProgressBar-nav li[data-content]');
     if (!currentCategory || !li) return;
     showContent(currentCategory, li.dataset.content);
   });
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   header.addEventListener('focusin', (e) => {
     const li = e.target.closest('.header-bottom__nav li[data-category]');
     if (li) openDropdown(li.dataset.category);
-    const sideItem = e.target.closest('.header-dropdown__sidebar-nav li[data-content]');
+    const sideItem = e.target.closest('.header-dropdown__sidelaminateProgressBar-nav li[data-content]');
     if (sideItem) {
       const cat = sideItem.closest('.header-dropdown__category');
       if (cat?.classList.contains('is-active')) showContent(cat, sideItem.dataset.content);
@@ -228,6 +228,114 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector(`.installation-tab[data-tab="${id}"]`).classList.add('active');
     });
   });
+
+  const laminateCarousel = document.querySelector('.laminate-carousel');
+  const laminateCurrentEl = document.querySelector('.laminate-counter__current');
+  const laminateTotalEl = document.querySelector('.laminate-counter__total');
+  const laminateProgressBar = document.querySelector('.laminate-counter__progress span');
+  const laminateArrowPrev = document.querySelector('.laminate-arrows .splide__arrow--prev');
+  const laminateArrowNext = document.querySelector('.laminate-arrows .splide__arrow--next');
+
+  if (laminateCarousel && laminateCurrentEl && laminateTotalEl && laminateProgressBar) {
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const normalize = (i, n) => ((i % n) + n) % n;
+
+    const DURATION = 6000;
+
+    const splide = new Splide(laminateCarousel, {
+      type: 'loop',
+      perPage: 1,
+      arrows: false,
+      pagination: false,
+      autoplay: false,
+      speed: 600,
+      pauseOnHover: false,
+      grid: {
+        rows: 2,
+        cols: 2,
+        gap: { row: '24px', col: '24px' },
+      },
+    }).mount(window.splide.Extensions);
+
+    laminateArrowPrev?.addEventListener('click', () => splide.go('<'));
+    laminateArrowNext?.addEventListener('click', () => splide.go('>'));
+
+    const totalPages = splide.length;
+    laminateTotalEl.textContent = pad2(totalPages);
+
+    const updateCounter = () => {
+      const page = normalize(splide.index, totalPages) + 1;
+      laminateCurrentEl.textContent = pad2(page);
+    };
+
+    let rafId = null;
+    let startTs = 0;
+    let elapsedSoFar = 0;
+    let paused = false;
+
+    const setBar = (pct) => {
+      laminateProgressBar.style.width = Math.max(0, Math.min(100, pct)) + '%';
+    };
+
+    const tick = (ts) => {
+      if (paused) {
+        rafId = requestAnimationFrame(tick);
+        return;
+      }
+      if (!startTs) startTs = ts;
+
+      const elapsed = ts - startTs + elapsedSoFar;
+      const pct = (elapsed / DURATION) * 100;
+      setBar(pct);
+
+      if (elapsed >= DURATION) {
+        splide.go('>');
+        resetTimer(true);
+      } else {
+        rafId = requestAnimationFrame(tick);
+      }
+    };
+
+    const resetTimer = (restart = false) => {
+      cancelAnimationFrame(rafId);
+      startTs = 0;
+      elapsedSoFar = 0;
+      setBar(0);
+      if (restart) rafId = requestAnimationFrame(tick);
+    };
+
+    const pauseTimer = () => {
+      if (paused) return;
+      paused = true;
+      if (startTs) {
+        elapsedSoFar += performance.now() - startTs;
+        startTs = 0;
+      }
+    };
+
+    const resumeTimer = () => {
+      if (!paused) return;
+      paused = false;
+    };
+
+    splide.on('mounted move', () => {
+      updateCounter();
+      resetTimer(true);
+    });
+
+    laminateCarousel.addEventListener('mouseenter', pauseTimer);
+    laminateCarousel.addEventListener('mouseleave', resumeTimer);
+    laminateCarousel.addEventListener('focusin', pauseTimer);
+    laminateCarousel.addEventListener('focusout', resumeTimer);
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) pauseTimer();
+      else resumeTimer();
+    });
+
+    updateCounter();
+    resetTimer(true);
+  }
 });
 
 function updateDropdownPos() {

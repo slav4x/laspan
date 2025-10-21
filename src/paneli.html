@@ -3,6 +3,124 @@
 
 {% block content %}
 
+<section class="section section-gray laminate">
+	<div class="container">
+		<div class="laminate-head">
+			<div class="section-head__counter section-head__counter-auto">
+				<h2 class="section-title-md">Панели в наличии</h2>
+			</div>
+			<div class="laminate-arrows">
+				<button class="splide__arrow splide__arrow--prev">
+					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M6.88224 4.25565e-07L8 1.13697L2.23553 7.00048L8 12.863L6.88224 14L3.05965e-07 7.00048L6.88224 4.25565e-07Z" fill="currentColor"/>
+					</svg>
+				</button>
+				<div class="laminate-counter">
+					<div class="laminate-counter__current">01</div>
+					<div class="laminate-counter__progress"><span style="width: 40%;"></span></div>
+					<div class="laminate-counter__total">05</div>
+				</div>
+				<button class="splide__arrow splide__arrow--next">
+					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1.11776 14L-2.57602e-07 12.863L5.76447 6.99952L2.5496e-07 1.13697L1.11776 -3.00821e-07L8 6.99952L1.11776 14Z" fill="currentColor"/>
+					</svg>
+				</button>
+			</div>
+		</div>
+		<div class="laminate-carousel splide">
+			<div class="splide__track">
+				<ul class="splide__list">
+					<li class="splide__slide">
+						<div class="laminate-item">
+							<div class="laminate-item__pic">
+								<div class="laminate-item__pic-panel">
+									<div class="laminate-item__pic-front" style="background-color: #80D18C;"></div>
+									<div class="laminate-item__pic-side"></div>
+								</div>
+							</div>
+							<div class="laminate-item__info">
+								<div class="laminate-item__title">Панель Laspan ЛГКЛ RAL 6019</div>
+								<ul class="laminate-item__spec">
+									<li>
+										<span>Размер:</span>
+										<p>3000x1200×12,5 мм</p>
+									</li>
+									<li>
+										<span>Покрытие:</span>
+										<p>PVC</p>
+									</li>
+									<li>
+										<span>Основа:</span>
+										<p>гипсокартонный лист</p>
+									</li>
+									<li>
+										<span>Класс ПБ:</span>
+										<p>КМ1</p>
+									</li>
+								</ul>
+								<div class="laminate-item__bottom">
+									<div class="laminate-item__total">
+										<div class="laminate-item__price">390 руб. / м<sup>2</sup></div>
+										<div class="laminate-item__status not-available">Нет в наличии</div>
+									</div>
+									<a href="#" class="btn btn-xs btn-yellow">Заказать</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="splide__slide">
+						<div class="laminate-item">
+							<div class="laminate-item__pic">
+								<div class="laminate-item__pic-panel">
+									<div class="laminate-item__pic-front"><img src="https://laspan.ru/wp-content/themes/laspan/img/decnew3.jpg" alt="" loading="lazy"></div>
+									<div class="laminate-item__pic-side"></div>
+								</div>
+							</div>
+							<div class="laminate-item__info">
+								<div class="laminate-item__title">Панель Laspan ЛГКЛ RAL 6019</div>
+								<ul class="laminate-item__spec">
+									<li>
+										<span>Размер:</span>
+										<p>3000x1200×12,5 мм</p>
+									</li>
+									<li>
+										<span>Покрытие:</span>
+										<p>PVC</p>
+									</li>
+									<li>
+										<span>Основа:</span>
+										<p>гипсокартонный лист</p>
+									</li>
+									<li>
+										<span>Класс ПБ:</span>
+										<p>КМ1</p>
+									</li>
+								</ul>
+								<div class="laminate-item__bottom">
+									<div class="laminate-item__total">
+										<div class="laminate-item__price sale">320 руб. / м<sup>2</sup></div>
+										<div class="laminate-item__status old-price">390 руб. / м<sup>2</sup></div>
+									</div>
+									<a href="#" class="btn btn-xs btn-yellow">Заказать</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/laminate-item.html' %}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="section manufactured">
 	<div class="container">
 		<div class="section-head__counter">
