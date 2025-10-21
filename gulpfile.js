@@ -72,9 +72,9 @@ export function js() {
 export function libsJs() {
   return src([
     'src/js/vendor/fancybox.umd.js',
-    'src/js/vendor/splide.min.js',
     'src/js/vendor/imask.min.js',
-    'src/js/vendor/masonry.pkgd.min.js',
+    'src/js/vendor/splide.min.js',
+    'src/js/vendor/splide-extension-grid.min.js',
   ])
     .pipe(gulpIf(isProd, terser()))
     .pipe(concat(isProd ? 'libs.min.js' : 'libs.js'))
