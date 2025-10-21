@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const ensureDefaultContent = (categoryEl) => {
-    const activeSidelaminateProgressBarItem = categoryEl.querySelector('.header-dropdown__sidelaminateProgressBar-nav li.is-active');
-    if (activeSidelaminateProgressBarItem) {
-      showContent(categoryEl, activeSidelaminateProgressBarItem.dataset.content);
+    const activeSidebarItem = categoryEl.querySelector('.header-dropdown__sidebar-nav li.is-active');
+    if (activeSidebarItem) {
+      showContent(categoryEl, activeSidebarItem.dataset.content);
       return;
     }
-    const firstItem = categoryEl.querySelector('.header-dropdown__sidelaminateProgressBar-nav li[data-content]');
+    const firstItem = categoryEl.querySelector('.header-dropdown__sidebar-nav li[data-content]');
     if (firstItem) {
       firstItem.classList.add('is-active');
       showContent(categoryEl, firstItem.dataset.content);
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const allContent = categoryEl.querySelectorAll('.header-dropdown__main-content');
     allContent.forEach((c) => c.classList.toggle('is-active', c.dataset.content === contentId));
 
-    const sidelaminateProgressBarItems = categoryEl.querySelectorAll('.header-dropdown__sidelaminateProgressBar-nav li[data-content]');
-    sidelaminateProgressBarItems.forEach((li) => li.classList.toggle('is-active', li.dataset.content === contentId));
+    const sidebarItems = categoryEl.querySelectorAll('.header-dropdown__sidebar-nav li[data-content]');
+    sidebarItems.forEach((li) => li.classList.toggle('is-active', li.dataset.content === contentId));
   };
 
   if (nav) {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   dropdown?.addEventListener('mouseover', (e) => {
     const currentCategory = e.target.closest('.header-dropdown__category.is-active');
-    const li = e.target.closest('.header-dropdown__sidelaminateProgressBar-nav li[data-content]');
+    const li = e.target.closest('.header-dropdown__sidebar-nav li[data-content]');
     if (!currentCategory || !li) return;
     showContent(currentCategory, li.dataset.content);
   });
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   header.addEventListener('focusin', (e) => {
     const li = e.target.closest('.header-bottom__nav li[data-category]');
     if (li) openDropdown(li.dataset.category);
-    const sideItem = e.target.closest('.header-dropdown__sidelaminateProgressBar-nav li[data-content]');
+    const sideItem = e.target.closest('.header-dropdown__sidebar-nav li[data-content]');
     if (sideItem) {
       const cat = sideItem.closest('.header-dropdown__category');
       if (cat?.classList.contains('is-active')) showContent(cat, sideItem.dataset.content);
