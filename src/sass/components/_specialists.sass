@@ -1,0 +1,101 @@
+.specialists
+	overflow: hidden
+	padding: 60px 0
+	.container
+		@include flexbox
+		justify-content: space-between
+		align-items: center
+	&-content
+		max-width: 760px
+	&-list
+		margin-top: 32px
+		li
+			@include flexbox
+			align-items: center
+			gap: 24px
+			padding: 12px 0
+			svg
+				display: block
+				width: 24px
+				height: 24px
+			p
+				flex: 1
+				font-size: 16px
+				font-weight: 600
+				// text-transform: uppercase
+				line-height: 1.3
+				letter-spacing: 0.03em
+	&-form
+		@include flexbox
+		flex-direction: column
+		align-items: flex-start
+		gap: 24px
+		margin-top: 32px
+		max-width: 680px
+		.label
+			width: 100%
+	&-grid
+		width: 670px
+		position: relative
+		z-index: 10
+		@include flexbox
+		align-items: center
+		&__bg
+			position: absolute
+			z-index: -1
+			top: -125px
+			left: -40px
+			right: -10000px
+			bottom: -125px
+			background: #4E565C
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				bottom: 0
+				width: 240px
+				background: var(--color-red)
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				left: 240px
+				bottom: 0
+				width: 240px
+				background: var(--color-dark)
+		&__list
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+			gap: 24px
+			width: 100%
+	&-item
+		background: #fff
+		padding: 24px
+		@include flexbox
+		align-items: flex-start
+		flex-direction: column
+		gap: 24px
+		border-radius: 4px
+		&__photo
+			width: 100%
+			aspect-ratio: 1
+			object-fit: cover
+			object-position: center
+		&__info
+			@include flexbox
+			align-items: flex-start
+			flex-direction: column
+			gap: 12px
+			b
+				line-height: 1
+				font-weight: 600
+			p
+				font-size: 14px
+				line-height: 1
+				font-weight: 500
+			a
+				font-size: 14px
+				line-height: 1
+				font-weight: 600
+				color: var(--color-red)
