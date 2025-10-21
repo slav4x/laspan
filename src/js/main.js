@@ -216,6 +216,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observer.observe(iframe);
   });
+
+  document.querySelectorAll('.installation-tabs li').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const id = tab.getAttribute('data-id');
+
+      document.querySelectorAll('.installation-tabs li').forEach((t) => t.classList.remove('active'));
+      document.querySelectorAll('.installation-tab').forEach((c) => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.querySelector(`.installation-tab[data-tab="${id}"]`).classList.add('active');
+    });
+  });
 });
 
 function updateDropdownPos() {
