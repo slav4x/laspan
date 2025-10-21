@@ -336,6 +336,40 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCounter();
     resetTimer(true);
   }
+
+  const previewLinks = document.querySelectorAll('[data-manufactured-preview]');
+  const previewModal = document.querySelector('.manufactured-preview');
+  const previewImage = previewModal?.querySelector('.manufactured-preview__image');
+  const previewClose = previewModal?.querySelector('.manufactured-preview__close');
+  const previewBg = previewModal?.querySelector('.manufactured-preview__bg');
+
+  if (previewLinks.length && previewModal && previewImage) {
+    previewLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const imgSrc = link.getAttribute('href');
+        previewImage.setAttribute('src', imgSrc);
+        previewModal.classList.add('show');
+      });
+    });
+
+    const closePreview = () => {
+      previewModal.classList.remove('show');
+      setTimeout(() => {
+        previewImage.removeAttribute('src');
+      }, 400);
+    };
+
+    [previewClose, previewBg].forEach((el) => {
+      el?.addEventListener('click', closePreview);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && previewModal.classList.contains('show')) {
+        closePreview();
+      }
+    });
+  }
 });
 
 function updateDropdownPos() {
