@@ -240,16 +240,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const pad2 = (n) => String(n).padStart(2, '0');
     const normalize = (i, n) => ((i % n) + n) % n;
 
-    const DURATION = 6000;
-
     const splide = new Splide(laminateCarousel, {
       type: 'loop',
       perPage: 1,
       arrows: false,
       pagination: false,
-      autoplay: false,
       speed: 600,
-      pauseOnHover: false,
       grid: {
         rows: 2,
         cols: 2,
@@ -260,81 +256,24 @@ document.addEventListener('DOMContentLoaded', () => {
     laminateArrowPrev?.addEventListener('click', () => splide.go('<'));
     laminateArrowNext?.addEventListener('click', () => splide.go('>'));
 
-    const totalPages = splide.length;
+    const totalPages = splide.length || 1;
     laminateTotalEl.textContent = pad2(totalPages);
 
-    const updateCounter = () => {
+    const setBar = (pct) => {
+      const clamped = Math.max(0, Math.min(100, Math.round(pct)));
+      laminateProgressBar.style.width = clamped + '%';
+    };
+
+    const updateUI = () => {
       const page = normalize(splide.index, totalPages) + 1;
       laminateCurrentEl.textContent = pad2(page);
-    };
-
-    let rafId = null;
-    let startTs = 0;
-    let elapsedSoFar = 0;
-    let paused = false;
-
-    const setBar = (pct) => {
-      laminateProgressBar.style.width = Math.max(0, Math.min(100, pct)) + '%';
-    };
-
-    const tick = (ts) => {
-      if (paused) {
-        rafId = requestAnimationFrame(tick);
-        return;
-      }
-      if (!startTs) startTs = ts;
-
-      const elapsed = ts - startTs + elapsedSoFar;
-      const pct = (elapsed / DURATION) * 100;
+      const pct = (page / totalPages) * 100;
       setBar(pct);
-
-      if (elapsed >= DURATION) {
-        splide.go('>');
-        resetTimer(true);
-      } else {
-        rafId = requestAnimationFrame(tick);
-      }
     };
 
-    const resetTimer = (restart = false) => {
-      cancelAnimationFrame(rafId);
-      startTs = 0;
-      elapsedSoFar = 0;
-      setBar(0);
-      if (restart) rafId = requestAnimationFrame(tick);
-    };
+    splide.on('mounted move', updateUI);
 
-    const pauseTimer = () => {
-      if (paused) return;
-      paused = true;
-      if (startTs) {
-        elapsedSoFar += performance.now() - startTs;
-        startTs = 0;
-      }
-    };
-
-    const resumeTimer = () => {
-      if (!paused) return;
-      paused = false;
-    };
-
-    splide.on('mounted move', () => {
-      updateCounter();
-      resetTimer(true);
-    });
-
-    laminateCarousel.addEventListener('mouseenter', pauseTimer);
-    laminateCarousel.addEventListener('mouseleave', resumeTimer);
-    laminateCarousel.addEventListener('focusin', pauseTimer);
-    laminateCarousel.addEventListener('focusout', resumeTimer);
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) pauseTimer();
-      else resumeTimer();
-    });
-
-    updateCounter();
-    resetTimer(true);
+    updateUI();
   }
 
   const previewLinks = document.querySelectorAll('[data-manufactured-preview]');
