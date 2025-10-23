@@ -1,3 +1,75 @@
 .warehouses
+	overflow: hidden
+	.container
+		@include flexbox
 	&-content
 		max-width: 660px
+	&-group
+		margin-top: 50px
+		&__title
+			font-size: 22px
+			font-weight: 700
+		&__list
+			margin-top: 24px
+			@include flexbox
+			align-items: flex-start
+			gap: 8px
+			li
+				width: calc((100% - (8px * 2)) / 3)
+				border: 1px solid rgba(255,255,255,.1)
+				padding: 16px
+				padding-left: 40px
+				padding-right: 8px
+				position: relative
+				font-weight: 500
+				border-radius: 4px
+				cursor: pointer
+				transition: var(--transition-ms)
+				&::before
+					content: ''
+					width: 10px
+					height: 10px
+					position: absolute
+					top: 50%
+					left: 16px
+					transform: translateY(-50%)
+					border-radius: 100%
+					border: 1px solid #fff
+					opacity: 0.6
+					transition: var(--transition-ms)
+				&:hover
+					background: var(--color-red)
+					border-color: var(--color-red)
+					&::before
+						opacity: 1
+						background: #fff
+			&-main
+				max-width: 438px
+				li
+					width: calc((100% - 8px) / 2)
+					border-color: rgba(250, 223, 75, 0.4)
+					&::before
+						border-color: var(--color-yellow)
+					&:hover
+						background: var(--color-yellow)
+						border-color: var(--color-yellow)
+						color: var(--color-black)
+	&-map
+		width: 50%
+		margin-left: auto
+		position: relative
+		@include flexbox
+		flex-direction: column
+		align-items: flex-start
+		padding-left: 60px
+		&::before
+			content: ''
+			position: absolute
+			top: -200px
+			bottom: -200px
+			right: var(--pos-right)
+			background: #1D2C34
+			left: 0
+			z-index: -1
+		.btn
+			margin-top: auto
