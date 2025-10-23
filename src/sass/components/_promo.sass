@@ -1,0 +1,147 @@
+.promo
+	min-height: 880px
+	height: calc(100vh - 111px)
+	overflow: hidden
+	background: #F5F5F5
+	position: relative
+	&-carousel
+		height: 100%
+		.splide__track,
+		.splide__list,
+		.splide__slide
+			height: 100%
+	&-item
+		height: 100%
+		.container
+			@include flexbox
+			align-items: center
+			justify-content: space-between
+			height: 100%
+		&__content
+			max-width: 900px
+			width: 100%
+			@include flexbox
+			align-items: flex-start
+			flex-direction: column
+			gap: 36px
+			padding-bottom: 130px
+			padding-top: 40px
+			&::before
+				content: ''
+				width: 106px
+				height: 6px
+				display: block
+				background: var(--color-black)
+			.section-title
+				font-weight: 600
+				span
+					color: var(--color-red)
+			.btn
+				width: auto
+				padding: 0 40px
+		&__background
+			height: 100%
+			background: #eee
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: center
+			flex: 1
+			max-width: calc(497px + (var(--pos-right) * -1))
+			margin-right: var(--pos-right)
+			position: relative
+			img
+				position: absolute
+				top: 0
+				bottom: 0
+				left: -140px
+				margin: auto 0
+				max-height: 100%
+		&__text
+			font-size: 24px
+			font-weight: 500
+			line-height: 1.3
+			max-width: 560px
+			color: rgba(0,0,0,.7)
+			b
+				font-weight: 700
+				color: var(--color-black)
+		&__list
+			font-size: 24px
+			font-weight: 500
+			line-height: 1.3
+			max-width: 520px
+			li
+				margin-bottom: 8px
+				position: relative
+				padding-left: 24px
+				&::before
+					content: ''
+					width: 12px
+					height: 2px
+					position: absolute
+					top: 17px
+					left: 0
+					background: var(--color-black)
+				&:last-child
+					margin-bottom: 0
+				span
+					font-weight: 700
+					color: var(--color-red)
+	&-control
+		border-top: 1px solid var(--color-border)
+		width: calc(100% - 497px)
+		height: 89px
+		@include flexbox
+		align-items: center
+		justify-content: space-between
+		&__wrapper
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+		&__next
+			span
+				font-size: 14px
+				font-weight: 500
+				color: rgba(0,0,0,.7)
+				line-height: 18px
+				display: block
+			p
+				font-size: 16px
+				font-weight: 600
+				text-transform: uppercase
+				letter-spacing: 0.05em
+				line-height: 22px
+				margin-top: 4px
+		&__arrows
+			position: relative
+			height: 90px
+			margin-top: -1px
+			@include flexbox
+			align-items: center
+			.splide
+				&__arrow
+					position: relative !important
+					width: 90px
+					height: 90px
+					border-radius: 0
+					opacity: 1 !important
+					transition: var(--transition-ms)
+					color: var(--color-black)
+					&--next
+						right: 0
+						background: var(--color-red)
+						color: var(--color-white)
+						&:hover
+							background: var(--color-red-hover) !important
+
+					&--prev
+						left: 0
+						background: #DFE1E2
+						&:hover
+							background: #D6D6D6 !important
+					svg
+						display: block
+						width: 10px
+						height: 18px
+						transform: none

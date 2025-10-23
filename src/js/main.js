@@ -309,6 +309,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  const promoCarousel = document.querySelector('.promo-carousel');
+  const promoArrowPrev = document.querySelector('.promo-control__arrows .splide__arrow--prev');
+  const promoArrowNext = document.querySelector('.promo-control__arrows .splide__arrow--next');
+  const promoNextText = document.querySelector('.promo-control__next p');
+
+  if (promoCarousel) {
+    const splide = new Splide(promoCarousel, {
+      type: 'loop',
+      perPage: 1,
+      arrows: false,
+      pagination: false,
+      speed: 600,
+    }).mount();
+
+    const { slides } = splide.Components.Elements;
+
+    const setNextName = (currentIndex) => {
+      if (!promoNextText || !slides?.length) return;
+      const nextIndex = (currentIndex + 1) % slides.length;
+      const nextSlide = slides[nextIndex];
+      promoNextText.textContent = nextSlide?.dataset?.slideName ?? '';
+    };
+
+    setNextName(splide.index);
+
+    splide.on('move', (newIndex) => setNextName(newIndex));
+
+    promoArrowPrev?.addEventListener('click', () => splide.go('<'));
+    promoArrowNext?.addEventListener('click', () => splide.go('>'));
+  }
 });
 
 function updateDropdownPos() {
@@ -323,7 +354,7 @@ function updateDropdownPos() {
   const containerWidth = container.clientWidth - parseFloat(containerStyle.paddingLeft) - parseFloat(containerStyle.paddingRight);
 
   const diff = -((headerWidth - containerWidth) / 2);
-  dropdown.style.setProperty('--pos-right', `${diff}px`);
+  document.documentElement.style.setProperty('--pos-right', `${diff}px`);
 }
 
 window.addEventListener('load', updateDropdownPos);
