@@ -1,1 +1,536 @@
 @media (max-width: 1600px)
+	:root
+		--font-size: 16px
+
+	.container
+		padding: 0 15px
+		max-width: 1310px
+
+	.btn
+		&-xs
+			height: 54px
+			font-size: 14px
+		&-sm
+			height: 64px
+		&-md
+			height: 74px
+		&-lg
+			height: 84px
+
+	.section
+		padding: 80px 0
+		&-title
+			font-size: 40px
+			&-md
+				font-size: 32px
+		&-description
+			font-size: 14px
+		&-head
+			&__counter
+				padding-top: 40px
+				padding-bottom: 40px
+				padding-left: 70px
+				&::before
+					font-size: 16px
+				&::after
+					left: 36px
+					width: 16px
+		&-label
+			font-size: 12px
+			line-height: 1
+			padding: 12px 20px
+
+	.header
+		// .container
+		// 	max-width: 100%
+		&-logo
+			gap: 20px
+		&-top
+			&__nav
+				font-size: 13px
+				line-height: 18px
+				gap: 20px
+				padding: 0 10px
+			&__city
+				&-text
+					gap: 2px
+					min-width: 90px
+				&-label
+					font-size: 10px
+					line-height: 14px
+				&-selected
+					font-size: 12px
+					line-height: 16px
+			&__btn
+				padding: 0 14px
+				gap: 12px
+				font-size: 14px
+				font-weight: 600
+				line-height: 17px
+				&::after
+					width: 27px
+					height: 17px
+					background-image: url("data:image/svg+xml,%3Csvg width='27' height='17' viewBox='0 0 27 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='26' height='16' rx='8' stroke='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.0261 12.0912L17.4233 8.85921C17.6318 8.66088 17.6318 8.33932 17.4233 8.14098L14.0261 4.90896C13.8177 4.71062 13.4797 4.71062 13.2712 4.90896C13.0627 5.10729 13.0627 5.42885 13.2712 5.62718L15.7571 7.99223L9.41992 7.99223L9.41992 9.00796L15.7571 9.00796L13.2712 11.373C13.0627 11.5713 13.0627 11.8929 13.2712 12.0912C13.4797 12.2896 13.8177 12.2896 14.0261 12.0912Z' fill='white'/%3E%3C/svg%3E%0A")
+		&-bottom
+			&__nav
+				li
+					a
+						font-size: 14px
+						padding: 0 10px
+			&__phone
+				font-size: 16px
+				gap: 10px
+		&-dropdown
+			&__sidebar
+				width: 420px
+				&-nav
+					font-size: 14px
+					li
+						a
+							padding: 12px 16px
+			&__main
+				&-content
+					&.is-active
+						gap: 16px
+					img
+						height: 320px
+				&-text
+					b
+						font-size: 14px
+					p
+						font-size: 12px
+
+	.promo
+		min-height: 640px
+		&-item
+			&__content
+				max-width: 660px
+				gap: 24px
+				&::before
+					width: 70px
+					height: 4px
+			&__text,
+			&__list
+				font-size: 20px
+			&__list
+				li
+					&::before
+						top: 13px
+			&__background
+				max-width: calc(285px + var(--pos-right) * -1)
+				img
+					max-height: 430px
+					left: -100px
+		&-control
+			width: calc(100% - 285px)
+			height: 69px
+			&__next
+				span
+					font-size: 12px
+					line-height: 16px
+				p
+					font-size: 14px
+					line-height: 20px
+			&__arrows
+				height: 70px
+				.splide
+					&__arrow
+						width: 70px
+						height: 70px
+						svg
+							display: block
+							width: 10px
+							height: 18px
+							transform: scale(0.8)
+
+	.laminate
+		&-arrows
+			height: 70px
+			.splide
+				&__arrow
+					width: 70px
+					height: 70px
+					svg
+						transform: scale(0.8)
+		&-counter
+			font-size: 13px
+			&__current,
+			&__total
+				width: 20px
+		&-item
+			padding: 12px
+			gap: 12px
+			&__pic
+				width: 250px
+				&-front
+					width: 170px
+				&-side
+					width: 8px
+			&__title
+				font-size: 18px
+			&__spec
+				li
+					font-size: 14px
+			&__price,
+			&__price.sale
+				font-size: 18px
+				line-height: 22px
+			&__bottom
+				padding-top: 16px
+			&__info
+				gap: 16px
+
+	.manufactured
+		&-description
+			font-size: 14px
+			max-width: 340px
+		&-col
+			&:nth-child(1)
+				width: 52%
+				padding: 60px 0
+			&:nth-child(2)
+				width: 48%
+				padding: 60px 0 60px 60px
+		&-list
+			gap: 24px
+			li
+				b
+					font-size: 12px
+				p
+					font-size: 14px
+		&-decor
+			&__list
+				gap: 8px
+				img
+					width: 48px
+					height: 48px
+				a.manufactured-decor__more
+					width: 48px
+					height: 48px
+					font-size: 12px
+		&-carousel
+			.splide
+				&__arrow
+					width: 70px
+					height: 70px
+					svg
+						transform: scale(0.8)
+		&-total
+			gap: 48px
+			&__price
+				gap: 10px
+				b
+					font-size: 26px
+					span
+						font-size: 14px
+				p
+					font-size: 12px
+			.btn
+				max-width: 256px
+				height: 68px
+
+	.certificates
+		&-grid
+			margin-top: 40px
+			gap: 16px
+		&-item
+			width: calc((100% - (3 * 16px)) / 4)
+			&__image
+				height: 380px
+				padding: 40px
+			&__info
+				padding: 24px 20px
+				padding-right: 80px
+				&::after
+					width: 48px
+					height: 48px
+					top: 24px
+					right: 20px
+				b
+					font-size: 17px
+				p
+					font-size: 13px
+
+	.objects
+		&-carousel
+			&__thumbs
+				margin-bottom: 40px
+				.splide
+					&__arrows
+						height: 71px
+						width: 140px
+					&__arrow
+						width: 70px
+						height: 70px
+						svg
+							transform: scale(0.8)
+					&__slide
+						span
+							height: 70px
+							padding: 0 16px
+							font-size: 14px
+		&-item
+			&__content
+				width: 370px
+				.btn
+					height: 64px
+			&__info
+				padding: 24px
+				gap: 16px
+			&__gallery
+				width: calc(100% - 370px - 10px)
+			&__title
+				font-size: 20px
+			&__list
+				li
+					span
+						font-size: 13px
+					p
+						font-size: 14px
+			&__gallery
+				min-height: 625px
+
+	.get-samples
+		&-content
+			max-width: 580px
+		&-description
+			font-size: 18px
+		&-form
+			margin-top: 40px
+			.btn
+				height: 64px
+			&__agree
+				font-size: 14px
+				margin-top: 16px
+		&-image
+			right: 15px
+			img
+				width: 520px
+				max-width: initial
+			&__bg
+				span:not(:last-child)
+					width: 200px !important
+
+	.installation
+		.section-title
+			max-width: 700px
+		.section-description
+			max-width: 440px
+		&-tabs
+			margin-top: 32px
+			li
+				height: 56px
+				font-size: 14px
+		&-tab
+			margin-top: 32px
+			&__content
+				width: calc(50% + 60px)
+			&__image
+				width: calc(50% - 60px)
+			&__title
+				font-size: 30px
+			&__description
+				font-size: 14px
+				max-width: 480px
+			&__inc
+				margin: 32px 0
+				&-title
+					font-size: 14px
+					margin-bottom: 12px
+				&-list
+					font-size: 14px
+					li
+						line-height: 18px
+						padding-left: 46px
+						margin-bottom: 0
+						&::after
+							left: 30px
+			&__buttons
+				.btn
+					padding: 0 16px
+
+	.advantages
+		&-grid
+			margin-top: 40px
+		&-item
+			height: 320px
+			padding: 24px
+			&::before
+				bottom: 24px
+				left: 24px
+			&__label
+				font-size: 12px
+			&__title
+				font-size: 20px
+			&__link
+				font-size: 18px
+			&__icon
+				bottom: 24px
+				right: 24px
+				width: auto
+				height: 70px
+
+	.colors
+		.section-head
+			max-width: 550px
+		&-grid
+			margin-top: 44px
+		&-item
+			&__images
+				img
+					height: 100px
+			&__title
+				font-size: 14px
+				height: 52px
+
+	.showroom
+		&-main
+			max-width: 440px
+		&-info
+			&__title
+				font-size: 12px
+				background-size: 18px
+				line-height: 1
+			&__list
+				li
+					padding-top: 8px
+					padding-bottom: 8px
+					font-size: 14px
+		&-grid
+			&__item
+				height: 320px
+				p
+					font-size: 18px
+
+	.scope
+		&-grid
+			gap: 16px
+			& + .btn
+				margin-top: 32px
+				height: 64px
+				font-size: 14px
+		&-item
+			width: calc((100% - (16px * 3)) / 4)
+			&-xl
+				width: calc((100% - (16px * 1)) / 2)
+				.scope-item__image
+					height: 530px
+			&-md
+				width: 320px
+			&__image
+				height: 290px
+			&__title
+				height: 70px
+				font-size: 12px
+				line-height: 1.1
+				&::after
+					width: 70px
+					height: 70px
+
+	.warehouses
+		&-content
+			width: 50%
+			max-width: 520px
+		&-group
+			&__title
+				font-size: 18px
+			&__list
+				li
+					font-size: 13px
+		&-map
+			.btn
+				height: 64px
+
+	.about
+		.section-title
+			max-width: 670px
+		&-list
+			margin-top: 120px
+			li
+				b
+					font-size: 64px
+					span
+						font-size: 18px
+				p
+					font-size: 14px
+
+	.specialists
+		&-content
+			max-width: 550px
+		&-grid
+			width: 530px
+		&-item
+			padding: 16px
+			gap: 16px
+			&__info
+				gap: 8px
+				b
+					font-size: 14px
+				p
+					font-size: 12px
+				a
+					font-size: 12px
+
+	.footer
+		&-main
+			padding: 60px 0
+		&-sidebar
+			gap: 56px
+		&-logo
+			&__svg
+				width: 166px
+				height: 30px
+		&-contacts
+			gap: 40px
+			li
+				span
+					font-size: 12px
+				a
+					font-size: 20px
+		&-offices
+			&__label
+				max-width: 300px
+				span
+					font-size: 12px
+			&__select
+				height: 54px
+				font-size: 16px
+			&__info
+				max-width: 672px
+				gap: 40px
+				li
+					width: calc(100% / 2 - 20px)
+					span
+						font-size: 12px
+					p
+						font-size: 20px
+			.btn
+				height: 54px
+				padding: 0 15px
+		&-content
+			max-width: 450px
+			gap: 0 40px
+			&__title
+				font-size: 20px
+				margin-bottom: 20px
+			&__nav
+				margin-bottom: 40px
+				li
+					a
+						font-size: 14px
+			&__col:last-child
+				max-width: 150px
+		&-bottom
+			padding: 20px 0
+		&-copyright
+			font-size: 12px
+		&-unsubscribe
+			font-size: 12px
+		&-social
+			li
+				a
+					width: 42px
+					height: 42px
+					svg
+						width: 16px
+						height: 16px
