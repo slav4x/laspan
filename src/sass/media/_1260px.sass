@@ -1,0 +1,263 @@
+@media (max-width: 1260px)
+	:root
+		--font-size: 14px
+
+	.container
+		max-width: 974px
+
+	.btn
+		&-xs
+			height: 54px
+			font-size: 14px
+		&-sm
+			height: 54px
+		&-md
+			height: 64px
+		&-lg
+			height: 74px
+
+	.header
+		&-logo
+			&__text
+				display: none
+			&__svg
+				width: 112px
+				height: 20px
+		&-top
+			height: 51px
+			&__city
+				padding: 0 10px
+				gap: 10px
+				&::before
+					display: none
+				&::after
+					width: 12px
+					height: 6px
+					background-size: cover
+				&-label
+					font-size: 9px
+					line-height: 12px
+				&-selected
+					font-size: 11px
+					line-height: 14px
+			&__btn
+				padding: 0 10px
+				gap: 10px
+				height: 51px
+				font-size: 12px
+				span
+					display: none
+		&-bottom
+			height: 36px
+			&__nav
+				li
+					a
+						font-size: 13px
+					&[data-category] a::after
+						width: 12px
+						height: 6px
+						background-size: cover
+			&__phone
+				font-size: 14px
+				line-height: 1
+				&::after
+					width: 14px
+					height: 14px
+					background-size: cover
+
+	.promo
+		height: calc(100vh - 88px)
+		&-item
+			&__text,
+			&__list
+				font-size: 18px
+			&__content
+				max-width: 500px
+				.btn
+					padding: 0 30px
+			&__background
+				max-width: calc(220px + var(--pos-right) * -1)
+		&-control
+			width: calc(100% - 220px)
+
+	.laminate
+		&-item
+			&__pic
+				width: 100%
+				height: 240px
+
+	.manufactured
+		&-col
+			&:nth-child(1)
+				width: calc(50% - 32px)
+				padding: 40px 0
+				gap: 40px
+			&:nth-child(2)
+				width: calc(50% + 32px)
+				padding: 40px 0 40px 40px
+		&-grid
+			margin-top: 40px
+			gap: 24px
+		&-list
+			li
+				p
+					font-size: 13px
+		&-decor
+			margin-top: 40px
+		&-total
+			gap: 30px
+			&__price
+				max-width: 180px
+				gap: 8px
+			.btn
+				height: 54px
+				max-width: 180px
+
+	.certificates
+		&-item
+			&__image
+				height: 360px
+				padding: 10px
+			&__info
+				padding: 20px
+				&::after
+					content: 'Открыть'
+					width: auto
+					height: auto
+					line-height: 18px
+					font-size: 13px
+					font-weight: 700
+					display: block
+					padding-right: 18px
+					border: 0
+					position: relative
+					border-radius: 0
+					background-color: transparent !important
+					background-position: right center
+					background-size: 12px
+					top: 0
+					right: 0
+
+	.objects
+		&-item
+			&__content
+				width: 290px
+			&__gallery
+				width: calc(100% - 290px - 10px)
+				min-height: 655px
+				grid-template-columns: repeat(3, 1fr)
+				grid-template-rows: repeat(4, 1fr)
+				a
+					&:nth-child(1)
+						grid-area: 1 / 1 / 3 / 2
+					&:nth-child(2)
+						grid-area: 1 / 2 / 3 / 3
+					&:nth-child(3)
+						grid-area: 1 / 3 / 2 / 4
+					&:nth-child(4)
+						grid-area: 2 / 3 / 3 / 4
+					&:nth-child(5)
+						grid-area: 3 / 1 / 5 / 4
+
+	.get-samples
+		&-content
+			max-width: 460px
+		&-image
+			&__bg
+				margin-right: -300px
+			img
+				width: 460px
+				top: 50%
+				transform: translateY(-50%)
+				right: -10px
+
+	.installation
+		&-tab
+			&__content
+				width: calc(50% + 30px)
+				padding: 50px 50px 0
+			&__image
+				width: calc(50% - 30px)
+			&__buttons
+				padding-top: 0
+				flex-direction: column
+				&::before
+					display: none
+				.btn
+					width: 100%
+
+	.advantages
+		&-grid
+			grid-template-columns: repeat(2, 1fr)
+			gap: 12px
+		&-item
+			height: 270px
+
+	.colors
+		&-head
+			.btn
+				display: none
+		&-grid
+			& + .btn
+				display: flex
+				margin-top: 40px
+
+	.showroom
+		&-grid
+			gap: 12px
+			&__item
+				height: 230px
+				width: 100%
+
+	.scope
+		&-item
+			width: calc((100% - 32px) / 3)
+			&-xl
+				.scope-item__image
+					height: 290px
+			&:nth-child(n + 9)
+				display: none
+			&:nth-child(7),
+			&:nth-child(8)
+				width: calc((100% - 16px) / 2)
+				.scope-item__image
+					height: 450px
+
+	.specialists
+		&-grid
+			width: 420px
+			&__list
+				grid-template-columns: repeat(1, 1fr)
+			&__bg
+				&::before
+					width: 80px
+				&::after
+					left: 80px
+					width: 360px
+		&-content
+			width: calc(100% - 420px - 80px)
+		&-item
+			align-items: center
+			flex-direction: row
+			&__photo
+				width: 100px
+
+	.footer
+		&-content
+			max-width: 350px
+			gap: 0 12px
+			margin-left: auto
+			&__col:last-child
+				max-width: 120px
+			&__nav
+				li
+					a
+						font-size: 13px
+		&-sidebar
+			max-width: 520px
+		&-offices
+			&__info
+				flex-direction: column
+				gap: 20px
+				li
+					width: 100%
