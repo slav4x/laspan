@@ -1,0 +1,211 @@
+@media (max-width: 974px)
+	.container
+		max-width: 768px
+
+	.section
+		&-title
+			font-size: 36px
+			&-md
+				font-size: 28px
+
+	.header
+		&-top
+			padding-left: 112px
+			&__btn
+				display: none
+			&__nav
+				font-size: 12px
+				gap: 12px
+				padding: 0
+				margin-left: auto
+		&-logo
+			position: absolute
+			top: 15px
+			left: 15px
+			margin: 0
+		&-bottom
+			&__nav
+				li
+					a
+						font-size: 12px
+						padding: 0 8px
+						gap: 4px
+						font-weight: 500
+					&[data-category] a::after
+						width: 10px
+						height: 6px
+
+	.manufactured
+		&-col
+			width: 100% !important
+			&:nth-child(1)
+				order: 1
+				padding-bottom: 0
+			&:nth-child(2)
+				padding: 40px 0
+				border: 0
+				&::before
+					display: none
+				&::after
+					left: -1000px
+		&-list
+			width: calc(100% / 2 - 12px) !important
+			max-width: 100% !important
+		&-total
+			&__price
+				max-width: 100%
+				flex: 1
+
+	.certificates
+		&-item
+			width: calc(100% / 2 - 8px)
+			&__image
+				padding: 30px
+
+	.objects
+		&-item
+			&__content
+				width: 100%
+			&__info
+				padding: 0
+			&__list
+				flex-direction: row
+				margin-top: 20px
+				margin-bottom: 36px
+				li
+					width: calc(100% / 3 - 32px)
+			&__gallery
+				width: 100%
+				min-height: 500px
+				height: 500px
+				grid-template-columns: repeat(6, 1fr)
+				grid-template-rows: repeat(2, 1fr)
+				a
+					&:nth-child(1)
+						grid-area: 1 / 1 / 2 / 3
+					&:nth-child(2)
+						grid-area: 1 / 3 / 2 / 5
+					&:nth-child(3)
+						grid-area: 1 / 5 / 2 / 7
+					&:nth-child(4)
+						grid-area: 2 / 1 / 3 / 4
+					&:nth-child(5)
+						grid-area: 2 / 4 / 3 / 7
+
+	.get-samples
+		padding-bottom: 20px
+		&-content
+			max-width: 100%
+		&-form
+			max-width: 100%
+		&-image
+			position: relative
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			margin-top: 40px
+			&__bg
+				position: absolute
+				margin: 0
+				transform: rotate(80deg)
+				top: -200px
+				span
+					height: 1200px
+			img
+				position: relative
+				top: 0
+				transform: none
+				right: 0
+				margin: 0 auto
+				width: 600px
+				max-width: 100%
+
+	.installation
+		&-tab
+			&__content
+				width: 100%
+				padding: 40px
+			&__image
+				width: 100%
+
+	.comparison
+		&-item
+			width: 100%
+			&__content
+				padding-right: 0
+				padding-bottom: 24px
+				border-right: 0
+				border-bottom: 1px solid rgba(255,255,255,.1)
+			&__total
+				width: 100%
+				padding: 0
+				padding-top: 24px
+			&__list
+				gap: 4px
+				li::after
+					display: none
+
+	.colors
+		&-grid
+			grid-template-columns: repeat(2, 1fr)
+
+	.showroom
+		&-main
+			max-width: 100%
+		&-grid
+			&__item
+				width: calc(100% / 2 - 6px)
+				height: 320px
+	.scope
+		&-item
+			width: calc(100% / 2 - 8px) !important
+			&__image
+				height: 290px !important
+
+	.about
+		&-list
+			flex-direction: column
+			gap: 0
+			margin-top: 40px
+			li
+				width: 100%
+				padding: 32px 0
+				border-bottom: 1px solid rgba(255,255,255,.25)
+				@include flexbox
+				align-items: center
+				b, p
+					width: 50%
+				&:last-child
+					border-bottom: 0
+
+	.specialists
+		padding-bottom: 0
+		&-content
+			width: 100%
+			max-width: 100%
+		&-form
+			max-width: 100%
+		&-grid
+			width: 100%
+			padding: 40px 0
+			margin-top: 80px
+			&__bg
+				top: 0
+				bottom: 0
+			&__list
+				grid-template-columns: repeat(4, 1fr)
+		&-item
+			flex-direction: column
+			align-items: flex-start
+			&__photo
+				width: 100%
+
+	.footer
+		&-sidebar
+			width: 100%
+			max-width: 100%
+		&-content
+			width: 100%
+			max-width: 100%
+			margin-top: 40px
