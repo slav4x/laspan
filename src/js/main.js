@@ -154,6 +154,11 @@ document.addEventListener('DOMContentLoaded', () => {
       snap: true,
       keyboard: 'global',
       speed: 500,
+      breakpoints: {
+        768: {
+          autoWidth: false,
+        },
+      },
     });
 
     const main = new Splide('.objects-carousel__main', {
@@ -251,6 +256,15 @@ document.addEventListener('DOMContentLoaded', () => {
         cols: 2,
         gap: { row: '24px', col: '24px' },
       },
+      breakpoints: {
+        768: {
+          grid: {
+            rows: 1,
+            cols: 1,
+            gap: { row: '24px', col: '24px' },
+          },
+        },
+      },
     }).mount(window.splide.Extensions);
 
     laminateArrowPrev?.addEventListener('click', () => splide.go('<'));
@@ -322,6 +336,11 @@ document.addEventListener('DOMContentLoaded', () => {
       arrows: false,
       pagination: false,
       speed: 600,
+      breakpoints: {
+        768: {
+          destroy: true,
+        },
+      },
     }).mount();
 
     const { slides } = splide.Components.Elements;
