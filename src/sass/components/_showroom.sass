@@ -39,7 +39,7 @@
 				align-items: flex-end
 				color: var(--color-white)
 				padding: 30px
-				font-size: 24px
+				font-size: var(--font-size-md)
 				line-height: 1.2
 				position: relative
 				z-index: 2
@@ -61,9 +61,6 @@
 			border-radius: 4px
 			padding: 12px
 			padding-right: 46px
-			font-size: 16px
-			line-height: 22px
-			text-transform: uppercase
 			font-weight: 700
 			letter-spacing: 0.05em
 			color: var(--color-red)
@@ -73,9 +70,7 @@
 				padding: 12px 0
 				padding-left: 42px
 				border-bottom: 1px solid #F4F4F4
-				font-weight: 600
-				font-size: 16px
-				line-height: 22px
+				font-weight: 500
 				background: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='10' stroke='%23E31E24' stroke-width='2'/%3E%3Cpath d='M7.61914 10.3239L10.3236 13.0283L14.3802 8.97168' stroke='%23E31E24' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat left center
 				&:last-child
 					border: 0
@@ -89,3 +84,23 @@
 			left: 0
 			width: 100%
 			height: 100%
+		img
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			object-fit: cover
+			object-position: center
+		&::before
+			content: ''
+			position: absolute
+			background: rgba(0, 0, 0, 0.3) url("data:image/svg+xml,%3Csvg width='30' height='26' viewBox='0 0 30 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0V26L30 13.0444L4 0Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center
+			backdrop-filter: blur(22px)
+			width: 80px
+			height: 80px
+			border-radius: 100%
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			z-index: 20

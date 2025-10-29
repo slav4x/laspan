@@ -16,6 +16,7 @@
 		color: #fff
 		background: var(--color-red)
 		counter-increment: advantagesCounter
+		overflow: hidden
 		&::before
 			content: counter(advantagesCounter)
 			position: absolute
@@ -34,24 +35,26 @@
 		&-gray
 			background: #F7F7F7
 			color: var(--color-black)
+			transition: var(--transition-ms)
 			&::before
 				background: rgba(0,0,0,.05)
+			&:hover
+				background: #ececec
 		&__label
 			opacity: 0.8
-			font-size: 14px
-			text-transform: uppercase
-			letter-spacing: 0.04em
+			font-size: var(--font-size-xs)
+			letter-spacing: 0.02em
 			font-weight: 700
 			line-height: 16px
 		&__title
 			font-weight: 500
 			line-height: 1.2
-			font-size: 23px
+			font-size: var(--font-size-md)
 			b
 				font-weight: 700
 		&__link
 			color: var(--color-red)
-			font-size: 23px
+			font-size: var(--font-size-md)
 			line-height: 1.2
 			font-weight: 700
 			border-bottom: 1px solid var(--color-red)
@@ -59,6 +62,14 @@
 			&:hover
 				border-color: transparent
 				color: var(--color-red-hover)
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				z-index: 20
 		&__icon
 			display: block
 			position: absolute

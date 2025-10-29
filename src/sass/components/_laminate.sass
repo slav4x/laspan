@@ -5,6 +5,12 @@
 		justify-content: space-between
 	&-carousel
 		margin-top: 40px
+		.splide__track
+			margin-left: -16px
+			margin-right: -16px
+			margin-bottom: -30px
+		.splide__slide[role="group"]
+			padding: 0 16px 30px
 	&-arrows
 		position: relative
 		height: 94px
@@ -45,7 +51,7 @@
 		@include flexbox
 		align-items: center
 		gap: 12px
-		font-size: 16px
+		font-size: var(--font-size-sm)
 		font-weight: 700
 		letter-spacing: 0.05em
 		line-height: 1
@@ -64,9 +70,12 @@
 				transition: var(--transition-ms)
 	&-item
 		background: #fff
-		padding: 16px
+		padding: var(--font-size-sm)
 		@include flexbox
 		gap: 32px
+		position: relative
+		overflow: hidden
+		transition: var(--transition-ms)
 		&__pic
 			background: #F7F7F7
 			overflow: hidden
@@ -106,14 +115,14 @@
 			align-items: flex-start
 			gap: 20px
 		&__title
-			font-size: 22px
+			font-size: var(--font-size-md)
 			font-weight: 700
 			line-height: 1.3
 		&__spec
 			width: 100%
 			li
 				padding: 4px 0
-				font-size: 16px
+				font-size: var(--font-size-sm)
 				line-height: 1.3
 				font-weight: 500
 				@include flexbox
@@ -132,14 +141,21 @@
 			.btn
 				padding: 0 32px
 				width: auto
+				&::before
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
 		&__price
-			font-size: 24px
+			font-size: var(--font-size-md)
 			font-weight: 700
 			line-height: 30px
 			margin-bottom: 8px
 			&.sale
 				color: var(--color-red)
-				font-size: 20px
+				font-size: var(--font-size-md)
 				line-height: 26px
 		&__status
 			font-size: 14px
@@ -152,3 +168,5 @@
 			&.old-price
 				color: #64748B
 				text-decoration: line-through
+		&:hover
+			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)

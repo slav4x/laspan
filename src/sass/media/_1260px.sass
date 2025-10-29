@@ -1,6 +1,12 @@
 @media (max-width: 1260px)
 	:root
-		--font-size: 14px
+		--font-size-xxs: 9px
+		--font-size-xs: 11px
+		--font-size-sm: 12px
+		--font-size-default: 14px
+		--font-size-md: 20px
+		--font-size-lg: 28px
+		--font-size-xl: 36px
 
 	.container
 		max-width: 974px
@@ -35,30 +41,24 @@
 					height: 6px
 					background-size: cover
 				&-label
-					font-size: 9px
 					line-height: 12px
 				&-selected
-					font-size: 11px
 					line-height: 14px
 			&__btn
 				padding: 0 10px
 				gap: 10px
 				height: 51px
-				font-size: 12px
 				span
 					display: none
 		&-bottom
 			height: 36px
 			&__nav
 				li
-					a
-						font-size: 13px
 					&[data-category] a::after
 						width: 12px
 						height: 6px
 						background-size: cover
 			&__phone
-				font-size: 14px
 				line-height: 1
 				&::after
 					width: 14px
@@ -68,9 +68,6 @@
 	.promo
 		height: calc(100vh - 88px)
 		&-item
-			&__text,
-			&__list
-				font-size: 18px
 			&__content
 				max-width: 500px
 				.btn
@@ -98,20 +95,19 @@
 		&-grid
 			margin-top: 40px
 			gap: 24px
-		&-list
-			li
-				p
-					font-size: 13px
 		&-decor
 			margin-top: 40px
 		&-total
-			gap: 30px
+			gap: 24px
+			padding-right: 40px
+			align-items: center
 			&__price
-				max-width: 180px
+				width: 100%
 				gap: 8px
+				align-items: center
 			.btn
 				height: 54px
-				max-width: 180px
+				max-width: 100%
 
 	.certificates
 		&-item
@@ -125,7 +121,7 @@
 					width: auto
 					height: auto
 					line-height: 18px
-					font-size: 13px
+					font-size: var(--font-size-sm)
 					font-weight: 700
 					display: block
 					padding-right: 18px
@@ -208,6 +204,9 @@
 			&__item
 				height: 230px
 				width: 100%
+		&-info__list li
+			background-size: 16px
+			padding-left: 32px
 
 	.scope
 		&-item
@@ -249,10 +248,6 @@
 			margin-left: auto
 			&__col:last-child
 				max-width: 120px
-			&__nav
-				li
-					a
-						font-size: 13px
 		&-sidebar
 			max-width: 520px
 		&-offices

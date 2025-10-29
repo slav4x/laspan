@@ -7,7 +7,82 @@ document.addEventListener('DOMContentLoaded', () => {
     Images: {
       zoom: false,
     },
+    Iframe: {
+      attr: {
+        allow: 'autoplay; fullscreen; picture-in-picture; screen-wake-lock',
+      },
+    },
+    on: {
+      'Carousel.createSlide': (fancybox, carousel, slide) => {
+        const src = String(slide.src || '');
+
+        if (src.includes('video_ext.php')) {
+          slide.type = 'iframe';
+          slide.isVk = true;
+          return;
+        }
+
+        const ids = extractVkIds(src);
+        if (ids) {
+          const { oid, id, host } = ids;
+          const params = new URLSearchParams({
+            autoplay: '1',
+            hd: '2',
+            js_api: '1',
+            frameBorder: '0',
+          });
+
+          const embedHost = host === 'vkvideo.ru' ? 'vkvideo.ru' : 'vk.com';
+          slide.type = 'iframe';
+          slide.src = `https://${embedHost}/video_ext.php?oid=${oid}&id=${id}&${params.toString()}`;
+          slide.isVk = true;
+        }
+      },
+
+      reveal: (fancybox, slide) => {
+        if (!slide?.isVk) return;
+        const add = () => {
+          const content = slide.el?.querySelector('.fancybox__content');
+          if (content) content.classList.add('is-vkvideo');
+        };
+        add();
+        requestAnimationFrame(add);
+      },
+    },
   });
+
+  function extractVkIds(url) {
+    return parse(url) || parse(tryDecode(url));
+
+    function tryDecode(u) {
+      try {
+        return decodeURIComponent(u);
+      } catch {
+        return u;
+      }
+    }
+
+    function parse(u) {
+      const hostMatch = u.match(/^https?:\/\/(?:www\.)?([^\/?#]+)/i);
+      const host = hostMatch?.[1] || '';
+
+      const patterns = [
+        /^https?:\/\/(?:www\.)?vk\.com\/video(?:\?z=video|)(-?\d+)_(\d+)/i,
+        /^https?:\/\/(?:www\.)?vk\.com\/video\?z=video(-?\d+)_(\d+)/i,
+        /^https?:\/\/(?:www\.)?vkvideo\.ru\/video(-?\d+)_(\d+)/i,
+        /^https?:\/\/(?:www\.)?vkvideo\.ru\/video(-?\d+)_(\d+)/i,
+        /^https?:\/\/(?:www\.)?vkvideo\.ru\/video\?z=video(-?\d+)_(\d+)/i,
+      ];
+
+      for (const re of patterns) {
+        const m = u.match(re);
+        if (m) {
+          return { oid: m[1], id: m[2], host };
+        }
+      }
+      return null;
+    }
+  }
 
   const maskOptions = {
     mask: '+7 (000) 000-00-00',
@@ -143,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const objectsCarousel = document.querySelector('.objects-carousel');
   if (objectsCarousel) {
     const thumbs = new Splide('.objects-carousel__thumbs', {
-      type: 'slide',
+      type: 'loop',
       rewind: true,
       pagination: false,
       arrows: true,
@@ -162,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const main = new Splide('.objects-carousel__main', {
+      type: 'loop',
       rewind: true,
       pagination: false,
       arrows: false,
