@@ -435,6 +435,40 @@ document.addEventListener('DOMContentLoaded', () => {
     promoArrowPrev?.addEventListener('click', () => splide.go('<'));
     promoArrowNext?.addEventListener('click', () => splide.go('>'));
   }
+
+  const cityItems = document.querySelectorAll('.warehouses-group__list li');
+  const cityPaths = document.querySelectorAll('.warehouses-map [data-city]');
+
+  cityItems.forEach((li) => {
+    li.addEventListener('mouseenter', () => {
+      const cityName = li.textContent.trim();
+      const path = document.querySelector(`.warehouses-map [data-city="${cityName}"]`);
+      if (path) path.classList.add('active');
+      li.classList.add('active');
+    });
+
+    li.addEventListener('mouseleave', () => {
+      const cityName = li.textContent.trim();
+      const path = document.querySelector(`.warehouses-map [data-city="${cityName}"]`);
+      if (path) path.classList.remove('active');
+      li.classList.remove('active');
+    });
+  });
+
+  cityPaths.forEach((path) => {
+    const cityName = path.getAttribute('data-city');
+    path.addEventListener('mouseenter', () => {
+      const li = Array.from(cityItems).find((el) => el.textContent.trim() === cityName);
+      if (li) li.classList.add('active');
+      path.classList.add('active');
+    });
+
+    path.addEventListener('mouseleave', () => {
+      const li = Array.from(cityItems).find((el) => el.textContent.trim() === cityName);
+      if (li) li.classList.remove('active');
+      path.classList.remove('active');
+    });
+  });
 });
 
 function updateDropdownPos() {

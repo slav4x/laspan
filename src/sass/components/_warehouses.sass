@@ -1,5 +1,4 @@
 .warehouses
-	overflow: hidden
 	.container
 		@include flexbox
 	&-content
@@ -37,20 +36,20 @@
 					border: 1px solid #fff
 					opacity: 0.6
 					transition: var(--transition-ms)
-				&:hover
+				&:hover, &.active
 					background: var(--color-red)
 					border-color: var(--color-red)
 					&::before
 						opacity: 1
 						background: #fff
 			&-main
-				max-width: 438px
+				max-width: calc(100% - ((100% - (8px * 2)) / 3) - 8px)
 				li
 					width: calc((100% - 8px) / 2)
 					border-color: rgba(250, 223, 75, 0.4)
 					&::before
 						border-color: var(--color-yellow)
-					&:hover
+					&:hover, &.active
 						background: var(--color-yellow)
 						border-color: var(--color-yellow)
 						color: var(--color-black)
@@ -73,3 +72,16 @@
 			z-index: -1
 		.btn
 			margin-top: auto
+		svg
+			display: block
+			position: absolute
+			top: -60px
+			left: -120px
+			path
+				stroke: #182934
+				stroke-width: 1px
+				&[data-city]
+					transition: var(--transition-ms)
+					cursor: pointer
+					&.active, &:hover
+						fill: var(--color-red)
