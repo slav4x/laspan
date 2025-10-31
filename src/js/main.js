@@ -469,6 +469,25 @@ document.addEventListener('DOMContentLoaded', () => {
       path.classList.remove('active');
     });
   });
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('.menu-nav__dropdown > a');
+    if (!link) return;
+    e.preventDefault();
+    const parent = link.parentElement;
+    parent.classList.toggle('open');
+  });
+
+  const openMenuBtn = document.querySelector('.header-burger');
+  const closeMenuBtn = document.querySelector('.menu-close');
+  const menu = document.querySelector('.menu');
+
+  [openMenuBtn, closeMenuBtn].forEach((btn) => {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      document.body.classList.toggle('no-scroll');
+    });
+  });
 });
 
 function updateDropdownPos() {
