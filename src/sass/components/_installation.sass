@@ -24,12 +24,25 @@
 				border-color: var(--color-red)
 			&:hover
 				color: var(--color-red)
+	&-items
+		display: flex
+		flex-wrap: nowrap
 	&-tab
+		flex: 0 0 100%
+		width: 100%
 		margin-top: 44px
 		background: #fff
-		display: none
+		@include flexbox
+		transition: calc(var(--transition-ms) * 1)
+		margin-left: 0
+		opacity: 0
+		&[data-tab="1"]
+			margin-left: -100%
+		&[data-tab="2"]
+			margin-left: 100%
 		&.active
-			@include flexbox
+			margin-left: 0%
+			opacity: 1
 		&__content
 			width: 50%
 			padding: 60px 60px 0
