@@ -179,6 +179,30 @@
 	.colors
 		&-grid
 			grid-template-columns: repeat(2, 1fr)
+		&-catalog
+			padding: 200px 0 40px
+			&-content
+				max-width: 320px
+				margin-left: 0
+			&-book
+				left: initial
+				right: 16px
+			&-bg
+				left: initial
+				right: 0
+				transform: rotate(-21.5deg)
+				&::before
+					width: calc(220px + (var(--pos-right) * -1))
+					left: -300px
+				&::after
+					width: calc(600px + (var(--pos-right) * -1))
+					left: -300px
+					background: #2B3339
+			&-buttons
+				margin-top: 32px
+				max-width: 260px
+				.btn
+					flex: initial
 
 	.showroom
 		&-main

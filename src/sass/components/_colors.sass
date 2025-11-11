@@ -79,3 +79,60 @@
 				font-weight: 700
 			&:hover
 				box-shadow: 0 10px 30px rgba(0, 0, 0, .1)
+	&-catalog
+		background: url(../img/colors-catalog-bg.jpg) no-repeat center / cover
+		color: var(--color-white)
+		overflow: hidden
+		&-wrapper
+			position: relative
+			& > .container
+				height: 100%
+				position: absolute
+				top: 0
+				right: 0
+				left: 0
+				bottom: 0
+				z-index: 6
+				pointer-events: none
+		&-bg
+			position: absolute
+			top: -375px
+			bottom: -375px
+			left: -70px
+			transform: rotate(10deg)
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				bottom: 0
+				left: var(--pos-right)
+				width: calc(360px + (var(--pos-right) * -1) + 70px)
+				background: var(--color-red)
+				z-index: 1
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				bottom: 0
+				left: var(--pos-right)
+				width: calc(600px + (var(--pos-right) * -1) + 70px)
+				background: rgba(255,255,255,.2)
+		&-book
+			position: absolute
+			top: 50%
+			left: 40px
+			transform: translateY(-50%)
+			// margin-top: -125px
+			max-width: initial
+		&-content
+			margin-left: auto
+			max-width: 920px
+			width: 100%
+		&-buttons
+			@include flexbox
+			align-items: flex-start
+			gap: 20px
+			max-width: 780px
+			margin-top: 60px
+			.btn
+				flex: 1

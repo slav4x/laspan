@@ -342,6 +342,18 @@
 					height: 100px
 				span
 					margin-top: 16px
+		&-catalog
+			&-content
+				max-width: 680px
+			&-buttons
+				max-width: 640px
+			&-book
+				width: 380px
+			&-bg
+				&::before
+					width: calc(360px + (var(--pos-right) * -1))
+				&::after
+					width: calc(600px + (var(--pos-right) * -1))
 
 	.showroom
 		&-main

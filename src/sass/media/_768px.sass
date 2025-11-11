@@ -199,7 +199,26 @@
 				grid-template-columns: repeat(2, 1fr)
 				img
 					height: 52px
-
+		&-catalog
+			padding: 370px 0 40px
+			&-bg
+				transform: rotate(-64deg) translateX(110px)
+				top: -1000px
+				&::before
+					width: calc(180px + (var(--pos-right) * -1))
+				&::after
+					width: calc(360px + (var(--pos-right) * -1))
+			&-book
+				width: 240px
+				left: 50%
+				transform: translateX(-50%)
+				top: 40px
+			&-content
+				max-width: 100%
+				.section-head
+					max-width: 320px
+			&-buttons
+				max-width: 100%
 	.showroom
 		&-grid
 			&__item

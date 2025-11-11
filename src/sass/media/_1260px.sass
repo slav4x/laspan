@@ -209,6 +209,18 @@
 			&-grid
 				grid-template-columns: repeat(3, 1fr)
 				gap: 12px
+		&-catalog
+			&-content
+				max-width: 480px
+			&-book
+				left: 0
+			&-bg
+				&::before
+					width: calc(220px + (var(--pos-right) * -1))
+				&::after
+					width: calc(460px + (var(--pos-right) * -1))
+			&-buttons
+				margin-top: 32px
 
 	.showroom
 		&-grid
