@@ -1,0 +1,75 @@
+.products
+	counter-reset: productsCounter
+	&-grid
+		margin-top: 44px
+		gap: 24px
+		@include flexbox
+	&-item
+		width: calc((100% - (3 * 24px)) / 4)
+		background: linear-gradient(192.11deg, #F0F0F0 6.66%, #F7F7F7 91.17%)
+		position: relative
+		display: block
+		padding: 32px
+		height: 470px
+		counter-increment: productsCounter
+		svg
+			display: block
+			margin-bottom: 16px
+			width: 30px
+			height: 30px
+		&__title
+			font-weight: 700
+			font-size: var(--font-size-md)
+			transition: var(--transition-ms)
+		&__subtitle
+			color: #64748B
+			display: block
+			margin-top: 6px
+			font-weight: 600
+		&__counter
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+			padding: 32px
+			background: #1D2C34
+			@include flexbox
+			align-items: center
+			gap: 12px
+			font-size: var(--font-size-md)
+			font-weight: 700
+			line-height: 32px
+			transition: var(--transition-ms)
+			&::before
+				content: counter(productsCounter)
+				display: block
+				width: 32px
+				height: 32px
+				background: rgba(255,255,255,.05)
+				text-align: center
+				line-height: 32px
+				font-size: 18px
+				font-weight: 600
+				color: #fff
+				transition: var(--transition-ms)
+		&__image
+			width: 290px
+			position: absolute
+			bottom: 0
+			right: 38px
+			z-index: 2
+		&__background
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: center
+			.products-item__counter
+				background: transparent
+				&::before
+					background: #1D2C34
+		&:hover
+			.products-item__title
+				color: var(--color-red)
+			.products-item__counter
+				color: var(--color-red)
+				&::before
+					background: var(--color-red)
