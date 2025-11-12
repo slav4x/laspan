@@ -488,6 +488,151 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('no-scroll');
     });
   });
+
+  (function () {
+    const services = document.querySelector('.services');
+    if (!services) return;
+
+    const container = document.querySelector('.services .container');
+    const wrapper = document.querySelector('.services-slider-wrapper');
+
+    let servicesTop = 0;
+    let containerW = 0;
+    let wrapperW = 0;
+    let winH = 0;
+    let maxShift = 0;
+    let sectionH = 0;
+    let ticking = false;
+    let lastScrollY = 0;
+    let enabled = false;
+    let resizeTimer = null;
+    let hasShift = false;
+
+    const pageY = () => window.pageYOffset || document.documentElement.scrollTop;
+
+    const getPageTop = (el) => el.getBoundingClientRect().top + pageY();
+
+    const onScroll = () => {
+      lastScrollY = pageY();
+      if (!enabled) return;
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    const measure = () => {
+      winH = window.innerHeight || document.documentElement.clientHeight;
+
+      const ccs = getComputedStyle(container);
+      const padL = parseFloat(ccs.paddingLeft) || 0;
+      const padR = parseFloat(ccs.paddingRight) || 0;
+      containerW = Math.max(0, container.clientWidth - padL - padR);
+
+      const first = wrapper.firstElementChild;
+      const last = wrapper.lastElementChild;
+
+      if (!first || !last) {
+        wrapperW = containerW;
+        servicesTop = getPageTop(services);
+        maxShift = 0;
+        hasShift = false;
+        sectionH = winH;
+        return;
+      }
+
+      const firstRect = first.getBoundingClientRect();
+      const lastRect = last.getBoundingClientRect();
+
+      const wcs = getComputedStyle(wrapper);
+      const wPL = parseFloat(wcs.paddingLeft) || 0;
+      const wPR = parseFloat(wcs.paddingRight) || 0;
+
+      const contentWidth = lastRect.right - firstRect.left + wPL + wPR;
+      wrapperW = contentWidth;
+
+      servicesTop = getPageTop(services);
+
+      const rawShift = wrapperW - containerW;
+      maxShift = Math.max(0, Math.round(rawShift));
+      hasShift = maxShift > 0;
+      sectionH = maxShift + winH;
+    };
+
+    const recalc = () => {
+      const vw = window.innerWidth || document.documentElement.clientWidth;
+      enabled = vw >= 974;
+
+      if (!enabled) {
+        container.classList.remove('is-sticky');
+        wrapper.style.transform = '';
+        wrapper.style.willChange = '';
+        services.style.height = '';
+        return;
+      }
+
+      measure();
+
+      if (!hasShift) {
+        container.classList.remove('is-sticky');
+        wrapper.style.transform = '';
+        wrapper.style.willChange = '';
+        services.style.height = '';
+        return;
+      }
+
+      services.style.height = sectionH + 'px';
+      wrapper.style.willChange = 'transform';
+      onScroll();
+    };
+
+    const update = () => {
+      ticking = false;
+      if (!enabled || !hasShift) return;
+
+      const currentTop = getPageTop(services);
+      if (currentTop !== servicesTop) measure();
+
+      const start = servicesTop;
+      const end = servicesTop + sectionH - winH;
+
+      if (lastScrollY >= start && lastScrollY <= end) {
+        container.classList.add('is-sticky');
+        const progress = (lastScrollY - start) / (sectionH - winH);
+        const shift = Math.min(maxShift, Math.max(0, progress * maxShift));
+        wrapper.style.transform = `translate3d(-${shift}px,0,0)`;
+      } else {
+        container.classList.remove('is-sticky');
+        wrapper.style.transform = lastScrollY < start ? 'translate3d(0,0,0)' : `translate3d(-${maxShift}px,0,0)`;
+      }
+    };
+
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(recalc, 150);
+    };
+
+    const ro = new ResizeObserver(() => recalc());
+    ro.observe(wrapper);
+    ro.observe(container);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => recalc());
+    }
+
+    wrapper.querySelectorAll('img').forEach((img) => {
+      img.addEventListener('load', recalc, { once: true });
+    });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', recalc);
+    window.addEventListener('load', recalc);
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      recalc();
+    }
+  })();
 });
 
 function updateDropdownPos() {

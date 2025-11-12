@@ -1,0 +1,100 @@
+.services
+	overflow: initial
+	&-slider
+		margin-top: 44px
+		display: flex
+		flex-wrap: nowrap
+		overflow: hidden
+		&-wrapper
+			display: flex
+			flex-wrap: nowrap
+			gap: 24px
+	.container
+		position: sticky
+		top: 120px
+	&-item
+		min-width: 600px
+		width: 600px
+		height: 700px
+		padding: 40px
+		@include flexbox
+		flex-direction: column
+		align-items: flex-start
+		background: #F5F5F5
+		color: #fff
+		position: relative
+		overflow: hidden
+		&::before
+			content: ''
+			display: block
+			width: 64px
+			height: 2px
+			background: #fff
+			margin-bottom: 20px
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			right: 0
+			bottom: 0
+			width: 190px
+			background: #2F4855
+			opacity: 0.2
+		&__title
+			position: relative
+			z-index: 5
+			max-width: 370px
+			font-size: 34px
+			font-weight: 700
+			line-height: 1.1
+			span
+				color: var(--color-red)
+		&__description
+			position: relative
+			z-index: 5
+			margin-top: 24px
+			font-weight: 500
+			max-width: 370px
+			line-height: 1.3
+		.btn
+			position: relative
+			z-index: 5
+			margin-top: auto
+			width: 270px
+		&-gray
+			color: var(--color-black)
+			&::before
+				background: var(--color-black)
+			&::after
+				background: #E9E9E9
+				opacity: 1
+			.services-item__pic
+				bottom: 0
+				right: -115px
+		&-dark
+			background: #1D2C34
+			.services-item__pic
+				bottom: -8px
+				right: -228px
+		&-blue
+			background: #2B64F6
+			.services-item__pic
+				bottom: -68px
+				right: -74px
+		&-red
+			background: #E31E24
+			.services-item__pic
+				bottom: -12px
+				right: -62px
+		&-red,
+		&-blue
+			.services-item__description
+				margin-top: auto
+				max-width: 200px
+			.btn
+				margin-top: 24px
+		&-image
+			background: url(../img/services-item-03.jpg) no-repeat center / cover
+		&__pic
+			position: absolute
+			z-index: 3
