@@ -1,0 +1,36 @@
+.interior
+	background: url(../img/interior-bg.jpg) no-repeat center / cover
+	color: #fff
+	overflow: hidden
+	&-content
+		max-width: 700px
+		position: relative
+		.section-title span
+			color: var(--color-yellow)
+		&::before
+			content: ''
+			position: absolute
+			top: -325px
+			bottom: -325px
+			left: calc(var(--pos-right) - 200px)
+			right: -280px
+			background: rgba(0,0,0,.7)
+			z-index: -1
+			transform: rotate(10deg)
+	&-form
+		@include flexbox
+		align-items: flex-start
+		gap: 20px
+		max-width: 640px
+		margin-top: 60px
+		.label
+			flex: 1
+		&__agree
+			font-size: var(--font-size-sm)
+			line-height: 1.6
+			letter-spacing: -0.02em
+			font-weight: 500
+			color: rgba(255,255,255,.7)
+			a
+				color: #fff
+				border-bottom: 1px solid rgba(255,255,255,.3)
