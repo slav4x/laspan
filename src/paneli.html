@@ -289,55 +289,7 @@
 	</div>
 </section>
 
-<section class="section section-border objects">
-	<div class="container">
-		<div class="section-head__counter">
-			<h2 class="section-title">Фото объектов</h2>
-		</div>
-		<div class="objects-carousel">
-			<div class="objects-carousel__thumbs splide">
-				<div class="splide__track">
-					<ul class="splide__list">
-						<li class="splide__slide"><span>Бизнес-центр на Павелецкой</span></li>
-						<li class="splide__slide"><span>Бизнес-центр на Павелецкой</span></li>
-						<li class="splide__slide"><span>Бизнес-центр на Павелецкой</span></li>
-						<li class="splide__slide"><span>Бизнес-центр на Павелецкой</span></li>
-						<li class="splide__slide"><span>Бизнес-центр на Павелецкой</span></li>
-						<li class="splide__slide"><span>Бизнес-центр на Павелецкой</span></li>
-						<li class="splide__slide"><span>Бизнес-центр на Павелецкой</span></li>
-						<li class="splide__slide"><span>Бизнес-центр на Павелецкой</span></li>
-					</ul>
-				</div>
-				<div class="splide__arrows">
-					<button class="splide__arrow splide__arrow--prev">
-						<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M6.88224 4.25565e-07L8 1.13697L2.23553 7.00048L8 12.863L6.88224 14L3.05965e-07 7.00048L6.88224 4.25565e-07Z" fill="currentColor"/>
-						</svg>
-					</button>
-					<button class="splide__arrow splide__arrow--next">
-						<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M1.11776 14L-2.57602e-07 12.863L5.76447 6.99952L2.5496e-07 1.13697L1.11776 -3.00821e-07L8 6.99952L1.11776 14Z" fill="currentColor"/>
-						</svg>
-					</button>
-				</div>
-			</div>
-			<div class="objects-carousel__main splide">
-				<div class="splide__track">
-					<ul class="splide__list">
-						<li class="splide__slide">{% include 'components/objects-item.html' %}</li>
-						<li class="splide__slide">{% include 'components/objects-item.html' %}</li>
-						<li class="splide__slide">{% include 'components/objects-item.html' %}</li>
-						<li class="splide__slide">{% include 'components/objects-item.html' %}</li>
-						<li class="splide__slide">{% include 'components/objects-item.html' %}</li>
-						<li class="splide__slide">{% include 'components/objects-item.html' %}</li>
-						<li class="splide__slide">{% include 'components/objects-item.html' %}</li>
-						<li class="splide__slide">{% include 'components/objects-item.html' %}</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+{% include 'sections/objects.html' %}
 
 <section class="section section-gray certificates">
 	<div class="container">
@@ -354,41 +306,9 @@
 	</div>
 </section>
 
-<section class="section laspan">
-	<div class="container">
-		<div class="section-head">
-			<h2 class="section-title">Преимущества работы с «Ласпан»</h2>
-		</div>
-		<ul class="laspan-list">
-			<li><b>Безупречная репутация.</b> Сопровождаем клиента на всех этапах от создания дизайна интерьера, до полной реализации проекта</li>
-			<li><b>Гарантия сроков отгрузок.</b> Точно соблюдаем сроки производства и поставки на объект</li>
-			<li><b>Качество.</b> Следим за качеством продукции, даем честную гарантию с бесплатным возвратом</li>
-		</ul>
-	</div>
-</section>
+{% include 'sections/laspan.html' %}
 
-<section class="section get-samples">
-	<div class="container">
-		<div class="get-samples-content">
-			<div class="section-head">
-				<h2 class="section-title">Отправим образцы панелей и каталог декоров бесплатно</h2>
-				<p class="section-description">до Вашего объекта в любом городе России и СНГ</p>
-			</div>
-			<div class="get-samples-form">
-				<a href="#" class="btn btn-lg btn-yellow">Получить образцы</a>
-				<div class="get-samples-form__agree">Заполняя эту форму вы даете согласие на <a href="#">обработку ваших персональных данных</a></div>
-			</div>
-		</div>
-		<div class="get-samples-image">
-			<div class="get-samples-image__bg">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-			<img src="img/get-samples-image.png" alt="" loading="lazy">
-		</div>
-	</div>
-</section>
+{% include 'sections/get-samples.html' %}
 
 <section class="section section-gray installation">
 	<div class="container">
@@ -748,111 +668,11 @@
 	</div>
 </section>
 
-<section class="section section-gray scope">
-	<div class="container">
-		<div class="section-head">
-			<h2 class="section-title">Сфера применения</h2>
-		</div>
-		<div class="scope-grid">
-			<a href="javascript:;" class="scope-item">
-				<div class="scope-item__image">
-					<img src="img/scope-item-01.jpg" alt="" loading="lazy">
-					<span>Легкий, быстрый и чистый монтаж.<br> Без грязи и мокрых работ.</span>
-				</div>
-				<div class="scope-item__title">Бизнес центры и офисы</div>
-			</a>
-			<a href="javascript:;" class="scope-item">
-				<div class="scope-item__image">
-					<img src="img/scope-item-02.jpg" alt="" loading="lazy">
-					<span>Разнообразие панелей в зависимости от помещения: влагостойкие, антивандальные, негорючие.</span>
-				</div>
-				<div class="scope-item__title">Спорт комплексы</div>
-			</a>
-			<a href="javascript:;" class="scope-item">
-				<div class="scope-item__image">
-					<img src="img/scope-item-03.jpg" alt="" loading="lazy">
-					<span>Дешевле и проще классической отделки, для монтажа достаточно бригады из двух человек.</span>
-				</div>
-				<div class="scope-item__title">Складские помещения</div>
-			</a>
-			<a href="javascript:;" class="scope-item">
-				<div class="scope-item__image">
-					<img src="img/scope-item-04.jpg" alt="" loading="lazy">
-					<span>Антибактериальное покрытие устойчивое к обработке диз.средствами.</span>
-				</div>
-				<div class="scope-item__title">Медицинские учреждения</div>
-			</a>
-			<a href="javascript:;" class="scope-item scope-item-xl">
-				<div class="scope-item__image">
-					<img src="img/scope-item-05.jpg" alt="" loading="lazy">
-					<span>Экологичность и огнестойкость класса КМ1 и НГ.</span>
-				</div>
-				<div class="scope-item__title">Образовательные учреждения</div>
-			</a>
-			<a href="javascript:;" class="scope-item scope-item-xl">
-				<div class="scope-item__image">
-					<img src="img/scope-item-06.jpg" alt="" loading="lazy">
-					<span>Готовые комплексные решения для отделки стен, дверных проемов и потолков.</span>
-				</div>
-				<div class="scope-item__title">Административные помещения</div>
-			</a>
-			<a href="javascript:;" class="scope-item scope-item-md">
-				<div class="scope-item__image">
-					<img src="img/scope-item-07.jpg" alt="" loading="lazy">
-					<span>Более 500 цветов и декоров для воплощения любых дизайнерских решений.</span>
-				</div>
-				<div class="scope-item__title">Гостиницы и отели</div>
-			</a>
-			<a href="javascript:;" class="scope-item scope-item-lg">
-				<div class="scope-item__image">
-					<img src="img/scope-item-08.jpg" alt="" loading="lazy">
-					<span>Срок службы более 10 лет. Возможность замены одного элемента вместо капитального ремонта.</span>
-				</div>
-				<div class="scope-item__title">Модульные здания</div>
-			</a>
-			<a href="javascript:;" class="scope-item scope-item-md">
-				<div class="scope-item__image">
-					<img src="img/scope-item-09.jpg" alt="" loading="lazy">
-					<span>Скорость отделки панелями  до 5 раз быстрее, чем в традиционных вариантах со штукатуркой и покраской.</span>
-				</div>
-				<div class="scope-item__title">МОП в жилых комплексах</div>
-			</a>
-		</div>
-		<a href="#" class="btn btn-lg btn-yellow">Узнайте, подходят ли стеновые панели LASPAN для отделки вашего помещения!</a>
-	</div>
-</section>
+{% include 'sections/scope.html' %}
 
-{% include 'components/warehouses.html' %}
+{% include 'sections/warehouses.html' %}
 
-<section class="section about">
-	<video class="about-bg lazy-video" muted loop playsinline preload="none">
-		<source data-src="video/about.mp4" type="video/mp4">
-	</video>
-	<div class="container">
-		<div class="section-head">
-			<h2 class="section-title">Ласпан групп - Российское производственное объединение, <span>имеющее опыт разработки коммерческих интерьерных решений «Под ключ».</span></h2>
-			<p class="section-description">Качественная реализация стильных интерьеров производится за счет <span>собственного производства стеновых панелей, межкомнатных дверей и систем подвесных потолков.</span></p>
-		</div>
-		<ul class="about-list">
-			<li>
-				<b>1<sup>+</sup><span>млн ед.</span></b>
-				<p>отгруженной продукции</p>
-			</li>
-			<li>
-				<b>5<sup>+</sup><span>тыс. отгрузок</span></b>
-				<p>на объекты по различным<br> городам РФ и СНГ</p>
-			</li>
-			<li>
-				<b>>10<span>лет</span></b>
-				<p>на рынке стройматериалов<br> и коммерческих интерьеров</p>
-			</li>
-			<li>
-				<b>3<span>завода</span></b>
-				<p>Москва, Нижний Новгород, Уфа</p>
-			</li>
-		</ul>
-	</div>
-</section>
+{% include 'sections/about.html' %}
 
 <section class="section specialists">
 	<div class="container">
