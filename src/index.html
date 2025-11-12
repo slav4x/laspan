@@ -3,6 +3,88 @@
 
 {% block content %}
 
+<section class="promo">
+	<div class="promo-carousel splide">
+		<div class="splide__track">
+			<ul class="splide__list">
+				<li class="splide__slide" data-slide-name="Ламинированный гипсокартон">
+					<div class="promo-item">
+						<div class="container">
+							<div class="promo-item__content">
+								<h1 class="section-title">Ламинированные гипсокартонные листы в наличии и под заказ<br> <span>от&nbsp;крупнейшего<br> производителя России</span></h1>
+								<ul class="promo-item__list">
+									<li>по ценам ниже посредников <span> до 30%</span></li>
+									<li><span>3 завода</span> по России</li>
+									<li>доставка <span>на объекты</span> по РФ</li>
+								</ul>
+								<a href="#" class="btn btn-sm btn-yellow">Получить прайс</a>
+							</div>
+							<div class="promo-item__background" style="background-image: url(img/promo-bg-1.jpg);">
+								<img src="img/promo-image-1.png" alt="" loading="lazy">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="splide__slide" data-slide-name="Slide name">
+					<div class="promo-item">
+						<div class="container">
+							<div class="promo-item__content">
+								<h1 class="section-title">Title</h1>
+								<p class="promo-item__text"><b>Short</b> description</p>
+							</div>
+							<div class="promo-item__background" style="background-image: url(img/promo-bg-1.jpg);">
+								<img src="img/promo-image-1.png" alt="" loading="lazy">
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="promo-control__wrapper">
+		<div class="container">
+			<div class="promo-control">
+				<div class="promo-control__next">
+					<span>Далее</span>
+					<p></p>
+				</div>
+				<div class="promo-control__arrows splide__arrows">
+					<button class="splide__arrow splide__arrow--prev">
+						<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M6.88224 4.25565e-07L8 1.13697L2.23553 7.00048L8 12.863L6.88224 14L3.05965e-07 7.00048L6.88224 4.25565e-07Z" fill="currentColor"/>
+						</svg>
+					</button>
+					<button class="splide__arrow splide__arrow--next">
+						<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1.11776 14L-2.57602e-07 12.863L5.76447 6.99952L2.5496e-07 1.13697L1.11776 -3.00821e-07L8 6.99952L1.11776 14Z" fill="currentColor"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
+продукция
+<br>
+услуги
+
+{% include 'sections/objects.html' %}
+
+{% include 'sections/laspan.html' %}
+
+{% include 'sections/get-samples.html' %}
+
+{% include 'sections/scope.html' %}
+
+{% include 'sections/about.html' %}
+
+{% include 'sections/warehouses.html' %}
+
+с кем мы работаем
+<br>
+расчет
+<br>
+что о нас говорят
 
 {% endblock %}
