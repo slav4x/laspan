@@ -609,41 +609,8 @@
 	</div>
 </section>
 
-<section class="section section-top-0 showroom">
-	<div class="container">
-		<div class="showroom-main">
-			<div class="section-head">
-				<h2 class="section-title">Шоурум интерьерных решений “Laspan”</h2>
-				<p class="section-description">Приглашаем Вас посетить шоурум для знакомства с продукцией!</p>
-			</div>
-			<div class="showroom-info">
-				<div class="showroom-info__title">Преимущества посещения Шоу-рума:</div>
-				<ul class="showroom-info__list">
-					<li>Представлены все виды стеновых панелей, двери, подвесные потолки, освещение</li>
-					<li>Каталоги из более 500 декоров и покрытий</li>
-					<li>Коридоры БЦ отделаны нашими панелями</li>
-					<li>Шоу-рум в центре Москвы, бесплатная парковка</li>
-					<li>Менеджеры подберут оптимальные решение, рассчитают стоимость панелей и отделочных работ</li>
-					<li>Подберем цветовые и декоративные решения</li>
-					<li>Разработаем дизайн за 1 день</li>
-				</ul>
-			</div>
-			<a href="#" class="btn btn-lg btn-yellow">Посетить шоу-рум</a>
-			<div class="showroom-address">г. Москва, Шлюзовая набережная 8, стр 1, офис 111<br> Бесплатная парковка (требуется запись)</div>
-		</div>
-		<div class="showroom-grid">
-			<a href="https://vkvideo.ru/video869536710_456239025" data-fancybox class="showroom-video"><img src="img/showroom-video.jpg" loading="lazy" alt=""></a>
-			<div class="showroom-grid__item">
-				<img src="img/showroom-01.jpg" loading="lazy" alt="">
-				<p>Коридоры бизнес-центра отделаны нашими стеновыми панелями</p>
-			</div>
-			<div class="showroom-grid__item">
-				<img src="img/showroom-02.jpg" loading="lazy" alt="">
-				<p>Различные виды панелей, потолков, дверей и светильников</p>
-			</div>
-		</div>
-	</div>
-</section>
+{% set showroomTop = true %}
+{% include 'sections/showroom.html' %}
 
 <section class="section interior">
 	<div class="container">
@@ -674,94 +641,6 @@
 
 {% include 'sections/about.html' %}
 
-<section class="section specialists">
-	<div class="container">
-		<div class="specialists-content">
-			<div class="section-head">
-				<h2 class="section-title section-title">Наши специалисты помогут и проконсультируют по всем оставшимся вопросам, а также:</h2>
-			</div>
-			<ul class="specialists-list">
-				<li>
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M19.9994 15.3155L23.3144 12.0005L19.9994 8.68555V4.00055H15.3144L11.9994 0.685547L8.68437 4.00055H3.99937V8.68555L0.684372 12.0005L3.99937 15.3155V20.0005H8.68437L11.9994 23.3156L15.3144 20.0005H19.9994V15.3155V15.3155ZM11.9994 18.0005C8.68437 18.0005 5.99937 15.3155 5.99937 12.0005C5.99937 8.68555 8.68437 6.00055 11.9994 6.00055C15.3144 6.00055 17.9994 8.68555 17.9994 12.0005C17.9994 15.3155 15.3144 18.0005 11.9994 18.0005Z" fill="black"/>
-					</svg>
-					<p>Помогут с разработкой концепции дизайна</p>
-				</li>
-				<li>
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M20 14C21.1046 14 22 13.1046 22 12C22 10.8954 21.1046 10 20 10C18.8954 10 18 10.8954 18 12C18 13.1046 18.8954 14 20 14Z" fill="black"/>
-						<path d="M4 14C5.10457 14 6 13.1046 6 12C6 10.8954 5.10457 10 4 10C2.89543 10 2 10.8954 2 12C2 13.1046 2.89543 14 4 14Z" fill="black"/>
-						<path d="M12 22C13.1046 22 14 21.1046 14 20C14 18.8954 13.1046 18 12 18C10.8954 18 10 18.8954 10 20C10 21.1046 10.8954 22 12 22Z" fill="black"/>
-						<path d="M10.05 8.58961L6.03 4.54961H6.02L5.71 4.22961L4.29 5.63961L8.31 9.68961L8.32 9.67961L8.63 9.99961L10.05 8.58961ZM13.943 8.61661L18.348 4.22461L19.76 5.63961L15.355 10.0326L13.943 8.61661ZM10.01 15.3596L8.59 13.9496L4.56 17.9596L4.24 18.2896L5.65 19.6996L9.68 15.6796L10.01 15.3596ZM19.76 18.2996L15.77 14.2896L15.41 13.9396L14 15.3496L17.99 19.3596L18.34 19.7096L19.76 18.2996Z" fill="black"/>
-						<path d="M12 6C13.1046 6 14 5.10457 14 4C14 2.89543 13.1046 2 12 2C10.8954 2 10 2.89543 10 4C10 5.10457 10.8954 6 12 6Z" fill="black"/>
-					</svg>
-					<p>Вышлют каталоги декоров и образцы продукции</p>
-				</li>
-				<li>
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M22 5V7H19V10H17V7H14V5H17V2H19V5H22ZM19 19H5V5H11V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V13H19V19ZM15 13V17H17V13H15ZM11 17H13V9H11V17ZM9 17V11H7V17H9Z" fill="black"/>
-					</svg>
-					<p>Предоставят все необходимые сертификаты</p>
-				</li>
-				<li>
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M22 5V7H19V10H17V7H14V5H17V2H19V5H22ZM19 19H5V5H11V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V13H19V19ZM15 13V17H17V13H15ZM11 17H13V9H11V17ZM9 17V11H7V17H9Z" fill="black"/>
-					</svg>
-					<p>Произведут точный расчет объемов по вашему проекту</p>
-				</li>
-				<li>
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M22 5V7H19V10H17V7H14V5H17V2H19V5H22ZM19 19H5V5H11V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V13H19V19ZM15 13V17H17V13H15ZM11 17H13V9H11V17ZM9 17V11H7V17H9Z" fill="black"/>
-					</svg>
-					<p>Рассчитают сроки производства и поставки продукции на Ваш объект</p>
-				</li>
-			</ul>
-			<form action="#" method="post" class="specialists-form">
-				<label class="label">
-					<span>Телефон</span>
-					<input type="tel" name="phone" class="input input-border masked" placeholder="+7 (000) 000-00-00" required />
-				</label>
-				<button class="btn btn-sm btn-red">Получить консультацию</button>
-			</form>
-		</div>
-		<div class="specialists-grid">
-			<div class="specialists-grid__bg"></div>
-			<div class="specialists-grid__list">
-				<div class="specialists-item">
-					<img src="https://laspan.ru/wp-content/themes/laspan/img/spec1.jpg" alt="" loading="lazy" class="specialists-item__photo">
-					<div class="specialists-item__info">
-						<b>Тимур Гильманов</b>
-						<p>Руководитель отдела продаж</p>
-						<a href="mailto:tg.manager@laspan.ru">tg.manager@laspan.ru</a>
-					</div>
-				</div>
-				<div class="specialists-item">
-					<img src="https://laspan.ru/wp-content/themes/laspan/img/spec2.webp" alt="" loading="lazy" class="specialists-item__photo">
-					<div class="specialists-item__info">
-						<b>Светлана Данилова</b>
-						<p>Специалист отдела продаж</p>
-						<a href="mailto:zakaz023@laspan.ru">zakaz023@laspan.ru</a>
-					</div>
-				</div>
-				<div class="specialists-item">
-					<img src="https://laspan.ru/wp-content/themes/laspan/img/specnew3.jpg" alt="" loading="lazy" class="specialists-item__photo">
-					<div class="specialists-item__info">
-						<b>Розалина Сагитова</b>
-						<p>Специалист отдела продаж</p>
-						<a href="mailto:zakaz03@laspan.ru">zakaz03@laspan.ru</a>
-					</div>
-				</div>
-				<div class="specialists-item">
-					<img src="https://laspan.ru/wp-content/themes/laspan/img/specnew4.jpg" alt="" loading="lazy" class="specialists-item__photo">
-					<div class="specialists-item__info">
-						<b>Ирина Бывшева</b>
-						<p>Специалист отдела продаж</p>
-						<a href="mailto:akaz06@laspan.ru">zakaz06@laspan.ru</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+{% include 'sections/specialists.html' %}
 
 {% endblock %}
