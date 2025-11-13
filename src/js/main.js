@@ -685,6 +685,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateUI();
   }
+
+  document.addEventListener('change', (e) => {
+    const input = e.target;
+    if (input.type !== 'file') return;
+
+    const label = input.closest('.label-file');
+    if (!label) return;
+
+    const start = label.querySelector('.label-file__start');
+    const upload = label.querySelector('.label-file__upload');
+    const fileName = upload.querySelector('p');
+
+    if (input.files && input.files.length) {
+      start.classList.add('hide');
+      upload.classList.remove('hide');
+      fileName.textContent = input.files[0].name;
+    } else {
+      start.classList.remove('hide');
+      upload.classList.add('hide');
+      fileName.textContent = '';
+    }
+  });
 });
 
 function updateDropdownPos() {

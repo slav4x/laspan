@@ -217,8 +217,48 @@
 	</div>
 </section>
 
-расчет
-<br>
+<section class="section estimate">
+	<div class="container">
+		<img src="img/estimate-image.png" alt="" class="estimate-image" loading="lazy">
+		<div class="estimate-content">
+			<div class="section-head">
+				<h2 class="section-title">Есть проект,<br> нужен расчет?</h2>
+				<p class="section-description">Опишите проект и Ваши пожелания</p>
+			</div>
+			<form action="#" method="post" class="estimate-form">
+				<label class="label label-half">
+					<span>Ваше имя</span>
+					<input type="text" name="name" class="input" placeholder="Александр" />
+				</label>
+				<label class="label label-half">
+					<span>Телефон</span>
+					<input type="tel" name="phone" class="input masked" placeholder="+7 (000) 000-00-00" required />
+				</label>
+				<label class="label">
+					<span>Опишите проект</span>
+					<input type="text" name="text" class="input" placeholder="Опишите проект и Ваши пожелания" />
+				</label>
+				<div class="label">
+					<span>Добавить файл</span>
+					<label class="label-file">
+						<input type="file" name="file" />
+						<span class="label-file__start">
+							<b>Добавить файл</b>
+							<p>Общий размер файла не должен превышать 25 МБ</p>
+						</span>
+						<span class="label-file__upload hide">
+							<b>Файл выбран</b>
+							<p>название файла</p>
+						</span>
+					</label>
+				</div>
+				<button class="btn btn-md btn-yellow">Отправить</button>
+				<p class="estimate-form__agree">Заполняя эту форму вы даете согласие на <a href="#">обработку ваших персональных данных</a></p>
+			</form>
+		</div>
+	</div>
+</section>
+
 что о нас говорят
 
 {% endblock %}

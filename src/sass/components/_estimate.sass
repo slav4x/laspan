@@ -1,0 +1,30 @@
+.estimate
+	background: url(../img/estimate-bg.jpg) no-repeat center / cover
+	color: var(--color-white)
+	&-content
+		max-width: 660px
+		margin-left: auto
+		margin-right: 120px
+	&-form
+		margin-top: 60px
+		@include flexbox
+		gap: 20px
+		align-items: flex-start
+		&__agree
+			font-size: var(--font-size-sm)
+			line-height: 1.6
+			letter-spacing: -0.02em
+			font-weight: 500
+			color: rgba(255,255,255,.7)
+			a
+				color: #fff
+				border-bottom: 1px solid rgba(255,255,255,.3)
+		.label-half
+			flex: 1
+		.label
+			width: 100%
+	&-image
+		position: absolute
+		bottom: -125px
+		left: -60px
+		width: 926px
