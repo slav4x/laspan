@@ -707,6 +707,61 @@ document.addEventListener('DOMContentLoaded', () => {
       fileName.textContent = '';
     }
   });
+
+  const speakCarousel = document.querySelector('.speak-carousel');
+  const speakCurrentEl = document.querySelector('.speak-counter__current');
+  const speakTotalEl = document.querySelector('.speak-counter__total');
+  const speakProgressBar = document.querySelector('.speak-counter__progress span');
+  const speakArrowPrev = document.querySelector('.speak-arrows .splide__arrow--prev');
+  const speakArrowNext = document.querySelector('.speak-arrows .splide__arrow--next');
+
+  if (speakCarousel && speakCurrentEl && speakTotalEl && speakProgressBar) {
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const normalize = (i, n) => ((i % n) + n) % n;
+
+    const splide = new Splide(speakCarousel, {
+      type: 'loop',
+      perPage: 4,
+      perMove: 1,
+      arrows: false,
+      pagination: false,
+      speed: 600,
+      gap: 12,
+      breakpoints: {
+        768: {
+          perPage: 1,
+        },
+        974: {
+          perPage: 2,
+        },
+        1600: {
+          perPage: 3,
+        },
+      },
+    }).mount();
+
+    speakArrowPrev?.addEventListener('click', () => splide.go('<'));
+    speakArrowNext?.addEventListener('click', () => splide.go('>'));
+
+    const totalPages = splide.length || 1;
+    speakTotalEl.textContent = pad2(totalPages);
+
+    const setBar = (pct) => {
+      const clamped = Math.max(0, Math.min(100, Math.round(pct)));
+      speakProgressBar.style.width = clamped + '%';
+    };
+
+    const updateUI = () => {
+      const page = normalize(splide.index, totalPages) + 1;
+      speakCurrentEl.textContent = pad2(page);
+      const pct = (page / totalPages) * 100;
+      setBar(pct);
+    };
+
+    splide.on('mounted move', updateUI);
+
+    updateUI();
+  }
 });
 
 function updateDropdownPos() {
