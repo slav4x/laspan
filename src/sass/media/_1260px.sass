@@ -319,3 +319,26 @@
 			&__video
 				&::before
 					transform: translate(-50%, -50%) scale(0.8)
+
+	.doors
+		&-type
+			&-grid
+				flex-wrap: nowrap
+				overflow: auto
+				margin: 32px var(--pos-right) -30px
+				padding: 0 calc(var(--pos-right) * -1) 30px
+				&::-webkit-scrollbar
+					display: none
+			&-item
+				width: 320px
+				min-width: 320px
+				&__image
+					height: 360px
+				&__title
+					height: 60px
+				&__list li
+					padding-top: 10px
+					padding-bottom: 10px
+					background-position: top 10px right
+			&-bg
+				display: none
