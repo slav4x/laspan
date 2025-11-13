@@ -178,8 +178,45 @@
 
 {% include 'sections/warehouses.html' %}
 
-с кем мы работаем
-<br>
+<section class="section partners">
+	<div class="container">
+		<div class="partners-head">
+			<div class="section-head__counter">
+				<h2 class="section-title">С кем мы работаем</h2>
+			</div>
+			<div class="partners-arrows">
+				<button class="splide__arrow splide__arrow--prev">
+					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M6.88224 4.25565e-07L8 1.13697L2.23553 7.00048L8 12.863L6.88224 14L3.05965e-07 7.00048L6.88224 4.25565e-07Z" fill="currentColor"/>
+					</svg>
+				</button>
+				<div class="partners-counter">
+					<div class="partners-counter__current">01</div>
+					<div class="partners-counter__progress"><span style="width: 40%;"></span></div>
+					<div class="partners-counter__total">05</div>
+				</div>
+				<button class="splide__arrow splide__arrow--next">
+					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1.11776 14L-2.57602e-07 12.863L5.76447 6.99952L2.5496e-07 1.13697L1.11776 -3.00821e-07L8 6.99952L1.11776 14Z" fill="currentColor"/>
+					</svg>
+				</button>
+			</div>
+		</div>
+		<div class="partners-carousel splide">
+			<div class="splide__track">
+				<ul class="splide__list">
+					<li class="splide__slide">{% include 'components/partners-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/partners-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/partners-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/partners-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/partners-item.html' %}</li>
+					<li class="splide__slide">{% include 'components/partners-item.html' %}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
 расчет
 <br>
 что о нас говорят

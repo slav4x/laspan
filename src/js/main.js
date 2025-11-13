@@ -633,6 +633,58 @@ document.addEventListener('DOMContentLoaded', () => {
       recalc();
     }
   })();
+
+  const partnersCarousel = document.querySelector('.partners-carousel');
+  const partnersCurrentEl = document.querySelector('.partners-counter__current');
+  const partnersTotalEl = document.querySelector('.partners-counter__total');
+  const partnersProgressBar = document.querySelector('.partners-counter__progress span');
+  const partnersArrowPrev = document.querySelector('.partners-arrows .splide__arrow--prev');
+  const partnersArrowNext = document.querySelector('.partners-arrows .splide__arrow--next');
+
+  if (partnersCarousel && partnersCurrentEl && partnersTotalEl && partnersProgressBar) {
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const normalize = (i, n) => ((i % n) + n) % n;
+
+    const splide = new Splide(partnersCarousel, {
+      type: 'loop',
+      perPage: 3,
+      perMove: 1,
+      arrows: false,
+      pagination: false,
+      speed: 600,
+      gap: 12,
+      breakpoints: {
+        768: {
+          perPage: 1,
+        },
+        974: {
+          perPage: 2,
+        },
+      },
+    }).mount();
+
+    partnersArrowPrev?.addEventListener('click', () => splide.go('<'));
+    partnersArrowNext?.addEventListener('click', () => splide.go('>'));
+
+    const totalPages = splide.length || 1;
+    partnersTotalEl.textContent = pad2(totalPages);
+
+    const setBar = (pct) => {
+      const clamped = Math.max(0, Math.min(100, Math.round(pct)));
+      partnersProgressBar.style.width = clamped + '%';
+    };
+
+    const updateUI = () => {
+      const page = normalize(splide.index, totalPages) + 1;
+      partnersCurrentEl.textContent = pad2(page);
+      const pct = (page / totalPages) * 100;
+      setBar(pct);
+    };
+
+    splide.on('mounted move', updateUI);
+
+    updateUI();
+  }
 });
 
 function updateDropdownPos() {
