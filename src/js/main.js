@@ -783,6 +783,39 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     }).mount();
   }
+
+  const accessoriesCarousel = document.querySelector('.accessories-carousel');
+  const accessoriesArrowPrev = document.querySelector('.accessories-carousel__wrapper .splide__arrow--prev');
+  const accessoriesArrowNext = document.querySelector('.accessories-carousel__wrapper .splide__arrow--next');
+
+  if (accessoriesCarousel) {
+    const splide = new Splide(accessoriesCarousel, {
+      type: 'loop',
+      perPage: 4,
+      focus: 0,
+      omitEnd: true,
+      pagination: false,
+      gap: 24,
+      arrows: false,
+      breakpoints: {
+        576: {
+          perPage: 1,
+        },
+        974: {
+          perPage: 2,
+        },
+        1280: {
+          perPage: 3,
+        },
+        1600: {
+          gap: 12,
+        },
+      },
+    }).mount();
+
+    accessoriesArrowPrev?.addEventListener('click', () => splide.go('<'));
+    accessoriesArrowNext?.addEventListener('click', () => splide.go('>'));
+  }
 });
 
 function updateDropdownPos() {

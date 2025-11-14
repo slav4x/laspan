@@ -1,0 +1,71 @@
+.accessories
+	&-tabs
+		margin-top: 44px
+		@include flexbox
+		li
+			flex: 1
+			font-weight: 600
+			line-height: 18px
+			padding: 20px
+			border-bottom: 1px solid rgba(0,0,0,.17)
+			transition: var(--transition-ms)
+			cursor: pointer
+			text-align: center
+			&.active
+				color: var(--color-red)
+				border-color: var(--color-red)
+	&-tab
+		margin-top: 44px
+		display: none
+		&.active
+			display: block
+	&-item
+		display: block
+		&__image
+			width: 100%
+			height: 410px
+			padding: 60px
+			@include flexbox
+			align-items: center
+			justify-content: center
+			background: var(--color-gray)
+			img
+				max-height: 100%
+		&__price
+			margin-top: 32px
+			font-size: var(--font-size-md)
+			font-weight: 700
+		&__name
+			opacity: 0.7
+			margin-top: 12px
+			font-weight: 500
+	&-carousel
+		&__wrapper
+			position: relative
+			.splide
+				&__arrow
+					width: 90px
+					height: 90px
+					border-radius: 0
+					background: #fff
+					opacity: 1 !important
+					transition: var(--transition-ms)
+					color: var(--color-black)
+					position: absolute
+					top: 160px
+					transform: none
+					background: #fff
+					border: 1px solid rgba(0,0,0,.17)
+					color: var(--color-black)
+					&--next
+						right: -40px
+					&--prev
+						left: -40px
+					&:hover
+						background: var(--color-red)
+						color: var(--color-white)
+					svg
+						display: block
+						width: 10px
+						height: 18px
+						transform: none
