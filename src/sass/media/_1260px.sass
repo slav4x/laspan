@@ -342,6 +342,19 @@
 					background-position: top 10px right
 			&-bg
 				display: none
+		&-edu
+			&-grid
+				flex-wrap: nowrap
+				overflow: auto
+				margin: 32px var(--pos-right) -30px
+				padding: 0 calc(var(--pos-right) * -1) 30px
+				&::-webkit-scrollbar
+					display: none
+			&-item
+				width: 320px
+				min-width: 320px
+				&__image
+					height: 430px
 
 	.gallery
 		&-carousel
