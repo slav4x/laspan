@@ -784,12 +784,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }).mount();
   }
 
-  const accessoriesCarousel = document.querySelector('.accessories-carousel');
-  const accessoriesArrowPrev = document.querySelector('.accessories-carousel__wrapper .splide__arrow--prev');
-  const accessoriesArrowNext = document.querySelector('.accessories-carousel__wrapper .splide__arrow--next');
+  const accessoriesTabs = document.querySelectorAll('.accessories-tabs li');
+  const accessoriesTabBlocks = document.querySelectorAll('.accessories-tab');
 
-  if (accessoriesCarousel) {
-    const splide = new Splide(accessoriesCarousel, {
+  const accessoriesSliderInstances = new Map();
+
+  accessoriesTabBlocks.forEach((tabBlock) => {
+    const tabId = tabBlock.dataset.tab;
+    const wrapper = tabBlock.querySelector('.accessories-carousel__wrapper');
+    const carousel = wrapper.querySelector('.splide');
+    const prev = wrapper.querySelector('.splide__arrow--prev');
+    const next = wrapper.querySelector('.splide__arrow--next');
+
+    if (!carousel) return;
+
+    const splide = new Splide(carousel, {
       type: 'loop',
       perPage: 4,
       focus: 0,
@@ -798,24 +807,37 @@ document.addEventListener('DOMContentLoaded', () => {
       gap: 24,
       arrows: false,
       breakpoints: {
-        576: {
-          perPage: 1,
-        },
-        974: {
-          perPage: 2,
-        },
-        1280: {
-          perPage: 3,
-        },
-        1600: {
-          gap: 12,
-        },
+        576: { perPage: 1 },
+        974: { perPage: 2 },
+        1280: { perPage: 3 },
+        1600: { gap: 12 },
       },
     }).mount();
 
-    accessoriesArrowPrev?.addEventListener('click', () => splide.go('<'));
-    accessoriesArrowNext?.addEventListener('click', () => splide.go('>'));
-  }
+    accessoriesSliderInstances.set(tabId, splide);
+
+    prev?.addEventListener('click', () => splide.go('<'));
+    next?.addEventListener('click', () => splide.go('>'));
+  });
+
+  accessoriesTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const id = tab.dataset.id;
+
+      accessoriesTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      accessoriesTabBlocks.forEach((block) => {
+        block.classList.toggle('active', block.dataset.tab === id);
+      });
+
+      const activeSlider = accessoriesSliderInstances.get(id);
+      if (activeSlider) {
+        activeSlider.refresh();
+        activeSlider.go(0);
+      }
+    });
+  });
 });
 
 function updateDropdownPos() {
