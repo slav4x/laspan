@@ -1,0 +1,33 @@
+.gallery
+	&-carousel
+		margin-top: 44px
+		.splide__track
+			overflow: inherit
+		&__item
+			display: block
+			position: relative
+			height: 670px
+			width: 100%
+			overflow: hidden
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+				object-position: center
+				transition: var(--transition-ms)
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				z-index: 5
+				background: rgba(0,0,0,.3) url("data:image/svg+xml,%3Csvg width='42' height='42' viewBox='0 0 42 42' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.1001 20.475H24.8501' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20.4751 24.85V16.1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20.125 36.75C29.3067 36.75 36.75 29.3067 36.75 20.125C36.75 10.9433 29.3067 3.5 20.125 3.5C10.9433 3.5 3.5 10.9433 3.5 20.125C3.5 29.3067 10.9433 36.75 20.125 36.75Z' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M38.5 38.5L35 35' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat center
+				opacity: 0
+				transition: var(--transition-ms)
+			&:hover
+				img
+					transform: scale(1.06)
+				&::before
+					opacity: 1

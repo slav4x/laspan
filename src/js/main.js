@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const promoCarousel = document.querySelector('.promo-carousel');
+  const promoCarousel = document.querySelector('.promo-carousel:not(.no-carousel)');
   const promoArrowPrev = document.querySelector('.promo-control__arrows .splide__arrow--prev');
   const promoArrowNext = document.querySelector('.promo-control__arrows .splide__arrow--next');
   const promoNextText = document.querySelector('.promo-control__next p');
@@ -761,6 +761,27 @@ document.addEventListener('DOMContentLoaded', () => {
     splide.on('mounted move', updateUI);
 
     updateUI();
+  }
+
+  const galleryCarousel = document.querySelector('.gallery-carousel');
+  if (galleryCarousel) {
+    new Splide(galleryCarousel, {
+      type: 'loop',
+      perPage: 1,
+      focus: 0,
+      omitEnd: true,
+      pagination: false,
+      gap: 36,
+      arrows: false,
+      breakpoints: {
+        1280: {
+          gap: 12,
+        },
+        1600: {
+          gap: 24,
+        },
+      },
+    }).mount();
   }
 });
 
