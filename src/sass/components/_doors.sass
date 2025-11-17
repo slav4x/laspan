@@ -218,3 +218,67 @@
 				font-weight: 700
 				span
 					font-size: 32px
+	&-hidden
+		background: url(../img/doors-hidden-bg.jpg) no-repeat center / cover
+		color: #fff
+		overflow: hidden
+		&-content
+			max-width: 920px
+			position: relative
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 60px
+			.section-title span
+				color: var(--color-yellow)
+			&::before
+				content: ''
+				position: absolute
+				top: -325px
+				bottom: -325px
+				left: calc(var(--pos-right) - 200px)
+				right: -40px
+				background: rgba(0,0,0,.8)
+				z-index: -1
+				transform: rotate(10deg)
+			.section-description
+				max-width: 480px
+				a
+					color: var(--color-yellow)
+					border-bottom: 1px solid var(--color-yellow)
+		&-list
+			width: 100%
+			max-width: 620px
+			li
+				@include flexbox
+				align-items: flex-start
+				gap: 12px
+				font-weight: 500
+				margin-bottom: 24px
+				&:last-child
+					margin-bottom: 0
+				span
+					display: block
+					width: 240px
+					opacity: 0.8
+				p
+					flex: 1
+					font-weight: 600
+		&-total
+			@include flexbox
+			align-items: center
+			width: 100%
+			gap: 40px
+			max-width: 800px
+			.btn
+				flex: 1
+			&__price
+				b
+					font-size: 38px
+					font-weight: 700
+					span
+						font-size: 52px
+						font-weight: 600
+				p
+					margin-top: 14px
+					font-weight: 500
