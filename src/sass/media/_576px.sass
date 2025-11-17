@@ -91,6 +91,55 @@
 				li
 					span
 						width: 100%
+		&-reliable
+			&-grid
+				margin-top: 24px
+			&-left
+				order: 1
+				&__col
+					flex: 1
+					width: auto !important
+					&:nth-child(2)
+						flex-direction: column
+						.doors-reliable-left__item
+							width: 100%
+							height: auto
+				&__item
+					height: 100%
+					img
+						max-height: 100%
+						height: auto
+						flex: 1
+					b
+						margin-top: 16px
+			&-right
+				margin: 0 0 24px
+				&__image
+					img
+						max-height: 320px
+				&__list
+					max-width: 180px
+					margin-left: 20px
+				&__item-1
+					margin-top: 20px
+					&::before
+						left: -174px
+				&__item-2
+					margin-top: 20px
+					&::before
+						left: -110px
+				&__item-3
+					margin-top: 10px
+					&::before
+						left: -160px
+				&__item-4
+					margin-top: 10px
+					&::before
+						left: -120px
+				&__item-5
+					margin-top: 10px
+					&::before
+						left: -80px
 
 	.accessories
 		&-tabs

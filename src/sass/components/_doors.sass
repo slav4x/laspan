@@ -282,3 +282,96 @@
 				p
 					margin-top: 14px
 					font-weight: 500
+	&-reliable
+		&-grid
+			margin-top: 44px
+			@include flexbox
+		&-left
+			@include flexbox
+			gap: 32px
+			width: 100%
+			max-width: 732px
+			&__col
+				flex: 1
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				gap: 32px
+			&__item
+				flex: 1
+				width: 100%
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				img
+					width: 100%
+					flex: 1
+					max-height: 800px
+					object-fit: cover
+					object-position: center
+				b
+					margin-top: 32px
+					font-weight: 700
+					max-width: 80%
+				p
+					margin-top: 12px
+					opacity: 0.7
+					font-weight: 500
+		&-right
+			max-width: 810px
+			width: 100%
+			margin-left: auto
+			@include flexbox
+			align-items: flex-start
+			&__image
+				padding: 20px
+				background: var(--color-gray)
+				img
+					margin: 0 auto
+			&__list
+				max-width: 320px
+				margin-left: 60px
+				li
+					position: relative
+					b
+						font-weight: 700
+					p
+						margin-top: 8px
+						font-weight: 500
+						opacity: 0.7
+					&::before
+						content: ''
+						position: absolute
+						top: 5px
+						right: calc(100% + 30px)
+						background-image: url("data:image/svg+xml,%3Csvg width='500' height='10' viewBox='0 0 500 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5H500' stroke='%23E31E24' stroke-width='2' stroke-dasharray='6 6'/%3E%3Crect width='10' height='10' rx='5' fill='%23E31E24'/%3E%3C/svg%3E%0A")
+						height: 10px
+					&::after
+						content: ''
+						position: absolute
+						top: 5px
+						left: -30px
+						width: 10px
+						height: 10px
+						background: #E31E24
+						border-radius: 100%
+			&__item-1
+				margin-top: 80px
+				&::before
+					left: -466px
+			&__item-2
+				margin-top: 80px
+				&::before
+					left: -390px
+			&__item-3
+				margin-top: 140px
+				&::before
+					left: -410px
+			&__item-4
+				margin-top: 110px
+				&::before
+					left: -310px
+			&__item-5
+				margin-top: 90px
+				&::before
+					left: -210px
