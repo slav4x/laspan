@@ -47,6 +47,35 @@
 				margin-top: 24px
 			&-budget
 				width: 100%
+		&-detail
+			&-left
+				padding: 16px
+			&-list
+				li
+					gap: 8px
+					margin-bottom: 16px
+					span
+						width: 180px
+			&-types
+				width: 100%
+				margin-top: 30px
+				order: 1
+				&__title
+					margin-bottom: 16px
+				&__list
+					@include flexbox
+					gap: 12px
+					li
+						margin: 0
+						padding: 12px
+						flex: 1
+						min-width: 40%
+						svg
+							height: 72px
+			&-view
+				max-width: 100%
+				&__image
+					height: 320px
 
 	.accessories
 		&-tabs
