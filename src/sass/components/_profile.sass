@@ -30,3 +30,111 @@
 				top: 0
 				right: 0
 				max-height: 100%
+	&-item
+		min-height: 800px
+		@include flexbox
+		&:nth-child(2n)
+			.profile-item__image
+				order: 1
+		&__image, &__content
+			width: 50%
+		&__image
+			background: var(--color-gray)
+			img
+				margin-left: auto
+				max-height: 100%
+		&__content
+			padding: 40px 100px
+			@include flexbox
+			align-items: flex-start
+			flex-direction: column
+			justify-content: space-between
+			gap: 32px
+		&__grid
+			@include flexbox
+			align-items: flex-start
+			gap: 32px
+			width: 100%
+		&__info
+			flex: 1
+			&-title
+				font-size: var(--font-size-md)
+				font-weight: 700
+				line-height: 1.1
+				margin-bottom: 20px
+			&-spec
+				li
+					margin-bottom: 16px
+					&:last-child
+						margin-bottom: 0
+					span
+						opacity: 0.6
+						font-weight: 500
+					p
+						margin-top: 4px
+						font-weight: 500
+			&-decor
+				@include flexbox
+				align-items: center
+				gap: 8px
+				margin-top: 24px
+				a
+					display: block
+					position: relative
+					&:hover
+						span
+							opacity: 1
+				img
+					width: 36px
+					height: 36px
+					border-radius: 100%
+					object-fit: cover
+					object-position: center
+				span
+					background: #f5f5f5
+					position: absolute
+					top: calc(100% + 4px)
+					left: 50%
+					transform: translateX(-50%)
+					z-index: 10
+					width: max-content
+					padding: 4px
+					font-size: var(--font-size-xxs)
+					line-height: 16px
+					opacity: 0
+					pointer-events: none
+					transition: var(--transition-ms)
+					font-weight: 500
+					color: var(--color-black) !important
+		&__pics
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 12px
+			max-width: 330px
+			// flex: 1
+			width: 100%
+			img
+				width: 100%
+				padding: 10px
+				border: 1px dashed #E4E4E4
+		&__total
+			@include flexbox
+			align-items: flex-end
+			justify-content: space-between
+			gap: 24px
+			width: 100%
+			&-price
+				b
+					font-size: 40px
+					font-weight: 600
+					span
+						font-size: var(--font-size-md)
+						font-weight: 700
+				p
+					font-size: var(--font-size-sm)
+					opacity: 0.7
+					margin-top: 12px
+			.btn
+				flex: 1
+				max-width: 330px

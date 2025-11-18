@@ -434,3 +434,44 @@
 							right: -20px
 						&--prev
 							left: -20px
+
+	.profile
+		&-item
+			position: relative
+			&__info
+				position: relative
+				&-title
+					margin-bottom: 16px
+				&-decor
+					margin: 0
+					position: absolute
+					bottom: 0
+					right: 0
+					flex-direction: column
+			&__pics
+				@include flexbox
+				flex-direction: row
+				align-items: stretch
+				max-width: 50%
+				padding: 40px
+				position: absolute
+				bottom: 0
+				left: 0
+				img
+					min-width: 40%
+					flex: 1
+					padding: 10px
+					max-height: 200px
+					border: 1px dashed #E4E4E4
+					background: #fff
+					object-fit: scale-down
+					object-position: center
+			&__total
+				.btn
+					flex: initial
+					width: 100%
+					max-width: 100%
+			&:nth-child(2n)
+				.profile-item__pics
+					left: initial
+					right: 0
