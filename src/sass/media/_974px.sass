@@ -429,3 +429,18 @@
 					width: 190px
 					flex: initial
 					height: 150px
+		&-type
+			&-right
+				width: 100%
+			&-group
+				.profile-type-item
+					width: calc((100% - (3 * 8px)) / 4)
+			&-free
+				margin-top: 40px
+				@include flexbox
+				align-items: flex-start
+				justify-content: space-between
+				.btn
+					flex: 1
+					max-width: 320px
+					margin: 0

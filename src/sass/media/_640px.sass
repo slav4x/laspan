@@ -1,0 +1,53 @@
+@media(max-width: 640px)
+	.profile
+		&-type
+			&-grid
+				gap: 4px
+				margin-top: 24px
+			&-left
+				width: 100%
+				gap: 4px
+				flex-direction: row
+				align-items: stretch
+				.profile-type-item
+					width: calc((100% - (2 * 4px)) / 3)
+					img
+						height: 88px
+						margin: 0 auto !important
+			&-middle
+				order: -1
+				height: 320px
+				overflow: hidden
+				img
+					width: 610px
+					position: absolute
+					top: 0
+					right: 0
+					max-width: initial
+				&__number
+					&[data-type="1"]
+						top: 25px
+						right: 40px
+					&[data-type="2"]
+						top: 120px
+						right: 184px
+					&[data-type="3"]
+						top: 280px
+						right: 10px
+					&[data-type="4"]
+						top: 180px
+						right: 16px
+			&-free
+				display: none
+			&-group
+				padding: 0
+				box-shadow: none
+				gap: 4px
+				.profile-type-item
+					width: calc((100% - (1 * 4px)) / 2)
+			&-item
+				&__info
+					b
+						font-size: 12px
+					p
+						font-size: 10px

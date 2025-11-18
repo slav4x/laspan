@@ -838,6 +838,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  const selectors = ['.profile-type-middle__number', '.profile-type-item'];
+
+  function queryByType(type) {
+    return document.querySelectorAll(selectors.map((s) => `${s}[data-type="${type}"]`).join(','));
+  }
+
+  selectors.forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        queryByType(el.dataset.type).forEach((i) => i.classList.add('active'));
+      });
+
+      el.addEventListener('mouseleave', () => {
+        queryByType(el.dataset.type).forEach((i) => i.classList.remove('active'));
+      });
+    });
+  });
 });
 
 function updateDropdownPos() {
