@@ -1,0 +1,49 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Система профилей' %}
+
+{% block content %}
+
+<section class="promo profile-promo">
+	<div class="promo-carousel no-carousel">
+		<div class="promo-item">
+			<div class="container">
+				<div class="promo-item__content">
+					<h1 class="section-title">Система профилей<br> для <span>монтажа<br> стеновых панелей</span></h1>
+					<ul class="promo-item__bullets shadow">
+						<li>Анодированный алюминий</li>
+						<li>Окрашенный по RAL алюминий</li>
+						<li>Окрашенный по RAL метал</li>
+					</ul>
+					<p class="promo-item__text"><b>Расчитаем объёмы<br> по Вашим ТЗ и планировкам</b></p>
+					<a href="#" class="btn btn-sm btn-yellow">Получить расчет</a>
+				</div>
+				<div class="profile-promo__items">
+					<div class="profile-promo__item">
+						<img src="img/profile-promo-01.png" alt="">
+						<p>L-профиль</p>
+					</div>
+					<div class="profile-promo__item">
+						<img src="img/profile-promo-02.png" alt="">
+						<p>Омега+Т-профиль</p>
+					</div>
+					<div class="profile-promo__item">
+						<img src="img/profile-promo-03.png" alt="">
+						<p>Омега+ПИ-профиль</p>
+					</div>
+					<div class="profile-promo__item">
+						<img src="img/profile-promo-04.png" alt="">
+						<p>F-профиль</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include 'sections/objects.html' %}
+
+{% include 'sections/installation.html' %}
+
+{% include 'sections/estimate.html' %}
+
+{% endblock %}

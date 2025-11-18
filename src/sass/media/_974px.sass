@@ -16,6 +16,7 @@
 			top: 15px
 			left: 15px
 			margin: 0
+			z-index: 5
 		&-bottom
 			&__nav
 				li
@@ -389,3 +390,16 @@
 				justify-content: center
 				padding: 15px 0
 				margin-top: 24px
+
+	.profile
+		&-promo
+			height: auto
+			&__items
+				flex: initial
+				order: 2
+				width: 100%
+				padding: 0
+				padding-bottom: 40px
+			&__item
+				width: calc((100% - (3 * 12px)) / 4)
+				height: 200px

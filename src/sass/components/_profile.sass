@@ -1,0 +1,32 @@
+.profile
+	&-promo
+		background: #fff
+		&__items
+			margin-right: var(--pos-right)
+			// max-width: 1112px
+			flex: 1
+			padding: 12px
+			@include flexbox
+			align-items: flex-start
+			gap: 12px
+		&__item
+			background: var(--color-gray)
+			height: calc(100% / 2 - 6px)
+			width: calc(100% / 2 - 6px)
+			padding: 16px
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			justify-content: flex-end
+			position: relative
+			overflow: hidden
+			p
+				opacity: 0.7
+				position: relative
+				z-index: 10
+				font-weight: 500
+			img
+				position: absolute
+				top: 0
+				right: 0
+				max-height: 100%
