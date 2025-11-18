@@ -179,3 +179,19 @@
 				padding: 0
 				img
 					width: calc(100% / 2 - 6px)
+
+	.paneli
+		&-content
+			&__cards
+				flex-wrap: nowrap
+				overflow: auto
+				width: calc(100% + 30px)
+				padding: 0 15px
+				margin-left: -15px
+				margin-right: -15px
+				gap: 12px
+				&::-webkit-scrollbar
+					display: none
+				li
+					width: 360px
+					min-width: 360px

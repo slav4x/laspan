@@ -444,3 +444,18 @@
 					flex: 1
 					max-width: 320px
 					margin: 0
+
+	.paneli
+		&-content
+			&__top
+				.container
+					flex-wrap: nowrap
+					overflow: auto
+					gap: 12px
+					white-space: nowrap
+					max-width: 100% !important
+					padding: 0 calc(var(--pos-right) * -1)
+					&::-webkit-scrollbar
+						display: none
+				&-tabs
+					flex-wrap: nowrap
