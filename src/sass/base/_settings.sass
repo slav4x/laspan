@@ -211,3 +211,48 @@ input, textarea
 
 .no-scroll
     overflow: hidden
+
+.breadcrumbs
+    min-height: 345px
+    position: relative
+    padding: 160px 0 60px
+    color: #fff
+    overflow: hidden
+    &::after
+        content: ''
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        width: 777px
+        height: 600px
+        background: url(../img/svg/breadcrumbs-pattern.svg) no-repeat / cover
+    &-bg-image
+        &::before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            background: #000
+            opacity: 0.8
+    &-nav
+        font-size: var(--font-size-sm)
+        font-weight: 500
+        color: rgba(255,255,255,.7)
+        li
+            display: inline-block
+            a
+                display: inline-block
+                transition: var(--transition-ms)
+                &:hover
+                    color: #fff
+            &::after
+                content: '>'
+                display: inline-block
+                margin: 0 12px
+            &:last-child::after
+                display: none
+    &-title
+        margin-top: 24px
