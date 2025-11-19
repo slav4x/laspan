@@ -856,6 +856,43 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  const paneliCarousel = document.querySelector('.paneli-card__gallery');
+  if (paneliCarousel) {
+    const thumbs = new Splide('.paneli-card__gallery-thumbs', {
+      type: 'loop',
+      rewind: true,
+      pagination: false,
+      arrows: false,
+      isNavigation: true,
+      perPage: 9,
+      drag: 'free',
+      snap: true,
+      keyboard: 'global',
+      speed: 500,
+      gap: 12,
+      breakpoints: {
+        1280: { perPage: 6 },
+      },
+    });
+
+    const main = new Splide('.paneli-card__gallery-main', {
+      type: 'loop',
+      rewind: true,
+      pagination: false,
+      arrows: false,
+      autoplay: false,
+      pauseOnHover: true,
+      keyboard: 'global',
+      autoHeight: true,
+      speed: 1000,
+    });
+
+    main.sync(thumbs);
+
+    main.mount();
+    thumbs.mount();
+  }
 });
 
 function updateDropdownPos() {
