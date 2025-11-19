@@ -245,3 +245,16 @@
 					transform: scale(1)
 				.objects-section__item-description-wrapper
 					max-height: 400px
+	&-breadcrumbs
+		max-height: 780px
+		height: 100vh
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+		padding: 40px 0 !important
+		@include flexbox
+		flex-direction: column
+		align-items: flex-start
+		justify-content: flex-end
+		&::after
+			display: none

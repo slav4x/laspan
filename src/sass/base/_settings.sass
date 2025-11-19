@@ -228,6 +228,9 @@ input, textarea
         height: 600px
         background: url(../img/svg/breadcrumbs-pattern.svg) no-repeat / cover
     &-bg-image
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
         &::before
             content: ''
             position: absolute
@@ -241,10 +244,11 @@ input, textarea
         font-size: var(--font-size-sm)
         font-weight: 500
         color: rgba(255,255,255,.7)
+        display: inline
         li
-            display: inline-block
+            display: inline
             a
-                display: inline-block
+                display: inline
                 transition: var(--transition-ms)
                 &:hover
                     color: #fff
