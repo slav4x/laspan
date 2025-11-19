@@ -155,3 +155,93 @@
 							color: var(--color-red)
 	& + .laspan
 		padding-top: 0 !important
+
+	&-section
+		&__grid
+			margin-top: 44px
+			@include flexbox
+			align-items: flex-start
+			gap: 24px
+		&__item
+			position: relative
+			height: 660px
+			overflow: hidden
+			@include flexbox
+			flex-direction: column
+			justify-content: flex-end
+			&::after
+				content: ''
+				position: absolute
+				bottom: 40px
+				right: 40px
+				width: 52px
+				height: 52px
+				background: #fff url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.30242 0.198855C6.57808 -0.0662849 7.02584 -0.0662849 7.3015 0.198855L11.7933 4.51997C12.0689 4.78511 12.0689 5.21489 11.7933 5.48003L7.3015 9.80115C7.02584 10.0663 6.57808 10.0663 6.30242 9.80115C6.02675 9.53601 6.02675 9.10535 6.30242 8.84021L9.59012 5.67893H0V4.32107H9.59012L6.30242 1.15979C6.02675 0.894651 6.02675 0.463994 6.30242 0.198855Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat center
+				border-radius: 100%
+				z-index: 4
+				transition: var(--transition-ms)
+				transform: scale(0)
+			img
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				z-index: -2
+				object-fit: cover
+				object-position: center
+			&:nth-child(4n + 1),
+			&:nth-child(4n)
+				width: calc(100% - 660px - 24px)
+			&:nth-child(4n + 2),
+			&:nth-child(4n + 3)
+				width: 660px
+			&::before
+				content: ''
+				position: absolute
+				top: 30%
+				left: 0
+				width: 100%
+				height: 100%
+				z-index: -1
+				background: linear-gradient(180deg, rgba(0, 0, 0, 0) 39.06%, rgba(0, 0, 0, 0.7) 100%)
+				transition: var(--transition-ms)
+			&-info
+				width: 100%
+				padding: 40px
+				color: #fff
+				max-width: 740px
+			&-title
+				font-size: 36px
+				font-weight: 600
+				line-height: 1.2
+				&::before
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
+					z-index: 10
+			&-description
+				line-height: 1.6
+				font-weight: 500
+				padding-top: 16px
+				&-wrapper
+					overflow: hidden
+					max-height: 0
+					transition: calc(var(--transition-ms) * 2)
+			&-date
+				font-weight: 500
+				color: rgba(255,255,255,.7)
+				line-height: 1.6
+				margin-top: 16px
+				span
+					color: #fff
+			&:hover
+				&::before
+					top: 0
+				&::after
+					transform: scale(1)
+				.objects-section__item-description-wrapper
+					max-height: 400px

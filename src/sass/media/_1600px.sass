@@ -242,6 +242,29 @@
 				font-size: 20px
 			&__gallery
 				min-height: 625px
+		&-section
+			&__grid
+				margin-top: 32px
+			&__item
+				height: 480px
+				&:nth-child(4n + 1),
+				&:nth-child(4n)
+					width: calc(100% - 480px - 24px)
+				&:nth-child(4n + 2),
+				&:nth-child(4n + 3)
+					width: 480px
+				&-info
+					padding: 32px
+					max-width: 600px
+				&-title
+					font-size: 28px
+				&-description
+					padding-top: 12px
+				&-date
+					margin-top: 12px
+				&::after
+					bottom: 32px
+					right: 32px
 
 	.get-samples
 		&-content
