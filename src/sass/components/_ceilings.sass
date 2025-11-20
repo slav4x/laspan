@@ -267,3 +267,100 @@
 					font-weight: 700
 					position: relative
 					z-index: 5
+	&-hero
+		padding: 80px 0
+		background: #F5F5F5
+		position: relative
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			background: #1D2C34
+			width: calc(490px + (var(--pos-right) * -1))
+		.container
+			@include flexbox
+			align-items: center
+			justify-content: space-between
+			gap: 32px
+		&-content
+			max-width: 880px
+			flex: 1
+			width: 100%
+			.section-head
+				max-width: 600px
+			.section-title
+				span
+					color: var(--color-red)
+		&-samples
+			margin-top: 60px
+			background: #162228 url(../img/ceilings-hero-samples-bg.jpg) no-repeat center / cover
+			padding: 40px
+			color: var(--color-white)
+			position: relative
+			&__title
+				font-size: 32px
+				font-weight: 700
+				max-width: 420px
+			&__description
+				margin-top: 24px
+				max-width: 260px
+				line-height: 1.3
+			.btn
+				margin-top: 32px
+				max-width: 320px
+			&__image
+				width: 362px
+				position: absolute
+				top: 60px
+				right: 60px
+				max-width: initial
+		&-carousel
+			max-width: 720px
+			width: 100%
+			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
+			background: #fff
+			margin-right: 20px
+			position: relative
+			&__item
+				padding: 24px
+				img
+					width: 100%
+					height: 600px
+					object-fit: cover
+					object-position: center
+				b
+					display: block
+					margin-top: 24px
+					font-weight: 700
+				p
+					margin-top: 12px
+					font-weight: 500
+					opacity: 0.7
+			&__arrows
+				.splide
+					&__arrow
+						width: 90px
+						height: 90px
+						border-radius: 0
+						opacity: 1 !important
+						transition: var(--transition-ms)
+						color: var(--color-black)
+						&--next
+							right: -30px
+							background: var(--color-red)
+							color: var(--color-white)
+							&:hover
+								background: var(--color-red-hover) !important
+						&--prev
+							left: -30px
+							background: #fff
+							border: 1px solid #D4D4D4
+							&:hover
+								background: #D6D6D6 !important
+						svg
+							display: block
+							width: 10px
+							height: 18px
+							transform: none

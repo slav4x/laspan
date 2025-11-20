@@ -977,6 +977,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateUI();
   }
+
+  const ceilingsHeroCarousel = document.querySelector('.ceilings-hero-carousel');
+
+  if (ceilingsHeroCarousel) {
+    const splide = new Splide(ceilingsHeroCarousel, {
+      type: 'loop',
+      perPage: 1,
+      pagination: false,
+      speed: 600,
+    }).mount();
+  }
 });
 
 function updateDropdownPos() {

@@ -532,3 +532,23 @@
 			&-list
 				li
 					width: calc((100% - (1 * 8px)) / 2)
+		&-hero
+			padding: 60px 0 30px
+			&::after
+				left: var(--pos-right)
+				width: calc(100% + (var(--pos-right) * -2))
+				top: initial
+				height: 180px
+			&-content
+				max-width: 100%
+				flex: initial
+			&-samples
+				margin-top: 24px
+				max-width: 100%
+			&-carousel
+				max-width: 100%
+				width: calc(100% - 60px)
+				margin: 0 30px
+				&__item
+					img
+						height: 210px

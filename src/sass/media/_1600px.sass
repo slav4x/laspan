@@ -1010,3 +1010,46 @@
 					img
 						transform: translateX(-50%) scale(0.7)
 						transform-origin: bottom center
+		&-hero
+			&::after
+				width: calc(290px + (var(--pos-right) * -1))
+			.container
+				gap: 24px
+			&-content
+				max-width: 540px
+			&-samples
+				margin-top: 44px
+				padding: 24px
+				&__title
+					font-size: 22px
+					max-width: 260px
+				&__description
+					margin-top: 16px
+				.btn
+					margin-top: 20px
+					max-width: 200px
+				&__image
+					width: 230px
+					top: 40px
+					right: 40px
+			&-carousel
+				max-width: 420px
+				margin-right: 60px
+				&__item
+					padding: 16px
+					img
+						height: 380px
+					b
+						margin-top: 16px
+					p
+						margin-top: 8px
+				&__arrows
+					.splide
+						&__arrow
+							width: 70px
+							height: 70px
+							svg
+								display: block
+								width: 10px
+								height: 18px
+								transform: scale(0.8)
