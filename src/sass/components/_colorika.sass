@@ -1,0 +1,34 @@
+.colorika
+	&-title
+		text-align: center
+	&-bullets
+		@include flexbox
+		gap: 12px
+		margin-top: 44px
+		li
+			background: #fff
+			flex: 1
+			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
+			padding: 40px
+			@include flexbox
+			flex-direction: column
+			justify-content: space-between
+			color: var(--color-red)
+			font-weight: 700
+			font-size: var(--font-size-md)
+			height: 320px
+			&::before
+				content: '01'
+				display: block
+				color: var(--color-black)
+				font-size: var(--font-size-lg)
+	&-economical
+		padding: 120px 60px
+		color: var(--color-white)
+		background: url(../img/colorika-economical-bg.jpg) no-repeat center / cover
+		margin-top: 44px
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
+		.section-title
+			max-width: 600px
+			span
+				color: var(--color-yellow)
