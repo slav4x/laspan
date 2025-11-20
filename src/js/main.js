@@ -764,8 +764,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const galleryCarousel = document.querySelector('.gallery-carousel');
-  if (galleryCarousel) {
-    new Splide(galleryCarousel, {
+  const galleryCurrentEl = document.querySelector('.gallery-counter__current');
+  const galleryTotalEl = document.querySelector('.gallery-counter__total');
+  const galleryProgressBar = document.querySelector('.gallery-counter__progress span');
+  const galleryArrowPrev = document.querySelector('.gallery-arrows .splide__arrow--prev');
+  const galleryArrowNext = document.querySelector('.gallery-arrows .splide__arrow--next');
+
+  if (galleryCarousel && galleryCurrentEl && galleryTotalEl && galleryProgressBar) {
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const normalize = (i, n) => ((i % n) + n) % n;
+
+    const splide = new Splide(galleryCarousel, {
       type: 'loop',
       perPage: 1,
       focus: 0,
@@ -773,6 +782,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pagination: false,
       gap: 36,
       arrows: false,
+      speed: 1000,
       breakpoints: {
         1280: {
           gap: 12,
@@ -782,6 +792,28 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       },
     }).mount();
+
+    galleryArrowPrev?.addEventListener('click', () => splide.go('<'));
+    galleryArrowNext?.addEventListener('click', () => splide.go('>'));
+
+    const totalPages = splide.length || 1;
+    galleryTotalEl.textContent = pad2(totalPages);
+
+    const setBar = (pct) => {
+      const clamped = Math.max(0, Math.min(100, Math.round(pct)));
+      galleryProgressBar.style.width = clamped + '%';
+    };
+
+    const updateUI = () => {
+      const page = normalize(splide.index, totalPages) + 1;
+      galleryCurrentEl.textContent = pad2(page);
+      const pct = (page / totalPages) * 100;
+      setBar(pct);
+    };
+
+    splide.on('mounted move', updateUI);
+
+    updateUI();
   }
 
   const accessoriesTabs = document.querySelectorAll('.accessories-tabs li');
