@@ -1,0 +1,137 @@
+.ceilings
+	&-item
+		@include flexbox
+		&__preview,
+		&__info
+			width: 50%
+		&__preview
+			position: relative
+			@include flexbox
+			align-items: center
+			padding: 80px 0
+			padding-right: 100px
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				right: 0
+				bottom: 0
+				left: var(--pos-right)
+				background: var(--color-gray)
+				z-index: -1
+			&-card
+				width: 100%
+				background: #fff
+				padding: 24px
+				border: 2px solid #E8E8E8
+				box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
+			&-image
+				height: 540px
+				width: 100%
+				max-width: initial
+				object-fit: cover
+				object-position: center
+				margin-bottom: 24px
+			&-info
+				@include flexbox
+				align-items: center
+				justify-content: space-between
+				gap: 16px
+				.btn
+					flex: 1
+					max-width: 310px
+			&-price
+				font-size: var(--font-size-md)
+				font-weight: 700
+				span
+					font-size: var(--font-size-lg)
+					font-weight: 600
+		&:nth-child(2n)
+			.ceilings-item
+				&__preview
+					padding-right: 0
+					padding-left: 100px
+					order: 1
+					&::before
+						left: 0
+						right: var(--pos-right)
+				&__info
+					padding-left: 0
+					padding-right: 100px
+		&__info
+			padding: 80px 0
+			padding-left: 100px
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			justify-content: center
+			gap: 80px
+		&__spec
+			width: 100%
+			&-title
+				font-size: var(--font-size-md)
+				font-weight: 600
+				margin-bottom: 32px
+			&-list
+				width: 100%
+				li
+					@include flexbox
+					align-items: flex-start
+					gap: 12px
+					margin-bottom: 24px
+					font-weight: 500
+					&:last-child
+						margin-bottom: 0
+					span
+						width: 260px
+						opacity: 0.6
+					p
+						flex: 1
+		&__decor
+			@include flexbox
+			align-items: center
+			gap: 12px
+			a
+				display: block
+				position: relative
+				&:hover
+					span
+						opacity: 1
+				&.ceilings-item__decor-more
+					width: 64px
+					height: 64px
+					@include flexbox
+					align-items: center
+					justify-content: center
+					text-align: center
+					border: 1px solid var(--color-red)
+					color: var(--color-red)
+					border-radius: 100%
+					font-weight: 500
+					font-size: var(--font-size-sm)
+					transition: var(--transition-ms)
+					&:hover
+						background: var(--color-red)
+						color: var(--color-white)
+			img
+				width: 64px
+				height: 64px
+				border-radius: 100%
+				object-fit: cover
+				object-position: center
+			span
+				background: #f5f5f5
+				position: absolute
+				top: calc(100% + 4px)
+				left: 50%
+				transform: translateX(-50%)
+				z-index: 10
+				width: max-content
+				padding: 4px
+				font-size: var(--font-size-xxs)
+				line-height: 16px
+				opacity: 0
+				pointer-events: none
+				transition: var(--transition-ms)
+				font-weight: 500
+				color: var(--color-black) !important

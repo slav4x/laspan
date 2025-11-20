@@ -244,3 +244,45 @@
 				.btn
 					width: 100%
 					flex: initial
+
+	.ceilings
+		&-item
+			&__preview
+				padding: 40px 0 !important
+				&-image
+					height: 190px
+			&__info
+				padding: 40px 0 !important
+				gap: 32px
+			&__spec
+				&-title
+					margin-bottom: 16px
+				&-list
+					li
+						span
+							flex: initial
+							width: 100%
+			&__decor
+				a
+					&.ceilings-item__decor-more
+						width: 42px
+						height: 42px
+				img
+					width: 42px
+					height: 42px
+				span
+					background: #f5f5f5
+					position: absolute
+					top: calc(100% + 4px)
+					left: 50%
+					transform: translateX(-50%)
+					z-index: 10
+					width: max-content
+					padding: 4px
+					font-size: var(--font-size-xxs)
+					line-height: 16px
+					opacity: 0
+					pointer-events: none
+					transition: var(--transition-ms)
+					font-weight: 500
+					color: var(--color-black) !important

@@ -941,3 +941,43 @@
 			.section-title
 				span
 					color: var(--color-yellow)
+
+	.ceilings
+		&-item
+			&__preview
+				padding-right: 80px
+				&-card
+					padding: 16px
+				&-image
+					height: 410px
+					margin-bottom: 16px
+				&-info
+					.btn
+						max-width: 240px
+			&:nth-child(2n)
+				.ceilings-item
+					&__preview
+						padding-left: 80px
+					&__info
+						padding-right: 80px
+			&__info
+				padding-left: 80px
+				gap: 48px
+			&__spec
+				&-title
+					margin-bottom: 24px
+				&-list
+					li
+						gap: 8px
+						margin-bottom: 16px
+						span
+							width: 240px
+			&__decor
+				gap: 8px
+				a
+					&.ceilings-item__decor-more
+						width: 48px
+						height: 48px
+				img
+					width: 48px
+					height: 48px
