@@ -169,6 +169,7 @@
 			@include flexbox
 			flex-direction: column
 			justify-content: flex-end
+			padding-right: 60px
 			&::after
 				content: ''
 				position: absolute
@@ -294,3 +295,72 @@
 						&:hover
 							color: var(--color-red-hover)
 							border-color: var(--color-red-hover)
+	&-others
+		&-head
+			@include flexbox
+			align-items: center
+			justify-content: space-between
+		&-carousel
+			margin-top: 44px
+		&-arrows
+			position: relative
+			height: 94px
+			@include flexbox
+			align-items: center
+			gap: 20px
+			.splide
+				&__arrow
+					width: 94px
+					height: 94px
+					border-radius: 0
+					background: #fff
+					opacity: 1 !important
+					transition: var(--transition-ms)
+					color: var(--color-black)
+					position: relative
+					&--next
+						right: 0
+						background: var(--color-red)
+						color: var(--color-white)
+						&:hover
+							background: var(--color-red-hover) !important
+					&--prev
+						left: 0
+						background: rgba(0,0,0,.05)
+						&:hover
+							background: rgba(0,0,0,.1) !important
+							color: var(--color-black) !important
+					&:hover
+						background: var(--color-red)
+						color: var(--color-white)
+					svg
+						display: block
+						width: 10px
+						height: 18px
+						transform: none
+		&-counter
+			@include flexbox
+			align-items: center
+			gap: 12px
+			font-size: var(--font-size-sm)
+			font-weight: 700
+			letter-spacing: 0.05em
+			line-height: 1
+			&__current,
+			&__total
+				width: 24px
+				text-align: center
+			&__progress
+				height: 2px
+				width: 70px
+				background: rgba(0,0,0,.2)
+				span
+					height: 100%
+					background: var(--color-red)
+					display: block
+					transition: var(--transition-ms)
+		.objects-section__item
+			width: 100% !important
+			height: 560px !important
+		.objects-section__item-description-wrapper
+			display: none !important
