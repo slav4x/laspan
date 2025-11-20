@@ -189,3 +189,81 @@
 					font-weight: 500
 			&:hover
 				box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1)
+	&-economical
+		overflow: hidden
+		border-top: 1px solid var(--color-border)
+		border-bottom: 1px solid var(--color-border)
+		.container
+			@include flexbox
+		&-image,
+		&-content
+			width: 50%
+			min-height: 900px
+		&-image
+			position: relative
+			// overflow: hidden
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				right: 0
+				bottom: 0
+				left: var(--pos-right)
+				background: var(--color-gray)
+				z-index: -1
+			img
+				position: absolute
+				max-width: initial
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				z-index: 2
+				pointer-events: none
+				height: 100%
+		&-content
+			position: relative
+			z-index: 10
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			justify-content: center
+			gap: 32px
+			padding-left: 100px
+			border-left: 1px solid var(--color-border)
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				bottom: 0
+				right: var(--pos-right)
+				background: var(--color-gray)
+				z-index: -1
+				background: #fff
+			.section-title
+				font-size: var(--font-size-lg)
+				span
+					color: var(--color-red)
+		&-list
+			@include flexbox
+			align-items: flex-start
+			gap: 12px
+			width: 100%
+			li
+				height: 200px
+				width: calc((100% - (2 * 12px)) / 3)
+				padding: 16px 20px
+				background: #FCFCFC
+				border: 1px solid #EAEAEA
+				position: relative
+				overflow: hidden
+				img
+					position: absolute
+					bottom: 0
+					left: 50%
+					transform: translateX(-50%)
+					max-width: initial
+				b
+					font-weight: 700
+					position: relative
+					z-index: 5
