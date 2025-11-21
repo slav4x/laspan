@@ -69,3 +69,55 @@
 				margin-top: 16px
 				opacity: 0.8
 				font-weight: 500
+	&-specialists
+		&__tabs
+			margin-top: 44px
+			@include flexbox
+			border-bottom: 1px solid rgba(0,0,0,.17)
+			li
+				background: #fff
+				flex: 1
+				padding: 20px
+				line-height: 1
+				text-align: center
+				font-weight: 600
+				cursor: pointer
+				transition: var(--transition-ms)
+				@include flexbox
+				align-items: center
+				justify-content: center
+				&:hover, &.active
+					background: var(--color-red)
+					color: var(--color-white)
+		&__tab
+			display: none
+			gap: 12px
+			margin-top: 44px
+			&.active
+				@include flexbox
+		&__item
+			background: #fff
+			width: calc((100% - (3 * 12px)) / 4)
+			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
+			&-photo
+				width: 100%
+				aspect-ratio: 1
+				object-fit: cover
+				object-position: center
+			&-info
+				padding: 24px
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				gap: 12px
+				font-weight: 500
+			&-name
+				font-weight: 700
+				font-size: var(--font-size-md)
+			&-spec
+				opacity: 0.6
+			&-link
+				color: var(--color-red)
+				transition: var(--transition-ms)
+				&:hover
+					color: var(--color-red-hover)

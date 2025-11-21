@@ -988,6 +988,21 @@ document.addEventListener('DOMContentLoaded', () => {
       speed: 600,
     }).mount();
   }
+
+  const aboutSpecialistsTabs = document.querySelectorAll('.about-specialists__tabs li');
+  const aboutSpecialistsContents = document.querySelectorAll('.about-specialists__tab');
+
+  aboutSpecialistsTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+
+      aboutSpecialistsTabs.forEach((t) => t.classList.remove('active'));
+      aboutSpecialistsContents.forEach((c) => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.querySelector(`.about-specialists__tab[data-tab="${target}"]`).classList.add('active');
+    });
+  });
 });
 
 function updateDropdownPos() {

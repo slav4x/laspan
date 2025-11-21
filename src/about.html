@@ -87,6 +87,26 @@
 		<div class="section-head__counter">
 			<h2 class="section-title">Крутейшая команда специалистов</h2>
 		</div>
+		<ul class="about-specialists__tabs">
+			<li class="active" data-tab="1">Коммерческий отдел</li>
+			<li data-tab="2">Производственный отдел</li>
+			<li data-tab="3">Отдел снабжения и логистики</li>
+		</ul>
+		<div class="about-specialists__tab active" data-tab="1">
+			{% include 'components/about-specialists-item.html' %}
+			{% include 'components/about-specialists-item.html' %}
+			{% include 'components/about-specialists-item.html' %}
+			{% include 'components/about-specialists-item.html' %}
+		</div>
+		<div class="about-specialists__tab" data-tab="2">
+			{% include 'components/about-specialists-item.html' %}
+			{% include 'components/about-specialists-item.html' %}
+		</div>
+		<div class="about-specialists__tab" data-tab="3">
+			{% include 'components/about-specialists-item.html' %}
+			{% include 'components/about-specialists-item.html' %}
+			{% include 'components/about-specialists-item.html' %}
+		</div>
 	</div>
 </section>
 
