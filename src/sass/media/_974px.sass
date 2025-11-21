@@ -288,6 +288,28 @@
 			&-carousel
 				.splide__track
 					overflow: inherit
+		&-why
+			&-item
+				width: calc((100% - (1 * 12px)) / 2)
+				overflow: hidden
+				p
+					padding: 0 16px 32px
+				&__image
+					background: var(--color-red)
+					margin-bottom: 80px
+					height: 240px
+					&::before
+						top: 16px
+						left: 16px
+						width: 36px
+						height: 36px
+						line-height: 36px
+						font-size: 20px
+					img
+						width: 320px
+						max-width: initial
+						left: 50%
+						transform: translateX(-50%)
 
 	.specialists
 		padding-bottom: 0
