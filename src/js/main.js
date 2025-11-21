@@ -1003,6 +1003,73 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector(`.about-specialists__tab[data-tab="${target}"]`).classList.add('active');
     });
   });
+
+  const aboutGalleryCarousel = document.querySelector('.about-gallery-carousel');
+  const aboutGalleryCurrentEl = document.querySelector('.about-gallery-counter__current');
+  const aboutGalleryTotalEl = document.querySelector('.about-gallery-counter__total');
+  const aboutGalleryProgressBar = document.querySelector('.about-gallery-counter__progress span');
+  const aboutGalleryArrowPrev = document.querySelector('.about-gallery-arrows .splide__arrow--prev');
+  const aboutGalleryArrowNext = document.querySelector('.about-gallery-arrows .splide__arrow--next');
+
+  if (aboutGalleryCarousel && aboutGalleryCurrentEl && aboutGalleryTotalEl && aboutGalleryProgressBar) {
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const normalize = (i, n) => ((i % n) + n) % n;
+
+    const splide = new Splide(aboutGalleryCarousel, {
+      type: 'loop',
+      perPage: 1,
+      perMove: 1,
+      arrows: false,
+      pagination: false,
+      speed: 600,
+      gap: 12,
+      grid: {
+        rows: 2,
+        cols: 4,
+        gap: { row: '12px', col: '12px' },
+      },
+      breakpoints: {
+        576: {
+          grid: {
+            cols: 1,
+            rows: 1,
+          },
+        },
+        768: {
+          grid: {
+            cols: 2,
+          },
+        },
+        1260: {
+          grid: {
+            cols: 3,
+          },
+        },
+      },
+    }).mount(window.splide.Extensions);
+
+    aboutGalleryArrowPrev?.addEventListener('click', () => splide.go('<'));
+    aboutGalleryArrowNext?.addEventListener('click', () => splide.go('>'));
+
+    const totalPages = splide.length || 1;
+    aboutGalleryTotalEl.textContent = pad2(totalPages);
+
+    const setBar = (pct) => {
+      const clamped = Math.max(0, Math.min(100, Math.round(pct)));
+      aboutGalleryProgressBar.style.width = clamped + '%';
+    };
+
+    const updateUI = () => {
+      const page = normalize(splide.index, totalPages) + 1;
+      aboutGalleryCurrentEl.textContent = pad2(page);
+      const pct = (page / totalPages) * 100;
+      setBar(pct);
+    };
+
+    splide.on('mounted move', updateUI);
+
+    updateUI();
+  }
 });
 
 function updateDropdownPos() {
