@@ -1115,21 +1115,3 @@ document.addEventListener('DOMContentLoaded', () => {
     updateUI();
   }
 });
-
-function updateDropdownPos() {
-  const header = document.querySelector('.header');
-  const container = document.querySelector('.header .container');
-  const dropdown = document.querySelector('.header-dropdown');
-
-  if (!header || !container || !dropdown) return;
-
-  const headerWidth = header.offsetWidth;
-  const containerStyle = getComputedStyle(container);
-  const containerWidth = container.clientWidth - parseFloat(containerStyle.paddingLeft) - parseFloat(containerStyle.paddingRight);
-
-  const diff = -((headerWidth - containerWidth) / 2);
-  document.documentElement.style.setProperty('--pos-right', `${diff}px`);
-}
-
-window.addEventListener('load', updateDropdownPos);
-window.addEventListener('resize', updateDropdownPos);
