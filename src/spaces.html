@@ -1,0 +1,281 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Готовые решения' %}
+
+{% block content %}
+
+<section class="promo">
+	<div class="promo-carousel no-carousel">
+		<div class="promo-item">
+			<div class="container">
+				<div class="promo-item__content">
+					<h1 class="section-title">Разрабатываем современные интерьерные решения <span>для комплексной отделки общественных помещений</span></h1>
+					<ul class="promo-item__bullets">
+						<li>Декоративные панели для быстрой отделки стен</li>
+						<li>Износостойкие двери с покрытием CPL/HPL</li>
+						<li>Подвесные потолки различных цветов и размеров</li>
+					</ul>
+					<p class="promo-item__text">Подберем материалы и рассчитаем объёмы по Вашим ТЗ и планировкам</p>
+					<a href="#" class="btn btn-sm btn-yellow">Получить расчет</a>
+				</div>
+				<div class="promo-item__background" style="background-image: url(img/promo-bg-1.jpg);"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section section-bottom-0 ceilings">
+	<div class="container">
+		<div class="section-head__counter">
+			<h2 class="section-title">Подвесные потолки</h2>
+		</div>
+		<span class="ceilings-spacing"></span>
+		{% include 'components/ceilings-item.html' %}
+	</div>
+</section>
+
+<section class="section section-border manufactured">
+	<div class="container">
+		<div class="section-head__counter">
+			<h2 class="section-title">Cтеновые панели</h2>
+		</div>
+		<div class="manufactured-row">
+			<div class="manufactured-col">
+				<div class="manufactured-carousel splide">
+					<div class="splide__track">
+						<ul class="splide__list">
+							<li class="splide__slide"><img src="https://laspan.ru/wp-content/themes/laspan/img/panel11.png" alt="" loading="lazy"></li>
+							<li class="splide__slide"><img src="https://laspan.ru/wp-content/themes/laspan/img/nevgalertpaneli1.webp" alt="" loading="lazy"></li>
+						</ul>
+					</div>
+					<div class="splide__arrows">
+						<button class="splide__arrow splide__arrow--prev">
+							<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6.88224 4.25565e-07L8 1.13697L2.23553 7.00048L8 12.863L6.88224 14L3.05965e-07 7.00048L6.88224 4.25565e-07Z" fill="currentColor"/>
+							</svg>
+						</button>
+						<button class="splide__arrow splide__arrow--next">
+							<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M1.11776 14L-2.57602e-07 12.863L5.76447 6.99952L2.5496e-07 1.13697L1.11776 -3.00821e-07L8 6.99952L1.11776 14Z" fill="currentColor"/>
+							</svg>
+						</button>
+					</div>
+				</div>
+				<div class="manufactured-total">
+					<div class="manufactured-total__price">
+						<b><span>От</span> 295 руб/м<sup>2</sup></b>
+						<p>Цена зависит от выбранного декора и объема заказа</p>
+					</div>
+					<a href="#" class="btn btn-md btn-red">Заказать расчет</a>
+				</div>
+			</div>
+			<div class="manufactured-col">
+				<h3 class="section-title">Ламинированные гипсокартонные листы <span>(гипсовинил, ЛГКЛ, ЛГВЛ)</span></h3>
+				<p class="manufactured-description">Специалист компании проведет расчет стоимости панелей и комплектующих для Вашего помещения</p>
+				<div class="manufactured-grid">
+					<ul class="manufactured-list">
+						<li>
+							<b>Области применения</b>
+							<p>Коммерческие, административные и общественные помещения (бизнесцентры, торговые, образовательные учреждения, гостиницы, общепит и т.д.)</p>
+						</li>
+						<li>
+							<b>Отличительная особенность</b>
+							<p>Свременная альтернатива обычному гипсокартону с штукатуркой и покраской</p>
+						</li>
+						<li>
+							<b>Основа</b>
+							<p>Гипсокартонные листы (ГКЛ), гипсоволокнистые влагостойкие листы (ГВЛ), гипостружечные плиты, гипсово-строительные плиты (ГСП)</p>
+						</li>
+					</ul>
+					<ul class="manufactured-list">
+						<li>
+							<b>Покрытие</b>
+							<p>Винил, ПВХ</p>
+						</li>
+						<li>
+							<b>Размеры (ВхШхД):</b>
+							<p>12,5х1200х2500, 2700, 3000 мм</p>
+						</li>
+						<li>
+							<b>Класс пожарной опасности</b>
+							<p>КМ1</p>
+						</li>
+						<li>
+							<b>Декоры</b>
+							<p>Более 300 видов (однотонные, дерево, камень, бетон, штукатурка)</p>
+						</li>
+					</ul>
+				</div>
+				<div class="manufactured-decor">
+					<div class="manufactured-decor__list">
+						<a href="https://laspan.ru/wp-content/themes/laspan/img/decnew5.jpg" data-manufactured-preview><img src="https://laspan.ru/wp-content/themes/laspan/img/decnew5.jpg" loading="lazy" alt=""><span>Светлая слоновая кость</span></a>
+						<a href="https://laspan.ru/wp-content/themes/laspan/img/decnew6.jpg" data-manufactured-preview><img src="https://laspan.ru/wp-content/themes/laspan/img/decnew6.jpg" loading="lazy" alt=""><span>Серый телегрей</span></a>
+						<a href="https://laspan.ru/wp-content/themes/laspan/img/decnew2.jpg" data-manufactured-preview><img src="https://laspan.ru/wp-content/themes/laspan/img/decnew2.jpg" loading="lazy" alt=""><span>Бетон</span></a>
+						<a href="https://laspan.ru/wp-content/themes/laspan/img/decnew4.jpg" data-manufactured-preview><img src="https://laspan.ru/wp-content/themes/laspan/img/decnew4.jpg" loading="lazy" alt=""><span>Бетон лофт тёмный</span></a>
+						<a href="https://laspan.ru/wp-content/themes/laspan/img/decnew1.jpg" data-manufactured-preview><img src="https://laspan.ru/wp-content/themes/laspan/img/decnew1.jpg" loading="lazy" alt=""><span>Белёный дуб</span></a>
+						<a href="#" class="manufactured-decor__more"><span>Все декоры</span>300+</a>
+					</div>
+					{# <a href="#" class="btn btn-sm btn-outlined">Скачать декоры</a> #}
+				</div>
+			</div>
+		</div>
+		<div class="manufactured-total manufactured-total-mobile">
+			<div class="manufactured-total__price">
+				<b><span>От</span> 295 руб/м<sup>2</sup></b>
+				<p>Цена зависит от выбранного декора и объема заказа</p>
+			</div>
+			<a href="#" class="btn btn-md btn-red">Заказать расчет</a>
+		</div>
+	</div>
+</section>
+
+<section class="section section-border">
+	<div class="container">
+		<div class="section-head__counter">
+			<h2 class="section-title">Офисные двери</h2>
+			<p class="section-description">для коммерческих и административных помещений</p>
+		</div>
+		<div class="doors-detail">
+			<div class="doors-detail-left">
+				<div class="doors-detail-types">
+					<div class="doors-detail-types__title">Типы медицинских дверей LASPAN</div>
+					<ul class="doors-detail-types__list">
+						<li>
+							<b>С остеклением</b>
+							<svg width="63" height="126" viewBox="0 0 63 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="0.5" y="0.5" width="62" height="125" fill="white" stroke="black"/>
+								<rect x="16.5" y="18.5" width="30" height="38" fill="#F9F9F9" stroke="black"/>
+							</svg>
+						</li>
+						<li>
+							<b>Маятниковые</b>
+							<svg width="150" height="126" viewBox="0 0 150 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="0.5" y="0.5" width="74" height="125" fill="white" stroke="black"/>
+								<rect x="75.5" y="0.5" width="74" height="125" fill="white" stroke="black"/>
+								<rect x="75.5" y="67.895" width="74" height="12.6744" fill="#808080" stroke="black"/>
+								<rect x="0.5" y="67.895" width="74" height="12.6744" fill="#808080" stroke="black"/>
+								<rect x="21.9286" y="19.0581" width="31.1429" height="25.3721" fill="#F9F9F9" stroke="black"/>
+								<rect x="95.9546" y="19.0581" width="31.1429" height="25.3721" fill="#F9F9F9" stroke="black"/>
+								<rect x="75.5" y="112.826" width="74" height="12.6744" fill="#808080" stroke="black"/>
+								<rect x="0.5" y="112.826" width="74" height="12.6744" fill="#808080" stroke="black"/>
+							</svg>
+						</li>
+						<li>
+							<b>Противопожарные</b>
+							<svg width="63" height="126" viewBox="0 0 63 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="0.5" y="0.5" width="62" height="125" fill="white" stroke="black"/>
+								<path d="M8.6842 82V74.5" stroke="black" stroke-width="2"/>
+								<path d="M53.4211 82V74.5" stroke="black" stroke-width="2"/>
+								<path d="M6 74H57" stroke="black" stroke-width="2"/>
+								<rect x="16.5" y="18.5" width="30" height="38" fill="#F9F9F9" stroke="black"/>
+							</svg>
+						</li>
+					</ul>
+				</div>
+				<div class="doors-detail-view">
+					<img src="img/doors-detail-view.png" alt="" class="doors-detail-view__image" loading="lazy">
+					<div class="doors-detail-view__price">От <span>15670 р.</span> / комплект</div>
+					<a href="#" class="btn btn-red btn-sm">Подробнее</a>
+				</div>
+			</div>
+			<div class="doors-detail-right">
+				<ul class="doors-detail-list">
+					<li>
+						<span>Размеры, мм (ВхД)</span>
+						<p>38х600-1100х2000-2300 мм.</p>
+					</li>
+					<li>
+						<span>Основа</span>
+						<p>Усиленный каркас из LVL-бруса (фанера)</p>
+					</li>
+					<li>
+						<span>Заполнение</span>
+						<p>сотовое/сплошное ДСП/пенополиурета</p>
+					</li>
+					<li>
+						<span>Лицевая поверхность</span>
+						<p>МДФ 5 мм</p>
+					</li>
+					<li>
+						<span>Декоративное покрытие</span>
+						<p>CPL/HPL-пластик</p>
+					</li>
+					<li>
+						<span>Декоры</span>
+						<p>Однотонные и фактурные</p>
+					</li>
+					<li>
+						<span>Коробка</span>
+						<p>металлическая/деревянная</p>
+					</li>
+					<li>
+						<span>Тип доборных элементов</span>
+						<p>телескопические</p>
+					</li>
+				</ul>
+				<a href="https://vkvideo.ru/video869536710_456239025" data-fancybox class="doors-detail-video"><img src="img/showroom-video.jpg" loading="lazy" alt=""></a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section section-gray certificates">
+	<div class="container">
+		<div class="section-head">
+			<h2 class="section-title">Сертификаты</h2>
+			<p class="section-description">Вся продукция проходит любые проверки при сдаче объекта</p>
+		</div>
+		<div class="certificates-grid">
+			{% include 'components/certificates-item.html' %}
+			{% include 'components/certificates-item.html' %}
+			{% include 'components/certificates-item.html' %}
+			{% include 'components/certificates-item.html' %}
+		</div>
+	</div>
+</section>
+
+<section class="section gallery">
+	<div class="container">
+		<div class="gallery-head">
+			<div class="section-head">
+				<h2 class="section-title">Фото объектов</h2>
+			</div>
+			<div class="gallery-arrows">
+				<button class="splide__arrow splide__arrow--prev">
+					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M6.88224 4.25565e-07L8 1.13697L2.23553 7.00048L8 12.863L6.88224 14L3.05965e-07 7.00048L6.88224 4.25565e-07Z" fill="currentColor"/>
+					</svg>
+				</button>
+				<div class="gallery-counter">
+					<div class="gallery-counter__current">01</div>
+					<div class="gallery-counter__progress"><span style="width: 40%;"></span></div>
+					<div class="gallery-counter__total">05</div>
+				</div>
+				<button class="splide__arrow splide__arrow--next">
+					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1.11776 14L-2.57602e-07 12.863L5.76447 6.99952L2.5496e-07 1.13697L1.11776 -3.00821e-07L8 6.99952L1.11776 14Z" fill="currentColor"/>
+					</svg>
+				</button>
+			</div>
+		</div>
+		<div class="gallery-carousel splide">
+			<div class="splide__track">
+				<div class="splide__list">
+					<div class="splide__slide"><a href="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" data-fancybox class="gallery-carousel__item"><img src="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" alt="" loading="lazy"></a></div>
+					<div class="splide__slide"><a href="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" data-fancybox class="gallery-carousel__item"><img src="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" alt="" loading="lazy"></a></div>
+					<div class="splide__slide"><a href="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" data-fancybox class="gallery-carousel__item"><img src="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" alt="" loading="lazy"></a></div>
+					<div class="splide__slide"><a href="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" data-fancybox class="gallery-carousel__item"><img src="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" alt="" loading="lazy"></a></div>
+					<div class="splide__slide"><a href="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" data-fancybox class="gallery-carousel__item"><img src="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" alt="" loading="lazy"></a></div>
+					<div class="splide__slide"><a href="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" data-fancybox class="gallery-carousel__item"><img src="https://laspan.ru/wp-content/uploads/2024/07/lsp-4-1.jpg" alt="" loading="lazy"></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include 'sections/warehouses.html' %}
+
+{% include 'sections/about.html' %}
+
+{% include 'sections/specialists.html' %}
+
+{% endblock %}
