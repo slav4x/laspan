@@ -327,3 +327,112 @@
 			height: 100%
 			max-width: initial
 			left: 720px
+	&-clients
+		&-head
+			@include flexbox
+			align-items: center
+			justify-content: space-between
+		&-carousel
+			margin-top: 44px
+		&-arrows
+			position: relative
+			height: 94px
+			@include flexbox
+			align-items: center
+			gap: 20px
+			.splide
+				&__arrow
+					width: 94px
+					height: 94px
+					border-radius: 0
+					background: #fff
+					opacity: 1 !important
+					transition: var(--transition-ms)
+					color: var(--color-black)
+					position: relative
+					&--next
+						right: 0
+						background: var(--color-red)
+						color: var(--color-white)
+						&:hover
+							background: var(--color-red-hover) !important
+					&--prev
+						left: 0
+						background: rgba(0,0,0,.05)
+						&:hover
+							background: rgba(0,0,0,.1) !important
+							color: var(--color-black) !important
+					&:hover
+						background: var(--color-red)
+						color: var(--color-white)
+					svg
+						display: block
+						width: 10px
+						height: 18px
+						transform: none
+		&-counter
+			@include flexbox
+			align-items: center
+			gap: 12px
+			font-size: var(--font-size-sm)
+			font-weight: 700
+			letter-spacing: 0.05em
+			line-height: 1
+			&__current,
+			&__total
+				width: 24px
+				text-align: center
+			&__progress
+				height: 2px
+				width: 70px
+				background: rgba(0,0,0,.2)
+				span
+					height: 100%
+					background: var(--color-red)
+					display: block
+					transition: var(--transition-ms)
+		&-item
+			background: var(--color-gray)
+			padding: 44px
+			padding-right: 0
+			@include flexbox
+			justify-content: space-between
+			&__content
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				flex: 1
+				max-width: 470px
+				gap: 24px
+			&__title
+				font-size: 34px
+				line-height: 1.2
+				font-weight: 600
+			&__card
+				height: 600px
+				width: 1060px
+				max-width: calc(100% - 470px - 44px)
+				position: relative
+				z-index: 5
+				.objects-section__item
+					width: 100% !important
+					height: 100% !important
+			&__author
+				margin-top: auto
+				@include flexbox
+				align-items: center
+				gap: 16px
+				img
+					width: 72px
+					height: 72px
+					border-radius: 100%
+					object-fit: cover
+					object-position: center
+				span
+					flex: 1
+					b
+						font-weight: 700
+					p
+						font-weight: 500
+						margin-top: 8px
+						font-size: var(--font-size-sm)

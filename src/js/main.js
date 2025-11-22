@@ -1070,6 +1070,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateUI();
   }
+
+  const aboutClientsCarousel = document.querySelector('.about-clients-carousel');
+  const aboutClientsCurrentEl = document.querySelector('.about-clients-counter__current');
+  const aboutClientsTotalEl = document.querySelector('.about-clients-counter__total');
+  const aboutClientsProgressBar = document.querySelector('.about-clients-counter__progress span');
+  const aboutClientsArrowPrev = document.querySelector('.about-clients-arrows .splide__arrow--prev');
+  const aboutClientsArrowNext = document.querySelector('.about-clients-arrows .splide__arrow--next');
+
+  if (aboutClientsCarousel && aboutClientsCurrentEl && aboutClientsTotalEl && aboutClientsProgressBar) {
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const normalize = (i, n) => ((i % n) + n) % n;
+
+    const splide = new Splide(aboutClientsCarousel, {
+      type: 'loop',
+      perPage: 1,
+      perMove: 1,
+      arrows: false,
+      pagination: false,
+      speed: 600,
+      gap: 12,
+    }).mount();
+
+    aboutClientsArrowPrev?.addEventListener('click', () => splide.go('<'));
+    aboutClientsArrowNext?.addEventListener('click', () => splide.go('>'));
+
+    const totalPages = splide.length || 1;
+    aboutClientsTotalEl.textContent = pad2(totalPages);
+
+    const setBar = (pct) => {
+      const clamped = Math.max(0, Math.min(100, Math.round(pct)));
+      aboutClientsProgressBar.style.width = clamped + '%';
+    };
+
+    const updateUI = () => {
+      const page = normalize(splide.index, totalPages) + 1;
+      aboutClientsCurrentEl.textContent = pad2(page);
+      const pct = (page / totalPages) * 100;
+      setBar(pct);
+    };
+
+    splide.on('mounted move', updateUI);
+
+    updateUI();
+  }
 });
 
 function updateDropdownPos() {
