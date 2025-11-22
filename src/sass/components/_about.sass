@@ -436,3 +436,40 @@
 						font-weight: 500
 						margin-top: 8px
 						font-size: var(--font-size-sm)
+	&-optimize
+		.section-title
+			max-width: 720px
+			span
+				color: var(--color-red)
+		&-graph
+			margin-top: 44px
+			@include flexbox
+			align-items: flex-start
+			position: relative
+			&__item
+				flex: 1
+				b
+					font-size: var(--font-size-lg)
+					font-weight: 700
+				p
+					opacity: 0.8
+					margin-top: 16px
+					font-weight: 500
+					line-height: 1.6
+					font-size: var(--font-size-sm)
+				&:nth-of-type(2n)
+					margin-top: 220px
+			&__pin
+				position: absolute
+				top: 216px
+				left: 8px
+			&__line
+				position: absolute
+				left: 0
+				right: 0
+				margin: 0 auto
+				top: 50px
+			&__truck
+				position: absolute
+				top: 134px
+				right: 8px

@@ -275,6 +275,40 @@
 		&-specialists
 			&__item
 				width: calc((100% - (1 * 12px)) / 2)
+		&-optimize
+			.section-title
+				max-width: 490px
+			&-graph
+				flex-direction: column
+				width: 380px
+				margin: 32px auto 0
+				&__item
+					flex: initial
+					width: 160px
+					margin-left: auto
+					&:nth-of-type(2n)
+						margin-top: 0
+						margin-left: 0
+				&__pin
+					width: 36px
+					top: 0
+					left: 140px
+				&__line
+					top: 50%
+					// bottom: 0
+					left: 50%
+					right: initial
+					margin: 0 auto
+					transform: rotate(90deg) translate(-50%, -50%)
+					transform-origin: top left
+					max-width: initial
+					width: 600px
+				&__truck
+					width: 36px
+					top: initial
+					bottom: 0
+					right: initial
+					left: 140px
 
 	.specialists
 		padding-bottom: 0
