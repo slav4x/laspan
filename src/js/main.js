@@ -1114,4 +1114,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateUI();
   }
+
+  const spacesSelectors = ['.spaces-products-map__pin', '.spaces-products-item'];
+
+  function queryBySpaces(type) {
+    return document.querySelectorAll(spacesSelectors.map((s) => `${s}[data-id="${type}"]`).join(','));
+  }
+
+  spacesSelectors.forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        queryBySpaces(el.dataset.id).forEach((i) => i.classList.add('active'));
+      });
+
+      el.addEventListener('mouseleave', () => {
+        queryBySpaces(el.dataset.id).forEach((i) => i.classList.remove('active'));
+      });
+    });
+  });
 });
