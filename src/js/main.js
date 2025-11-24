@@ -1132,4 +1132,24 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  const contactsTabs = document.querySelectorAll('.contacts-tabs li');
+  const contactsContents = document.querySelectorAll('.contacts-tab');
+  const contactsImage = document.querySelector('.contacts-image img');
+
+  contactsTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const id = tab.dataset.id;
+      const imgSrc = tab.dataset.image;
+
+      contactsTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      contactsContents.forEach((c) => {
+        c.classList.toggle('active', c.dataset.id === id);
+      });
+
+      contactsImage.src = imgSrc;
+    });
+  });
 });

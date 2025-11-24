@@ -1,0 +1,67 @@
+.contacts
+	overflow: hidden
+	.container
+		@include flexbox
+	&-content
+		padding: 44px 0
+		padding-right: 44px
+		width: 50%
+	&-image
+		width: 50%
+		position: relative
+		img
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: var(--pos-right)
+			object-fit: cover
+			object-position: center
+			width: calc(100% + (var(--pos-right) * -1))
+			max-width: initial
+			height: 100%
+			background: #eee
+	&-tabs
+		@include flexbox
+		align-items: center
+		gap: 12px
+		li
+			background: var(--color-gray)
+			flex: 1
+			line-height: 1
+			font-weight: 600
+			padding: 16px
+			text-align: center
+			cursor: pointer
+			transition: var(--transition-ms)
+			&:hover, &.active
+				background: var(--color-red)
+				color: var(--color-white)
+	&-tab
+		margin-top: 32px
+		flex-direction: column
+		align-items: flex-start
+		gap: 24px
+		display: none
+		&.active
+			@include flexbox
+	&-item
+		span
+			font-weight: 500
+			color: var(--color-red)
+		p
+			font-weight: 600
+			font-size: var(--font-size-md)
+			margin-top: 4px
+			&:first-child
+				margin-top: 0
+		&-grid
+			@include flexbox
+			align-items: flex-start
+			gap: 24px
+		small
+			font-size: var(--font-size-sm)
+			opacity: 0.6
+			font-weight: 500
+			margin-top: 4px
+			display: block
