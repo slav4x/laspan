@@ -16,7 +16,27 @@
 <section class="section decor-section">
 	<div class="container">
 		<div class="section-title">Категории декоров</div>
-		<div class="decor-section__grid"></div>
+		<div class="decor-section-grid">
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+			<div class="decor-section-banner">
+				<div class="decor-section-banner__label">Не знаете, что выбрать?</div>
+				<div class="decor-section-banner__title">Наши специалисты помогут с подбором <span>бесплатно</span></div>
+				<img src="img/decor-banner-01.png" alt="" loading="lazy" class="decor-section-banner__image-01">
+				<a href="#" class="btn btn-sm btn-yellow">Заказать подбор</a>
+			</div>
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+			<div class="decor-section-banner">
+				<div class="decor-section-banner__title">Изготовим<br> <span>3D визуализацию</span> для Вашего объекта</div>
+				<img src="img/decor-banner-02.png" alt="" loading="lazy" class="decor-section-banner__image-02">
+				<a href="#" class="btn btn-sm btn-yellow">Заказать дизайн</a>
+			</div>
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+		</div>
 	</div>
 </section>
 

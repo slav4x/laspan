@@ -1220,3 +1220,28 @@
 					width: 44px
 					height: 44px
 					line-height: 44px
+
+	.decor
+		&-section
+			&-grid
+				margin-top: 32px
+				gap: 12px
+			&-item
+				width: calc((100% - (3 * 12px)) / 4)
+				height: 360px
+				p
+					padding: 24px
+			&-banner
+				width: calc((100% - (3 * 12px)) / 4)
+				padding: 24px
+				&__title
+					font-size: 20px
+				&__image
+					&-01
+						margin: auto auto -20px
+						width: 220px
+					&-02
+						margin-bottom: -20px
+						width: 210px
+						& + .btn
+							margin: 0

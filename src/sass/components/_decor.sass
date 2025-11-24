@@ -1,0 +1,104 @@
+.decor
+	&-section
+		&-grid
+			@include flexbox
+			margin-top: 44px
+			gap: 24px
+		&-item
+			width: calc((100% - (3 * 24px)) / 4)
+			height: 470px
+			display: block
+			position: relative
+			overflow: hidden
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #0000004d 80%)
+				z-index: 1
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+				object-position: center
+			p
+				background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #0000004d 80%)
+				padding: 32px
+				color: var(--color-white)
+				font-size: var(--font-size-md)
+				font-weight: 700
+				position: absolute
+				bottom: 0
+				left: 0
+				right: 0
+				z-index: 3
+			span
+				position: absolute
+				z-index: 5
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				@include flexbox
+				align-items: center
+				justify-content: center
+				text-align: center
+				font-weight: 500
+				line-height: 1.3
+				background: rgba(255,255,255,.8)
+				padding: 32px
+				opacity: 0
+				transition: var(--transition-ms)
+			&:hover
+				span
+					opacity: 1
+			&:nth-of-type(1)
+				order: -100
+			&:nth-of-type(2)
+				order: -90
+			&:nth-of-type(3)
+				order: -80
+			&:nth-of-type(4)
+				order: -70
+			&:nth-of-type(5)
+				order: -60
+			&:nth-of-type(6)
+				order: -50
+		&-banner
+			width: calc((100% - (3 * 24px)) / 4)
+			display: block
+			position: relative
+			overflow: hidden
+			padding: 24px
+			background: var(--color-dark) url(../img/decor-banner-bg.jpg) no-repeat center / cover
+			color: var(--color-white)
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 12px
+			.btn
+				margin-top: auto
+			&__label
+				font-weight: 600
+				opacity: 0.7
+				line-height: 1.3
+			&__title
+				font-size: 28px
+				font-weight: 700
+				line-height: 1.3
+				span
+					color: var(--color-yellow)
+			&__image
+				&-01
+					margin: auto auto -40px
+					& + .btn
+						margin: 0
+				&-02
+					margin: auto
+			&:nth-of-type(1)
+				order: -75
+			&:nth-of-type(2)
+				order: -45
