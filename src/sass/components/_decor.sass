@@ -265,3 +265,75 @@
 					opacity: .7
 			.btn
 				flex: 1
+	&-options
+		.container
+			@include flexbox
+		&-image
+			width: 50%
+			padding: 60px
+			padding-right: 80px
+			padding-left: 0
+			@include flexbox
+			align-items: center
+			justify-content: center
+			border-right: 1px solid var(--color-border)
+			position: relative
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				bottom: 0
+				right: 0
+				left: var(--pos-right)
+				background: var(--color-gray)
+			img
+				position: relative
+				z-index: 5
+		&-content
+			width: 50%
+			padding: 60px
+			padding-left: 80px
+			padding-right: 0
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 44px
+		&-number-list
+			counter-reset: numberListCounter
+			width: 100%
+			li
+				padding: 20px
+				padding-left: 60px
+				border: 1px solid var(--color-border)
+				font-weight: 600
+				margin-bottom: 16px
+				line-height: 1.4
+				position: relative
+				counter-increment: numberListCounter
+				&:last-child
+					margin-bottom: 0
+				&::before
+					content: counter(numberListCounter, decimal-leading-zero)
+					position: absolute
+					top: 20px
+					left: 20px
+					opacity: 0.2
+		&-list
+			width: 100%
+			li
+				padding: 20px
+				border-bottom: 1px solid var(--color-border)
+				line-height: 1.4
+				font-weight: 500
+				position: relative
+				&::before
+					content: '*'
+					position: absolute
+					top: 20px
+					left: 0
+					font-weight: 700
+				b
+					font-weight: 700
+				&:last-child
+					border: 0
+					padding-bottom: 0
