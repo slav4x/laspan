@@ -1,0 +1,62 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Декоры (категория)' %}
+
+{% block content %}
+
+<section class="breadcrumbs">
+	<div class="container">
+		<ul class="breadcrumbs-nav">
+			<li><a href="#">Главная</a></li>
+			<li><a href="#">Декоры</a></li>
+			<li><a href="#">Дерево</a></li>
+		</ul>
+		<h2 class="breadcrumbs-title section-title">Стеновые панели "Дерево"</h2>
+	</div>
+</section>
+
+<section class="decor-categories-wrapper">
+	<div class="container">
+		<ul class="decor-categories">
+			<li class="active"><a href="#">Дерево</a></li>
+			<li><a href="#">Металик</a></li>
+			<li><a href="#">Однотонные</a></li>
+			<li><a href="#">Бетон, камень</a></li>
+			<li><a href="#">Патина</a></li>
+			<li><a href="#">Глянец</a></li>
+			<li><a href="#">Софт тач</a></li>
+			<li><a href="#">Лофт</a></li>
+			<li><a href="#">Дерево софт тач</a></li>
+			<li><a href="#">Фантазийные</a></li>
+		</ul>
+	</div>
+</section>
+
+<section class="section decor-section">
+	<div class="container">
+		<div class="decor-section-grid" style="margin: 0">
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+			<div class="decor-section-banner">
+				<div class="decor-section-banner__label">Не знаете, что выбрать?</div>
+				<div class="decor-section-banner__title">Наши специалисты помогут с подбором <span>бесплатно</span></div>
+				<img src="img/decor-banner-01.png" alt="" loading="lazy" class="decor-section-banner__image-01">
+				<a href="#" class="btn btn-sm btn-yellow">Заказать подбор</a>
+			</div>
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+			<div class="decor-section-banner">
+				<div class="decor-section-banner__title">Изготовим<br> <span>3D визуализацию</span> для Вашего объекта</div>
+				<img src="img/decor-banner-02.png" alt="" loading="lazy" class="decor-section-banner__image-02">
+				<a href="#" class="btn btn-sm btn-yellow">Заказать дизайн</a>
+			</div>
+			{% include 'components/decor-section-item.html' %}
+			{% include 'components/decor-section-item.html' %}
+		</div>
+	</div>
+</section>
+
+{% include 'sections/decor-design.html' %}
+
+{% endblock %}

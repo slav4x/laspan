@@ -145,3 +145,51 @@
 			border-left: 1px solid rgba(255,255,255,.15)
 			border-right: 1px solid rgba(255,255,255,.15)
 			transform: rotate(21deg)
+	&-categories
+		display: flex
+		padding: 0 calc(var(--pos-right) * -1)
+		margin: 0 var(--pos-right)
+		overflow: auto
+		white-space: nowrap
+		align-items: flex-start
+		li
+			a
+				display: block
+				line-height: 1
+				padding: 26px
+				font-weight: 600
+				transition: var(--transition-ms)
+				&:hover
+					background: var(--color-dark)
+					color: var(--color-white)
+			&.active a
+				background: var(--color-dark)
+				color: var(--color-white)
+		&::-webkit-scrollbar
+			display: none
+		&-wrapper
+			border-bottom: 1px solid var(--color-border)
+			position: relative
+			overflow: hidden
+			&::before
+				content: ''
+				width: 15px
+				height: 100%
+				position: absolute
+				top: 0
+				left: 0
+				bottom: 0
+				background: linear-gradient(90deg, white, transparent)
+				z-index: 10
+				pointer-events: none
+			&::after
+				content: ''
+				width: 15px
+				height: 100%
+				position: absolute
+				top: 0
+				right: 0
+				bottom: 0
+				background: linear-gradient(-90deg, white, transparent)
+				z-index: 10
+				pointer-events: none
