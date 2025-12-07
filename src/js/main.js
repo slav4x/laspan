@@ -1154,4 +1154,84 @@ document.addEventListener('DOMContentLoaded', () => {
     const accordion = title.parentElement;
     accordion.classList.toggle('open');
   });
+
+  const searchCity = document.querySelector('.city-search');
+  const itemsCity = document.querySelectorAll('.city-list li');
+
+  searchCity.addEventListener('input', () => {
+    const value = searchCity.value.trim().toLowerCase();
+
+    itemsCity.forEach((li) => {
+      const text = li.innerText.toLowerCase();
+      li.style.display = text.includes(value) ? 'block' : 'none';
+    });
+  });
+
+  function setCookie(name, value, days) {
+    let expires = '';
+
+    if (days > 0) {
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = `; expires=${date.toUTCString()}`;
+    }
+
+    document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}${expires}; path=/`;
+    // document.cookie = name + '=' + (value || '') + expires + '; path=/; domain=.laspan.ru';
+  }
+
+  function getCookie(name) {
+    const nameEQ = `${encodeURIComponent(name)}=`;
+
+    return (
+      document.cookie
+        .split(';')
+        .map((c) => c.trim())
+        .find((c) => c.startsWith(nameEQ))
+        ?.substring(nameEQ.length) ?? null
+    );
+  }
+
+  const cityModal = document.querySelector('.header-top__city-modal');
+  const cityPopup = document.querySelector('.city');
+  const dataSelectCity = document.querySelectorAll('[data-select-city]');
+  const dataCloseCity = document.querySelectorAll('[data-close-city]');
+  const dataChooseCity = document.querySelectorAll('[data-choose-city]');
+
+  if (!getCookie('citySelected')) {
+    cityModal.classList.remove('hidden');
+  }
+
+  dataSelectCity.forEach((el) => {
+    el.addEventListener('click', () => {
+      cityModal.classList.add('hidden');
+      setCookie('citySelected', 'true', 30);
+    });
+  });
+
+  dataCloseCity.forEach((el) => {
+    el.addEventListener('click', () => {
+      cityModal.classList.add('hidden');
+    });
+  });
+
+  dataChooseCity.forEach((el) => {
+    el.addEventListener('click', () => {
+      cityPopup.classList.add('open');
+      cityModal.classList.add('hidden');
+    });
+  });
+
+  document.querySelectorAll('.city-close, .city-bg').forEach((el) => {
+    el.addEventListener('click', () => {
+      document.querySelector('.city').classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('.city-list li').forEach((li) => {
+    li.addEventListener('click', () => {
+      setCookie('citySelected', 'true', 30);
+      document.querySelector('.city').classList.remove('open');
+    });
+  });
 });

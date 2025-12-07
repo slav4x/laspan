@@ -1,0 +1,86 @@
+.city
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	z-index: 90
+	opacity: 0
+	pointer-events: none
+	transition: var(--transition-ms)
+	&.open
+		opacity: 1
+		pointer-events: auto
+		.city-wrapper
+			transform: translateX(0%)
+	&-bg
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background: rgba(0,0,0,.5)
+	&-wrapper
+		max-width: 550px
+		width: calc(100% - 60px)
+		height: 100%
+		background: #fff
+		position: relative
+		z-index: 5
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		gap: 24px
+		padding: 32px
+		overflow: auto
+		transform: translateX(-100%)
+		transition: var(--transition-ms)
+	&-close
+		cursor: pointer
+		color: #2F3E50
+		font-weight: 500
+		@include flexbox
+		align-items: center
+		gap: 12px
+		font-size: var(--font-size-sm)
+		&::before
+			content: ''
+			display: block
+			width: 12px
+			height: 10px
+			background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.69758 9.80115C5.42192 10.0663 4.97416 10.0663 4.6985 9.80115L0.206751 5.48003C-0.0689147 5.21489 -0.0689148 4.78511 0.206751 4.51997L4.6985 0.198853C4.97416 -0.0662864 5.42192 -0.0662864 5.69758 0.198853C5.97325 0.463992 5.97325 0.89465 5.69758 1.15979L2.40988 4.32107L12 4.32107L12 5.67893L2.40989 5.67893L5.69758 8.84021C5.97325 9.10535 5.97325 9.53601 5.69758 9.80115Z' fill='%232F3E50'/%3E%3C/svg%3E%0A")
+	&-title
+		font-weight: 600
+		font-size: 32px
+		line-height: 1
+	&-list
+		width: 100%
+		li
+			a
+				@include flexbox
+				align-items: center
+				gap: 12px
+				font-weight: 600
+				transition: var(--transition-ms)
+				width: 100%
+				padding: 16px 0
+				p
+					flex: 1
+				svg
+					path
+						fill: #2F3E50
+						transition: var(--transition-ms)
+				&:hover
+					color: var(--color-red)
+					svg
+						path
+							fill: var(--color-red)
+	&-search
+		width: 100%
+		padding: 20px
+		border: 1px solid #64748B33
+		font-weight: 600
+		line-height: 1.2
+		background: #fff url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.6749 13.2031L17.7564 17.2846M13.4391 4.47961C15.9131 6.95364 15.9131 10.9648 13.4391 13.4388C10.9651 15.9129 6.95389 15.9129 4.47986 13.4388C2.00584 10.9648 2.00584 6.95364 4.47986 4.47961C6.95389 2.00559 10.9651 2.00559 13.4391 4.47961Z' stroke='black'/%3E%3C/svg%3E%0A") no-repeat right 20px center
+		@include placeholder
+			color: #64748B
