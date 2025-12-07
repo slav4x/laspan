@@ -1,0 +1,40 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Новости' %}
+
+{% block content %}
+
+<section class="breadcrumbs breadcrumbs-white">
+	<div class="container">
+		<ul class="breadcrumbs-nav">
+			<li><a href="#">Главная</a></li>
+			<li><a href="#">Новости</a></li>
+		</ul>
+		<h2 class="breadcrumbs-title section-title">Новости</h2>
+	</div>
+</section>
+
+<section class="section section-top-0 news">
+	<div class="container">
+		<ul class="news-categories">
+			<li><a href="#">Панели</a></li>
+			<li><a href="#">Потолки</a></li>
+			<li><a href="#">Строительство</a></li>
+			<li><a href="#">Коммерческие помещения</a></li>
+			<li><a href="#">Гостиницы</a></li>
+			<li><a href="#">Материалы</a></li>
+			<li><a href="#">Отделка</a></li>
+			<li><a href="#">Законы</a></li>
+		</ul>
+		<div class="news-grid">
+			{% include 'components/news-item.html' %}
+			{% include 'components/news-item.html' %}
+			{% include 'components/news-item.html' %}
+			{% include 'components/news-item.html' %}
+			{% include 'components/news-item.html' %}
+			{% include 'components/news-item.html' %}
+			{% include 'components/news-item.html' %}
+		</div>
+	</div>
+</section>
+
+{% endblock %}

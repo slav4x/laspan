@@ -252,12 +252,13 @@
 					top: 0
 					left: 0
 	&-text
-		background: var(--color-gray)
-		margin-top: 44px
+		background: #FFFFFF
+		border: 2px solid #F0F0F0
+		box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
 		@include flexbox
 		&-image
-			width: 600px
-			background: var(--color-dark)
+			width: 680px
+			min-height: 680px
 			position: relative
 			&__bg
 				position: absolute
@@ -267,27 +268,21 @@
 				height: 100%
 				object-fit: cover
 				object-position: center
-			&::before
-				content: ''
-				position: absolute
-				top: 0
-				left: 0
-				bottom: 0
-				width: 30%
-				background: var(--color-red)
-				z-index: 2
+		&-wrapper
+			width: calc(100% - 680px)
+			padding: 44px
+			@include flexbox
+			align-items: center
+			justify-content: center
 		&-content
-			width: calc(100% - 600px)
-			padding: 32px
 			line-height: 1.4
 			@include flexbox
 			flex-direction: column
 			align-items: flex-start
-			gap: 16px
+			gap: 24px
 			font-weight: 500
-			h3
-				font-size: var(--font-size-md)
-				font-weight: 700
+			max-width: 640px
+			width: 100%
 		&-contacts
 			li
 				margin-top: 8px

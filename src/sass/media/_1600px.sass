@@ -525,13 +525,10 @@
 						top: 0
 						left: 0
 		&-text
-			margin-top: 32px
 			&-image
-				width: 400px
-			&-content
-				width: calc(100% - 400px)
-				padding: 24px
-				gap: 12px
+				width: 490px
+			&-wrapper
+				width: calc(100% - 490px)
 		&-mission
 			padding: 64px 50px
 			&-content
@@ -764,6 +761,8 @@
 					height: 70px
 					svg
 						transform: scale(0.8)
+		&-grid
+			gap: 32px
 
 	.doors
 		&-type
@@ -817,7 +816,7 @@
 						b
 							padding: 12px 0
 							margin-bottom: 10px
-						svg
+						svg, img
 							height: 80px
 			&-view
 				max-width: 280px
@@ -1059,7 +1058,7 @@
 			margin-top: 32px
 			li
 				padding: 32px
-				height: 280px
+				height: 200px
 		&-economical
 			padding: 100px 40px
 			margin-top: 32px
@@ -1295,3 +1294,84 @@
 					padding: 16px
 					&::before
 						top: 16px
+
+	.news
+		&-grid
+			gap: 32px 16px
+		&-item
+			width: calc((100% - (2 * 16px)) / 3)
+			&__tags
+				top: 12px
+				left: 12px
+				gap: 6px
+			&__poster
+				height: 240px
+
+	.help
+		&-section
+			padding: 32px 0
+			gap: 32px
+			&__sidebar
+				max-width: 400px
+				padding: 16px 0
+			&__main
+				max-width: 740px
+			&__item
+				padding: 16px 0
+			&__accordion
+				border-top: 1px solid rgba(100, 116, 139, 0.1)
+				&:first-child
+					border: 0
+				&-title
+					padding: 16px 0
+				&-content
+					&::after
+						height: 16px
+			&__video
+				padding: 16px 0
+
+	.manual
+		&-material
+			&__item
+				padding: 16px
+				gap: 16px
+				&-head
+					p
+						margin-top: 8px
+					b:last-child
+						margin-bottom: 16px
+		&-grid
+			&__icon
+				height: 160px
+		&-big
+			.manual-material__item
+				right: 160px
+				top: -20px
+				max-width: 240px
+		&-z
+			&-grid
+				gap: 32px
+			&-item
+				min-width: auto
+				&:nth-child(1) > img,
+				&:nth-child(3) > img
+					height: 450px
+				&:nth-child(2) img,
+				&:nth-child(4) img
+					height: 410px
+			&-tooltip
+				padding: 16px
+				width: 500px
+				&-image
+					right: 16px
+				&-1
+					left: 35px
+					top: 195px
+				&-2
+					.manual-z-tooltip-arrows
+						right: 25px
+						width: 150px
+
+	.guide
+		&-subtitle
+			font-size: 22px

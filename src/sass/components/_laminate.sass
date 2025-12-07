@@ -169,3 +169,8 @@
 				text-decoration: line-through
 		&:hover
 			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
+	&-grid
+		@include flexbox
+		gap: 24px
+		.laminate-item
+			width: calc(100% / 2 - 12px)

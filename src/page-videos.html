@@ -1,0 +1,30 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Видеоинструкции' %}
+
+{% block content %}
+
+<section class="breadcrumbs">
+	<div class="container">
+		<ul class="breadcrumbs-nav">
+			<li><a href="#">Главная</a></li>
+			<li><a href="#">Видеоинструкции</a></li>
+		</ul>
+		<h2 class="breadcrumbs-title section-title">Видеоинструкции</h2>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container">
+		<div class="speak-grid">
+			{% include 'components/speak-item.html' %}
+			{% include 'components/speak-item.html' %}
+			{% include 'components/speak-item.html' %}
+			{% include 'components/speak-item.html' %}
+			{% include 'components/speak-item.html' %}
+			{% include 'components/speak-item.html' %}
+			{% include 'components/speak-item.html' %}
+		</div>
+	</div>
+</section>
+
+{% endblock %}

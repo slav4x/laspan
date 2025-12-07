@@ -72,7 +72,7 @@
 						padding: 12px
 						flex: 1
 						min-width: 40%
-						svg
+						svg, img
 							height: 72px
 			&-view
 				max-width: 100%
@@ -352,6 +352,13 @@
 						display: none
 				&__title
 					font-size: 24px
+		&-text
+			&-image
+				height: 240px
+			&-wrapper
+				padding: 24px
+			&-content
+				gap: 16px
 
 	.benefits
 		&-grid
@@ -417,3 +424,88 @@
 	.contacts
 		&-image
 			display: none
+
+	.news
+		&-item
+			width: 100%
+
+	.help
+		padding: 32px 0
+		&-section
+			&__item
+				&-info
+					flex: initial
+					width: 100%
+				&-btn
+					flex: 1
+
+	.manual
+		&-head
+			margin-bottom: 32px
+			&.half
+				max-width: 100%
+			.section-title
+				font-size: 24px
+		&-grid
+			&__row
+				&:nth-child(2n)
+					.manual-grid__col:nth-child(2)
+						order: 1
+			&__col
+				padding: 16px
+				gap: 16px
+				.section-title
+					font-size: 24px
+			&__icon
+				height: 90px
+				bottom: 16px
+				right: 16px
+		&-material
+			&__grid
+				&-big
+					.manual-material__item
+						width: 100%
+						flex: initial
+			&__item
+				flex: initial
+				width: 100%
+				img
+					max-width: 240px
+					width: 100%
+					margin: 0 auto
+		&-big
+			.manual-material__item
+				position: relative
+				width: 100%
+				right: 0
+				top: 0
+				max-width: 100%
+				margin-top: 16px
+		&-grid-big__col
+			width: 100% !important
+			img
+				max-width: 100% !important
+		&-z
+			&-tooltip
+				width: 350px
+				border: 2px solid #E7E7E7
+				b, p
+					max-width: 180px
+				&-image
+					width: 100px
+				&-1
+					left: 15px
+				&-2
+					left: 15px
+					.manual-z-tooltip-arrows
+						right: 75px
+						width: 120px
+						top: 165px
+			&-item:nth-child(3)
+				& > img
+					height: 470px !important
+					object-fit: cover
+					object-position: center
+
+	.speak-grid
+		gap: 16px

@@ -164,11 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!li) return;
       openDropdown(li.dataset.category);
     });
-
-    nav.addEventListener('click', (e) => {
-      const linkLI = e.target.closest('li[data-category]');
-      if (linkLI) e.preventDefault();
-    });
   }
 
   dropdown?.addEventListener('mouseenter', () => {
@@ -204,16 +199,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!header.contains(e.relatedTarget)) closeDropdown();
   });
 
-  const manufacturedCarousel = document.querySelector('.manufactured-carousel');
-  if (manufacturedCarousel) {
-    new Splide(manufacturedCarousel, {
+  document.querySelectorAll('.manufactured-carousel').forEach((carousel) => {
+    new Splide(carousel, {
       type: 'loop',
       perPage: 1,
       focus: 0,
       omitEnd: true,
       pagination: false,
     }).mount();
-  }
+  });
 
   const objectsCarousel = document.querySelector('.objects-carousel');
   if (objectsCarousel) {
@@ -1151,5 +1145,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       contactsImage.src = imgSrc;
     });
+  });
+
+  document.addEventListener('click', (e) => {
+    const title = e.target.closest('.help-section__accordion-title');
+    if (!title) return;
+
+    const accordion = title.parentElement;
+    accordion.classList.toggle('open');
   });
 });

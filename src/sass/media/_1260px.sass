@@ -393,8 +393,6 @@
 						b
 							padding: 12px 0
 							margin-bottom: 10px
-						svg
-							height: 80px
 			&-view
 				max-width: 260px
 				&__price
@@ -600,6 +598,15 @@
 					width: 36px
 					top: 134px
 					right: -18px
+		&-text
+			&-image
+				width: 470px
+				min-height: 490px
+			&-wrapper
+				width: calc(100% - 470px)
+				padding: 40px
+			&-content
+				max-width: 100%
 
 	.benefits
 		&-item
@@ -637,3 +644,88 @@
 			width: 60%
 		&-image
 			width: 40%
+
+	.news
+		&-categories
+			margin-bottom: 24px
+			gap: 8px
+			li
+				a
+					padding: 12px
+		&-item
+			width: calc((100% - (1 * 16px)) / 2)
+			&__btn
+				padding: 16px 20px
+
+	.help
+		&-section
+			padding: 32px 0
+			gap: 0px
+			&__sidebar
+				max-width: 100%
+				padding: 16px 0
+			&__main
+				max-width: 100%
+				width: 100%
+				flex: initial
+			&__item
+				padding: 16px 0
+			&__title
+				br
+					display: none
+
+	.manual
+		&-head
+			&.half
+				max-width: 100%
+		&-grid
+			&__row
+				&:nth-child(2n)
+					.manual-grid__col:nth-child(2)
+						order: 1
+			&__col
+				padding: 44px
+				width: 100%
+				gap: 44px
+				&:nth-child(2)
+					img
+						max-width: initial
+						width: 100%
+			&__icon
+				position: absolute
+				bottom: 32px
+				right: 32px
+		&-material
+			&__item
+				flex: 1
+				width: auto
+				min-width: calc((100% - (2 * 16px)) / 3)
+		&-big
+			.manual-material__item
+				flex: initial
+				min-width: 0
+				right: 80px
+				top: 0px
+				max-width: 240px
+		&-grid-big
+			margin-bottom: 32px
+			&__col
+				&:nth-child(1)
+					width: calc(100% - 16px - 390px)
+					.manual-material__item-head b
+						font-size: 16px
+				&:nth-child(2)
+					width: 390px
+					.manual-material__item-head b
+						font-size: 16px
+		&-z
+			&-item
+				width: calc(100% / 2 - 16px) !important
+			&-tooltip
+				width: 430px
+				b, p
+					max-width: 240px
+				&-2
+					.manual-z-tooltip-arrows
+						right: 105px
+						width: 140px
