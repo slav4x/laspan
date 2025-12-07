@@ -142,3 +142,26 @@
 	renderOffices(officesSelect.value);
 	officesSelect.addEventListener('change', e => renderOffices(e.target.value));
 </script>
+
+<div class="popup" id="popup-form">
+	<div class="popup-close"></div>
+	<h3 class="popup-title section-title"></h3>
+	<p class="popup-text"></p>
+	<form action="#" class="popup-form">
+		<label class="label">
+			<span>Ваше имя</span>
+			<input type="text" name="name" class="input" placeholder="Александр" />
+		</label>
+		<label class="label">
+			<span>Город</span>
+			<input type="text" name="city" class="input" placeholder="Москва" required />
+		</label>
+		<label class="label">
+			<span>Телефон</span>
+			<input type="tel" name="phone" class="input masked" placeholder="+7 (000) 000-00-00" required />
+		</label>
+		<input type="hidden" name="form">
+		<button class="btn btn-md btn-yellow"></button>
+		<p class="popup-form__agree">Заполняя эту форму вы даете согласие на <a href="#">обработку ваших персональных данных</a></p>
+	</form>
+</div>
