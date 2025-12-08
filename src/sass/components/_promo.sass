@@ -48,7 +48,7 @@
 			padding: 60px 0 120px
 			@include flexbox
 			align-items: center
-			img
+			img:not(.promo-item__delivery-map)
 				margin-left: -140px
 				max-height: 580px
 				height: 80%
@@ -122,11 +122,14 @@
 			bottom: 0
 			left: 0
 			right: 0
+			transition: color var(--transition-ms)
+			&.white
+				color: #fff
 		&__next
 			span
 				font-size: var(--font-size-xs)
 				font-weight: 500
-				color: rgba(0,0,0,.7)
+				opacity: 0.7
 				line-height: 18px
 				display: block
 			p
@@ -168,3 +171,59 @@
 						width: 10px
 						height: 18px
 						transform: none
+	&-item
+		overflow: hidden
+		&__delivery
+			.promo-item
+				color: #fff
+				background: #1E2C34
+			.promo-item__background
+				background: var(--color-red)
+			.section-title
+				max-width: 680px
+				span
+					color: var(--color-yellow)
+			&-map
+				max-width: initial
+				width: 1430px
+				margin-left: -300px
+		&__warehouses
+			@include flexbox
+			gap: 8px
+			max-width: 428px
+			li
+				width: calc(100% / 2 - 4px)
+				padding: 8px
+				@include flexbox
+				align-items: center
+				gap: 12px
+				border: 1px solid rgba(255,255,255,.15)
+				font-weight: 500
+				transition: var(--transition-ms)
+				cursor: pointer
+				&::before
+					content: ''
+					display: block
+					width: 32px
+					height: 32px
+					background: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 22C27 22.75 26.79 23.46 26.42 24.06C26.21 24.42 25.94 24.74 25.63 25C24.93 25.63 24.01 26 23 26C21.78 26 20.69 25.45 19.97 24.59C19.95 24.56 19.92 24.54 19.9 24.51C19.78 24.37 19.67 24.22 19.58 24.06C19.21 23.46 19 22.75 19 22C19 20.74 19.58 19.61 20.5 18.88C21.19 18.33 22.06 18 23 18C24 18 24.9 18.36 25.6 18.97C25.72 19.06 25.83 19.17 25.93 19.28C26.59 20 27 20.95 27 22Z' stroke='%23FADF4B' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M24.4898 21.98H21.5098' stroke='%23FADF4B' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23 20.52V23.51' stroke='%23FADF4B' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg opacity='0.4'%3E%3Cpath d='M7.16992 11.4399L15.9999 16.5499L24.7699 11.4699' stroke='%23FADF4B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 25.61V16.54' stroke='%23FADF4B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M25.6101 13.17V18.83C25.6101 18.88 25.6101 18.92 25.6001 18.97C24.9001 18.36 24.0001 18 23.0001 18C22.0601 18 21.1901 18.33 20.5001 18.88C19.5801 19.61 19.0001 20.74 19.0001 22C19.0001 22.75 19.2101 23.46 19.5801 24.06C19.6701 24.22 19.7801 24.37 19.9001 24.51L18.0701 25.52C16.9301 26.16 15.0701 26.16 13.9301 25.52L8.59013 22.56C7.38013 21.89 6.39014 20.21 6.39014 18.83V13.17C6.39014 11.79 7.38013 10.11 8.59013 9.44002L13.9301 6.48C15.0701 5.84 16.9301 5.84 18.0701 6.48L23.4101 9.44002C24.6201 10.11 25.6101 11.79 25.6101 13.17Z' stroke='%23FADF4B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E%0A") no-repeat center / cover
+				&:hover
+					border-color: var(--color-yellow)
+		&__sale
+			@include flexbox
+			gap: 12px
+			max-width: 876px
+			width: 100%
+			&-card
+				width: calc((100% - (2 * 12px)) / 3)
+				background: #fff
+			&-info
+				padding: 16px
+				b
+					font-weight: 700
+					display: block
+				span
+					margin-top: 4px
+					color: #787878
+					display: block
+					font-weight: 500

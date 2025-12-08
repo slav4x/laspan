@@ -41,7 +41,7 @@
 					padding: 0 30px
 			&__background
 				max-width: calc(120px + var(--pos-right) * -1)
-				img
+				img:not(.promo-item__delivery-map)
 					max-height: 360px
 					margin-left: -80px
 					max-width: initial
@@ -245,7 +245,7 @@
 			padding: 0
 			&::before
 				display: none
-			svg
+			svg, img
 				position: relative
 				top: 0
 				left: 0
@@ -752,3 +752,7 @@
 
 	.speak-grid
 		gap: 24px
+
+	.promo-item__delivery-map
+		width: 980px
+		margin-left: -120px

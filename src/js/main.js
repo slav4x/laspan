@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
           const button = slide.triggerEl.dataset.btn;
           const form = slide.triggerEl.dataset.form;
 
-          const titleEl = document.querySelector('.popup .popup-title');
-          const textEl = document.querySelector('.popup .popup-text');
-          const buttonEl = document.querySelector('.popup .popup-form .btn');
-          const formEl = document.querySelector('.popup .popup-form input[name="form"]');
+          const titleEl = document.querySelector('#popup-form .popup-title');
+          const textEl = document.querySelector('#popup-form .popup-text');
+          const buttonEl = document.querySelector('#popup-form .popup-form .btn');
+          const formEl = document.querySelector('#popup-form .popup-form input[name="form"]');
 
           titleEl.innerHTML = title;
           textEl.innerHTML = text;
@@ -414,6 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const promoArrowPrev = document.querySelector('.promo-control__arrows .splide__arrow--prev');
   const promoArrowNext = document.querySelector('.promo-control__arrows .splide__arrow--next');
   const promoNextText = document.querySelector('.promo-control__next p');
+  const promoControls = document.querySelector('.promo-control__wrapper');
 
   if (promoCarousel) {
     const splide = new Splide(promoCarousel, {
@@ -444,6 +445,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     promoArrowPrev?.addEventListener('click', () => splide.go('<'));
     promoArrowNext?.addEventListener('click', () => splide.go('>'));
+
+    const setControlsColor = (currentIndex) => {
+      if (!promoControls) return;
+      const slide = slides[currentIndex];
+      slide.classList.contains('promo-item__delivery') ? promoControls.classList.add('white') : promoControls.classList.remove('white');
+    };
+
+    setControlsColor(splide.index);
+    splide.on('move', (newIndex) => setControlsColor(newIndex));
   }
 
   const cityItems = document.querySelectorAll('.warehouses-group__list li');
@@ -1297,7 +1307,9 @@ document.addEventListener('DOMContentLoaded', () => {
         body: formData,
       })
         .then((response) => {
-          window.location.href = '/thanks';
+          // window.location.href = '/thanks';
+          Fancybox.close();
+          Fancybox.show([{ src: '#popup-thanks', type: 'inline' }]);
         })
         .catch((error) => console.error('Error:', error));
     });

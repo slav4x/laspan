@@ -112,7 +112,7 @@
 						top: 13px
 			&__background
 				max-width: calc(35% + var(--pos-right) * -1)
-				img
+				img:not(.promo-item__delivery-map)
 					max-height: 430px
 					left: -100px
 			&__bullets
@@ -465,7 +465,7 @@
 		&-map
 			.btn
 				height: 64px
-			svg
+			svg, img
 				width: 1220px
 				height: 630px
 				top: 0px
@@ -1408,3 +1408,9 @@
 		&-form
 			margin-top: 44px
 			gap: 16px
+
+	.promo-item__delivery-map
+		width: 1280px
+		margin-left: -200px
+	.promo-item__delivery .section-title
+		max-width: 560px

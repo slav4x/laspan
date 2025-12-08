@@ -154,11 +154,22 @@ input, textarea
         color: var(--color-black)
         &:hover
             background: var(--color-yellow-hover)
+        &.btn-arrow
+            &::after
+                background: url("data:image/svg+xml,%3Csvg width='34' height='21' viewBox='0 0 34 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.601051' y='0.601051' width='32.7979' height='19.7979' rx='9.89895' stroke='black' stroke-width='1.2021'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.645 14.821L21.8084 10.9321C22.0639 10.6935 22.0639 10.3065 21.8084 10.0679L17.645 6.17898C17.3896 5.94034 16.9753 5.94034 16.7199 6.17898C16.4644 6.41763 16.4644 6.80454 16.7199 7.04319L19.7664 9.88892L12 9.88892L12 11.1111L19.7664 11.1111L16.7199 13.9568C16.4644 14.1955 16.4644 14.5824 16.7199 14.821C16.9753 15.0597 17.3896 15.0597 17.645 14.821Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat center
     &-white
         background: #fff
         color: #2F3E50
         &:hover
             background: #EFEFEF
+    &-arrow
+        gap: 24px
+        &::after
+            content: ''
+            display: block
+            width: 34px
+            height: 21px
+            background: url("data:image/svg+xml,%3Csvg width='34' height='21' viewBox='0 0 34 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.601051' y='0.601051' width='32.7979' height='19.7979' rx='9.89895' stroke='white' stroke-width='1.2021'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.645 14.821L21.8084 10.9321C22.0639 10.6935 22.0639 10.3065 21.8084 10.0679L17.645 6.17898C17.3896 5.94034 16.9753 5.94034 16.7199 6.17898C16.4644 6.41763 16.4644 6.80454 16.7199 7.04319L19.7664 9.88892L12 9.88892L12 11.1111L19.7664 11.1111L16.7199 13.9568C16.4644 14.1955 16.4644 14.5824 16.7199 14.821C16.9753 15.0597 17.3896 15.0597 17.645 14.821Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center
 
 .label
     display: block
