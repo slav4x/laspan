@@ -122,6 +122,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let closeTimer = null;
 
+  const startCloseTimer = () => {
+    if (closeTimer) clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => {
+      closeDropdown();
+    }, 0); // можно 0, если без задержки
+  };
+
+  const cancelCloseTimer = () => {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+  };
+
   const openDropdown = (categoryId) => {
     if (!dropdown) return;
 
@@ -139,11 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const closeDropdown = () => {
-    dropdown?.classList.remove('is-open');
+    if (!dropdown) return;
+
+    dropdown.classList.remove('is-open');
     menuItems.forEach((li) => li.classList.remove('is-active'));
-    setTimeout(() => {
-      categories.forEach((cat) => cat.classList.remove('is-active'));
-    }, 200);
+
+    categories.forEach((cat) => cat.classList.remove('is-active'));
   };
 
   const ensureDefaultContent = (categoryEl) => {
@@ -152,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showContent(categoryEl, activeSidebarItem.dataset.content);
       return;
     }
+
     const firstItem = categoryEl.querySelector('.header-dropdown__sidebar-nav li[data-content]');
     if (firstItem) {
       firstItem.classList.add('is-active');
@@ -161,32 +177,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const showContent = (categoryEl, contentId) => {
     const allContent = categoryEl.querySelectorAll('.header-dropdown__main-content');
-    allContent.forEach((c) => c.classList.toggle('is-active', c.dataset.content === contentId));
+    allContent.forEach((c) => {
+      c.classList.toggle('is-active', c.dataset.content === contentId);
+    });
 
     const sidebarItems = categoryEl.querySelectorAll('.header-dropdown__sidebar-nav li[data-content]');
-    sidebarItems.forEach((li) => li.classList.toggle('is-active', li.dataset.content === contentId));
+    sidebarItems.forEach((li) => {
+      li.classList.toggle('is-active', li.dataset.content === contentId);
+    });
   };
 
-  if (nav) {
-    nav.addEventListener('mouseenter', () => {
-      if (closeTimer) {
-        clearTimeout(closeTimer);
-        closeTimer = null;
-      }
-    });
-
-    nav.addEventListener('mouseover', (e) => {
-      const li = e.target.closest('li[data-category]');
-      if (!li) return;
+  menuItems.forEach((li) => {
+    li.addEventListener('mouseenter', () => {
+      cancelCloseTimer();
       openDropdown(li.dataset.category);
     });
-  }
+
+    li.addEventListener('mouseleave', () => {
+      startCloseTimer();
+    });
+  });
 
   dropdown?.addEventListener('mouseenter', () => {
-    if (closeTimer) {
-      clearTimeout(closeTimer);
-      closeTimer = null;
-    }
+    cancelCloseTimer();
+  });
+
+  dropdown?.addEventListener('mouseleave', () => {
+    startCloseTimer();
   });
 
   dropdown?.addEventListener('mouseover', (e) => {
@@ -194,25 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const li = e.target.closest('.header-dropdown__sidebar-nav li[data-content]');
     if (!currentCategory || !li) return;
     showContent(currentCategory, li.dataset.content);
-  });
-
-  header.addEventListener('mouseleave', () => {
-    if (closeTimer) clearTimeout(closeTimer);
-    closeTimer = setTimeout(closeDropdown, 0);
-  });
-
-  header.addEventListener('focusin', (e) => {
-    const li = e.target.closest('.header-bottom__nav li[data-category]');
-    if (li) openDropdown(li.dataset.category);
-    const sideItem = e.target.closest('.header-dropdown__sidebar-nav li[data-content]');
-    if (sideItem) {
-      const cat = sideItem.closest('.header-dropdown__category');
-      if (cat?.classList.contains('is-active')) showContent(cat, sideItem.dataset.content);
-    }
-  });
-
-  header.addEventListener('focusout', (e) => {
-    if (!header.contains(e.relatedTarget)) closeDropdown();
   });
 
   document.querySelectorAll('.manufactured-carousel').forEach((carousel) => {
@@ -912,7 +910,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const paneliCarousel = document.querySelector('.paneli-card__gallery');
   if (paneliCarousel) {
     const thumbs = new Splide('.paneli-card__gallery-thumbs', {
-      type: 'loop',
+      // type: 'loop',
       rewind: true,
       pagination: false,
       arrows: false,
@@ -1024,72 +1022,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const aboutGalleryCarousel = document.querySelector('.about-gallery-carousel');
-  const aboutGalleryCurrentEl = document.querySelector('.about-gallery-counter__current');
-  const aboutGalleryTotalEl = document.querySelector('.about-gallery-counter__total');
-  const aboutGalleryProgressBar = document.querySelector('.about-gallery-counter__progress span');
-  const aboutGalleryArrowPrev = document.querySelector('.about-gallery-arrows .splide__arrow--prev');
-  const aboutGalleryArrowNext = document.querySelector('.about-gallery-arrows .splide__arrow--next');
+  // const aboutGalleryCarousel = document.querySelector('.about-gallery-carousel');
+  // const aboutGalleryCurrentEl = document.querySelector('.about-gallery-counter__current');
+  // const aboutGalleryTotalEl = document.querySelector('.about-gallery-counter__total');
+  // const aboutGalleryProgressBar = document.querySelector('.about-gallery-counter__progress span');
+  // const aboutGalleryArrowPrev = document.querySelector('.about-gallery-arrows .splide__arrow--prev');
+  // const aboutGalleryArrowNext = document.querySelector('.about-gallery-arrows .splide__arrow--next');
 
-  if (aboutGalleryCarousel && aboutGalleryCurrentEl && aboutGalleryTotalEl && aboutGalleryProgressBar) {
-    const pad2 = (n) => String(n).padStart(2, '0');
-    const normalize = (i, n) => ((i % n) + n) % n;
+  // if (aboutGalleryCarousel && aboutGalleryCurrentEl && aboutGalleryTotalEl && aboutGalleryProgressBar) {
+  //   const pad2 = (n) => String(n).padStart(2, '0');
+  //   const normalize = (i, n) => ((i % n) + n) % n;
 
-    const splide = new Splide(aboutGalleryCarousel, {
-      type: 'loop',
-      perPage: 1,
-      perMove: 1,
-      arrows: false,
-      pagination: false,
-      speed: 600,
-      gap: 12,
-      grid: {
-        rows: 2,
-        cols: 4,
-        gap: { row: '12px', col: '12px' },
-      },
-      breakpoints: {
-        576: {
-          grid: {
-            cols: 1,
-            rows: 1,
-          },
-        },
-        768: {
-          grid: {
-            cols: 2,
-          },
-        },
-        1260: {
-          grid: {
-            cols: 3,
-          },
-        },
-      },
-    }).mount(window.splide.Extensions);
+  //   const splide = new Splide(aboutGalleryCarousel, {
+  //     type: 'loop',
+  //     perPage: 1,
+  //     perMove: 1,
+  //     arrows: false,
+  //     pagination: false,
+  //     speed: 600,
+  //     gap: 12,
+  //     grid: {
+  //       rows: 2,
+  //       cols: 4,
+  //       gap: { row: '12px', col: '12px' },
+  //     },
+  //     breakpoints: {
+  //       576: {
+  //         grid: {
+  //           cols: 1,
+  //           rows: 1,
+  //         },
+  //       },
+  //       768: {
+  //         grid: {
+  //           cols: 2,
+  //         },
+  //       },
+  //       1260: {
+  //         grid: {
+  //           cols: 3,
+  //         },
+  //       },
+  //     },
+  //   }).mount(window.splide.Extensions);
 
-    aboutGalleryArrowPrev?.addEventListener('click', () => splide.go('<'));
-    aboutGalleryArrowNext?.addEventListener('click', () => splide.go('>'));
+  //   aboutGalleryArrowPrev?.addEventListener('click', () => splide.go('<'));
+  //   aboutGalleryArrowNext?.addEventListener('click', () => splide.go('>'));
 
-    const totalPages = splide.length || 1;
-    aboutGalleryTotalEl.textContent = pad2(totalPages);
+  //   const totalPages = splide.length || 1;
+  //   aboutGalleryTotalEl.textContent = pad2(totalPages);
 
-    const setBar = (pct) => {
-      const clamped = Math.max(0, Math.min(100, Math.round(pct)));
-      aboutGalleryProgressBar.style.width = clamped + '%';
-    };
+  //   const setBar = (pct) => {
+  //     const clamped = Math.max(0, Math.min(100, Math.round(pct)));
+  //     aboutGalleryProgressBar.style.width = clamped + '%';
+  //   };
 
-    const updateUI = () => {
-      const page = normalize(splide.index, totalPages) + 1;
-      aboutGalleryCurrentEl.textContent = pad2(page);
-      const pct = (page / totalPages) * 100;
-      setBar(pct);
-    };
+  //   const updateUI = () => {
+  //     const page = normalize(splide.index, totalPages) + 1;
+  //     aboutGalleryCurrentEl.textContent = pad2(page);
+  //     const pct = (page / totalPages) * 100;
+  //     setBar(pct);
+  //   };
 
-    splide.on('mounted move', updateUI);
+  //   splide.on('mounted move', updateUI);
 
-    updateUI();
-  }
+  //   updateUI();
+  // }
 
   const aboutClientsCarousel = document.querySelector('.about-clients-carousel');
   const aboutClientsCurrentEl = document.querySelector('.about-clients-counter__current');

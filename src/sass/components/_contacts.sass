@@ -55,6 +55,12 @@
 			margin-top: 4px
 			&:first-child
 				margin-top: 0
+			@include flexbox
+			align-items: center
+			gap: 12px
+			.about-specialists__item-contacts-wa,
+			.about-specialists__item-contacts-tg
+				transform: scale(1.1)
 		&-grid
 			@include flexbox
 			align-items: flex-start
