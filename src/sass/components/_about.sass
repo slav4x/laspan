@@ -38,7 +38,7 @@
 	&-breadcrumbs
 		position: relative
 		background: #000
-		height: 100vh
+		height: calc(100vh - 111px)
 		max-height: 900px
 		@include flexbox
 		flex-direction: column
@@ -60,13 +60,15 @@
 			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1)
 			background: #fff
 			padding: 32px 36px
+			i
+				font-style: normal
 			b
 				font-weight: 700
 				font-size: 92px
-				span
+				span[data-counter]
 					font-size: var(--font-size-lg)
 			p
-				margin-top: 16px
+				// margin-top: 16px
 				opacity: 0.8
 				font-weight: 500
 	&-specialists
@@ -324,6 +326,8 @@
 			@include flexbox
 			align-items: center
 			justify-content: center
+			.section-title span
+				color: var(--color-red)
 		&-content
 			line-height: 1.4
 			@include flexbox

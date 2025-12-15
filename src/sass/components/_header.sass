@@ -331,6 +331,30 @@
 					letter-spacing: -0.03em
 					opacity: 0.7
 					font-weight: 500
+			&-videos
+				@include flexbox
+				gap: 16px
+				&-item
+					width: calc(100% / 2 - 8px)
+					position: relative
+					img
+						height: auto !important
+					&::before
+						content: ''
+						position: absolute
+						background: rgba(0, 0, 0, 0.3) url("data:image/svg+xml,%3Csvg width='30' height='26' viewBox='0 0 30 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0V26L30 13.0444L4 0Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center
+						backdrop-filter: blur(22px)
+						width: 80px
+						height: 80px
+						border-radius: 100%
+						top: 50%
+						left: 50%
+						transform: translate(-50%, -50%)
+						z-index: 20
+		&__video-link
+			color: var(--color-red)
+			&:hover span
+				border-color: var(--color-red) !important
 	&-burger
 		display: none
 	&-phone

@@ -170,13 +170,13 @@
 			max-width: 420px
 		&-col
 			&:nth-child(1)
-				width: 52%
 				padding: 60px 0
 			&:nth-child(2)
-				width: 48%
 				padding: 60px 0 60px 60px
 		&-list
 			gap: 24px
+			li
+				width: calc(100% / 2 - 12px)
 		&-decor
 			&__list
 				gap: 8px
@@ -198,6 +198,8 @@
 			padding-right: 40px
 			&__price
 				gap: 10px
+				p
+					max-width: 270px
 			.btn
 				max-width: 256px
 				height: 68px
@@ -224,7 +226,7 @@
 		&-carousel
 			margin-top: 32px
 			&__thumbs
-				margin-bottom: 40px
+				margin-bottom: 32px
 				.splide
 					&__arrows
 						height: 71px
@@ -245,13 +247,15 @@
 					height: 64px
 			&__info
 				padding: 24px
-				gap: 16px
+				gap: 12px
 			&__gallery
 				width: calc(100% - 370px - 10px)
 			&__title
 				font-size: 20px
-			&__gallery
-				min-height: 625px
+			&__list li p
+				margin-top: 4px
+			// &__gallery
+			// 	min-height: 625px
 		&-section
 			&__grid
 				margin-top: 32px
@@ -492,8 +496,6 @@
 				padding: 20px 24px
 				b
 					font-size: 70px
-				p
-					margin-top: 12px
 		&-specialists
 			&__tabs
 				margin-top: 32px
@@ -1175,7 +1177,7 @@
 					top: 40px
 					right: 40px
 			&-carousel
-				max-width: 420px
+				max-width: 520px
 				margin-right: 60px
 				&__item
 					padding: 16px

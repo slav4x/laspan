@@ -446,8 +446,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setControlsColor = (currentIndex) => {
       if (!promoControls) return;
+
       const slide = slides[currentIndex];
-      slide.classList.contains('promo-item__delivery') ? promoControls.classList.add('white') : promoControls.classList.remove('white');
+      if (!slide) return;
+
+      if (slide.classList.contains('promo-item__delivery')) {
+        promoControls.classList.add('white');
+      } else {
+        promoControls.classList.remove('white');
+      }
     };
 
     setControlsColor(splide.index);
@@ -1375,4 +1382,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   clearUtmParamsIfExpired();
+
+  document.querySelectorAll('[data-counter]').forEach((el) => {
+    const num = el.textContent.trim();
+    const numArr = [...String(num)];
+
+    el.innerHTML = '<span class="idle"></span><span class="hover"></span>';
+
+    el.querySelector('.idle').innerHTML = numArr.map((c) => `<span class="char">${c}</span>`).join('');
+
+    el.querySelector('.hover').innerHTML = numArr.map((c) => `<span class="char">${c}</span>`).join('');
+
+    const onScroll = () => {
+      const scrolled = window.scrollY + window.innerHeight - 160;
+      if (scrolled > el.getBoundingClientRect().top + window.scrollY) {
+        el.classList.add('is-inview');
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+  });
 });
