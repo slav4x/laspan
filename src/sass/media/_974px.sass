@@ -101,14 +101,19 @@
 
 	.objects
 		&-item
+			flex-direction: column
+			gap: 24px
 			&__content
 				width: 100%
+				order: 1
+				flex: 1
 			&__info
 				padding: 0
 			&__list
 				flex-direction: row
-				margin-top: 20px
-				margin-bottom: 36px
+				// margin-top: 20px
+				// margin-bottom: 36px
+				margin-bottom: 12px
 				li
 					width: calc(100% / 3 - 32px)
 			&__gallery
@@ -135,6 +140,8 @@
 				width: calc(100% / 2 - 6px) !important
 				&-info
 					padding: 24px
+				&-description-wrapper
+					display: none
 		&-others
 			&-carousel
 				width: 320px
@@ -261,19 +268,21 @@
 
 	.about
 		&-list
-			flex-direction: column
+			// flex-direction: column
+			align-items: stretch
 			gap: 0
 			margin-top: 40px
 			li
-				width: 100%
+				width: 50%
 				padding: 32px 0
 				border-bottom: 1px solid rgba(255,255,255,.25)
 				@include flexbox
-				align-items: center
-				b, p
-					width: 50%
-				&:last-child
-					border-bottom: 0
+				align-items: flex-start
+				flex-direction: column
+				p
+					padding-right: 12px
+				// &:last-child
+				// 	border-bottom: 0
 		&-counter
 			max-width: 100%
 			gap: 16px
@@ -602,6 +611,8 @@
 				.btn
 					flex: 1
 					padding: 0
+		&-video
+			width: 100%
 
 	.colorika
 		&-bullets

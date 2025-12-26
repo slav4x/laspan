@@ -1,0 +1,33 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Спасибо' %}
+
+{% block content %}
+
+<section class="promo">
+	<div class="promo-carousel no-carousel">
+		<div class="promo-item">
+			<div class="container">
+				<div class="promo-item__content">
+					<h1 class="section-title">Скоро свяжемся для<br> <span>обсуждения вашего проекта!</span></h1>
+					<p class="promo-item__text">Вот уже 10 лет мы следуем нашей миссии: делать современные и качественные решения для отделки доступными, совмещая красоту, скорость монтажа и практичность.</p>
+					<p class="promo-item__text">А пока — посмотрите наше портфолио, чтобы увидеть, как мы воплощаем наши принципы в жизнь.</p>
+					<div class="promo-item__btns">
+						<a href="#" class="btn btn-sm btn-red">Перейти в портфолио</a>
+						<button onclick="goBack();" class="btn btn-sm btn-outlined">Вернуться на сайт</button>
+					</div>
+				</div>
+				<div class="promo-item__background" style="background-image: url(img/promo-bg-1.jpg);"></div>	
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	function goBack() {
+		const url = sessionStorage.getItem('returnUrl') || '/';
+		sessionStorage.removeItem('returnUrl');
+		window.location.href = url;
+	}
+</script>
+
+{% endblock %}

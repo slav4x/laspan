@@ -23,6 +23,19 @@
 				padding: 16px
 			&__background
 				background-position: top -60px center
+				&:last-child
+					background-position: top -50px center
+					background-size: 320px
+					background-color: initial !important
+					&::before
+						content: ''
+						position: absolute
+						top: 0
+						left: 0
+						right: 0
+						bottom: 0
+						background: linear-gradient(0deg, #f6f6f6, #f2f2f2)
+						z-index: -1
 
 	.services
 		&-item
@@ -301,6 +314,15 @@
 			height: 24px
 
 	.about
+		&-list
+			li
+				padding: 16px 0
+				p
+					font-size: 13px
+					margin-top: 6px
+				b
+					span
+						max-width: 80px
 		&-breadcrumbs
 			padding: 60px 0 !important
 		&-counter
@@ -521,3 +543,17 @@
 			.label
 				width: 100%
 				flex: initial
+
+	.section
+		&-head
+			&__counter
+				&::before, &::after
+					display: none
+
+	.header
+		position: sticky
+		top: 0
+
+	.promo-item
+		.section-title
+			font-size: 26px
