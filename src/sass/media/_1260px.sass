@@ -181,6 +181,31 @@
 					padding: 24px
 				&::after
 					display: none
+			&__content
+				gap: 12px
+			&__cards
+				width: 100%
+				gap: 12px
+				li
+					gap: 20px
+					flex-direction: row
+					align-items: center
+					justify-content: flex-start
+					img
+						width: 24px
+						height: 24px
+			&__text
+				width: 100%
+		&-categories
+			&__container
+				padding: 0 calc(var(--pos-right) * -1)
+				margin: 0 var(--pos-right)
+				overflow-x: scroll
+				overflow-y: hidden
+				&::-webkit-scrollbar
+					display: none
+			&__list
+				flex-wrap: nowrap
 		&-others
 			.objects-section__item
 				height: 340px !important

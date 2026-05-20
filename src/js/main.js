@@ -115,6 +115,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.masked').forEach((item) => new IMask(item, maskOptions));
 
+  // const objectsCategories = document.querySelector('.objects-categories__list');
+  // const objectsSections = document.querySelectorAll('.objects-section[id]');
+
+  // if (objectsCategories && objectsSections.length) {
+  //   const categoryItems = Array.from(objectsCategories.querySelectorAll('li')).filter((item) => {
+  //     const href = item.querySelector('a')?.getAttribute('href') || '';
+  //     return href.startsWith('#') && href.length > 1 && document.getElementById(href.slice(1));
+  //   });
+
+  //   if (categoryItems.length) {
+  //     let ticking = false;
+
+  //     const setActiveCategory = (sectionId) => {
+  //       categoryItems.forEach((item) => {
+  //         const href = item.querySelector('a')?.getAttribute('href');
+  //         item.classList.toggle('active', href === `#${sectionId}`);
+  //       });
+  //     };
+
+  //     const updateObjectsCategory = () => {
+  //       ticking = false;
+
+  //       let activeSection = null;
+
+  //       objectsSections.forEach((section) => {
+  //         if (section.getBoundingClientRect().top <= 0) {
+  //           activeSection = section;
+  //         }
+  //       });
+
+  //       if (activeSection) setActiveCategory(activeSection.id);
+  //     };
+
+  //     const requestObjectsCategoryUpdate = () => {
+  //       if (ticking) return;
+  //       ticking = true;
+  //       requestAnimationFrame(updateObjectsCategory);
+  //     };
+
+  //     categoryItems.forEach((item) => {
+  //       item.querySelector('a')?.addEventListener('click', () => {
+  //         const href = item.querySelector('a')?.getAttribute('href');
+  //         if (href) setActiveCategory(href.slice(1));
+  //       });
+  //     });
+
+  //     updateObjectsCategory();
+  //     window.addEventListener('scroll', requestObjectsCategoryUpdate, { passive: true });
+  //     window.addEventListener('resize', requestObjectsCategoryUpdate);
+  //   }
+  // }
+
   const header = document.querySelector('.header');
   if (!header) return;
 
@@ -290,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       },
-      { rootMargin: '0px 0px 0px 0px' }
+      { rootMargin: '0px 0px 0px 0px' },
     );
 
     observer.observe(video);
@@ -312,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       },
-      { rootMargin: '0px 0px 0px 0px' }
+      { rootMargin: '0px 0px 0px 0px' },
     );
 
     observer.observe(iframe);
@@ -887,7 +939,7 @@ document.addEventListener('DOMContentLoaded', () => {
       [...images].map((img) => {
         if (img.complete) return Promise.resolve();
         return new Promise((res) => img.addEventListener('load', res, { once: true }));
-      })
+      }),
     );
 
     waitImages.then(() => {
@@ -991,7 +1043,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'loop',
       rewind: true,
       pagination: false,
-      arrows: false,
+      // arrows: false,
       autoplay: false,
       pauseOnHover: true,
       keyboard: 'global',
