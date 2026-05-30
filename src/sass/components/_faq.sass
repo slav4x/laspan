@@ -1,0 +1,52 @@
+.faq
+	.container
+		@include flexbox
+		align-items: flex-start
+	&-sidebar
+		width: 490px
+		padding: 24px 0
+	&-main
+		flex: 1
+		max-width: 1030px
+		margin-left: auto
+	&-accordion
+		padding: 24px 0
+		cursor: pointer
+		border-bottom: 1px solid rgba(100, 116, 139, 0.1)
+		&__title
+			font-size: 22px
+			font-weight: 600
+			line-height: 32px
+			padding-right: 44px
+			position: relative
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				right: 0
+				width: 32px
+				height: 32px
+				background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.23535 11.6173L16.0002 20.3823L24.7651 11.6173' stroke='black' stroke-opacity='0.7' stroke-width='2.19124'/%3E%3C/svg%3E%0A")
+				transition: var(--transition-ms)
+				background-size: cover
+		&__content
+			display: grid
+			grid-template-rows: 0fr
+			overflow: hidden
+			transition: grid-template-rows var(--transition-ms)
+		&__text
+			max-width: 750px
+			min-height: 0
+			overflow: hidden
+			padding-top: 0
+			line-height: 1.4
+			font-weight: 500
+			transition: padding-top var(--transition-ms)
+			opacity: 0.7
+		&.open
+			.faq-accordion__title::after
+				transform: rotate(180deg)
+			.faq-accordion__content
+				grid-template-rows: 1fr
+			.faq-accordion__text
+				padding-top: 20px

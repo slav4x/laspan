@@ -1292,6 +1292,13 @@ document.addEventListener('DOMContentLoaded', () => {
     accordion.classList.toggle('open');
   });
 
+  document.addEventListener('click', (e) => {
+    const accordion = e.target.closest('.faq-accordion');
+    if (!accordion) return;
+
+    accordion.classList.toggle('open');
+  });
+
   const searchCity = document.querySelector('.city-search');
   const itemsCity = document.querySelectorAll('.city-list li');
 
