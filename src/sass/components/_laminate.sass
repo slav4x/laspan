@@ -13,6 +13,19 @@
 			padding: 0 16px 30px
 		.laminate-item
 			height: 100%
+		&__more
+			margin-top: 16px
+			@include flexbox
+			align-items: flex-end
+			justify-content: flex-end
+			a
+				font-weight: 600
+				opacity: 0.5
+				font-size: 16px
+				transition: var(--transition-ms)
+				&:hover
+					opacity: 1
+					color: var(--color-red)
 	&-arrows
 		position: relative
 		height: 94px
@@ -159,6 +172,23 @@
 				color: var(--color-red)
 				font-size: var(--font-size-md)
 				line-height: 26px
+		&__pricelist
+			display: grid
+			grid-template-columns: repeat(4, 1fr)
+			gap: 20px
+			margin-top: auto
+			width: 100%
+			b
+				font-weight: 600
+				letter-spacing: -0.03em
+				line-height: 1.1
+				display: block
+			span
+				margin-top: 6px
+				font-weight: 500
+				color: #64748B
+				font-size: var(--font-size-xs)
+				display: block
 		&__status
 			font-size: var(--font-size-sm)
 			line-height: 18px
@@ -170,6 +200,11 @@
 			&.old-price
 				color: #64748B
 				text-decoration: line-through
+		&-catalog
+			.laminate-item__title
+				margin-bottom: 0
+			.laminate-item__pic
+				min-height: 370px
 		&:hover
 			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05)
 	&-grid

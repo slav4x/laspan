@@ -115,6 +115,307 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.masked').forEach((item) => new IMask(item, maskOptions));
 
+  const filterSelects = document.querySelectorAll('.filter-group__select');
+  const panelsFilter = document.querySelector('[data-panels-filter]');
+  const panelsResults = document.querySelector('[data-panels-catalog-results]');
+  const panelsHeading = document.querySelector('[data-panels-catalog-heading]');
+  const panelsFilterOrder = ['type', 'base', 'decor', 'cover', 'kpo'];
+  const panelsSelectionOrder = Object.fromEntries(panelsFilterOrder.map((key) => [key, []]));
+  const genericSelectionOrder = new WeakMap();
+  let panelsFilterRequest = null;
+
+  filterSelects.forEach((select) => {
+    genericSelectionOrder.set(select, Array.from(select.querySelectorAll('input[type="checkbox"]:checked')));
+  });
+
+  panelsFilter?.querySelectorAll('[data-filter-key][data-filter-slug]:checked').forEach((checkbox) => {
+    const key = checkbox.dataset.filterKey;
+
+    if (panelsSelectionOrder[key]) panelsSelectionOrder[key].push(checkbox.dataset.filterSlug);
+  });
+
+  panelsFilterOrder.forEach((key) => {
+    const restoredOrder = window.history.state?.panelsSelectionOrder?.[key];
+
+    if (!Array.isArray(restoredOrder)) return;
+
+    const selectedSlugs = panelsSelectionOrder[key];
+    panelsSelectionOrder[key] = restoredOrder.filter((slug) => selectedSlugs.includes(slug));
+
+    selectedSlugs.forEach((slug) => {
+      if (!panelsSelectionOrder[key].includes(slug)) panelsSelectionOrder[key].push(slug);
+    });
+  });
+
+  const getPanelsHistoryState = () => ({
+    ...(window.history.state || {}),
+    panelsFilter: true,
+    panelsSelectionOrder: Object.fromEntries(
+      Object.entries(panelsSelectionOrder).map(([key, slugs]) => [key, [...slugs]]),
+    ),
+  });
+
+  const getPanelsFilterUrl = () => {
+    if (!panelsFilter) return null;
+
+    const selected = Object.fromEntries(panelsFilterOrder.map((key) => [key, []]));
+
+    panelsFilter.querySelectorAll('[data-filter-key][data-filter-slug]:checked').forEach((checkbox) => {
+      const key = checkbox.dataset.filterKey;
+
+      if (selected[key]) selected[key].push(checkbox);
+    });
+
+    Object.values(selected).forEach((checkboxes) => {
+      checkboxes.sort((first, second) => first.dataset.filterSlug.localeCompare(second.dataset.filterSlug));
+    });
+
+    const selectedTypes = selected.type;
+    const categoryUrl = selectedTypes.length === 1 ? selectedTypes[0].dataset.filterUrl : '';
+    const url = new URL(categoryUrl || panelsFilter.dataset.baseUrl, window.location.origin);
+    const segments = [];
+
+    panelsFilterOrder.forEach((key) => {
+      if (key === 'type' && categoryUrl) return;
+
+      const slugs = selected[key].map((checkbox) => checkbox.dataset.filterSlug);
+      if (slugs.length) segments.push(`${key}-${slugs.join('~')}`);
+    });
+
+    url.pathname = `${url.pathname.replace(/\/?$/, '/')}${segments.length ? `filter/${segments.join('/')}/` : ''}`;
+
+    const currentParams = new URLSearchParams(window.location.search);
+    currentParams.forEach((value, key) => {
+      if (key.startsWith('utm_') || key === 'gclid' || key === 'yclid') url.searchParams.set(key, value);
+    });
+
+    return url.toString();
+  };
+
+  const closeFilterSelects = (currentSelect = null) => {
+    filterSelects.forEach((select) => {
+      if (select === currentSelect) return;
+
+      select.classList.remove('focus');
+      select.querySelector('.filter-group__select-input')?.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  const updateFilterSelect = (select) => {
+    if (!select) return;
+
+    const selectInput = select.querySelector('.filter-group__select-input');
+    const selectValue = selectInput?.querySelector('b');
+    const panelsCheckboxes = Array.from(select.querySelectorAll('[data-filter-key][data-filter-slug]'));
+    const checkedBySlug = new Map(
+      panelsCheckboxes.filter((checkbox) => checkbox.checked).map((checkbox) => [
+        checkbox.dataset.filterSlug,
+        checkbox,
+      ]),
+    );
+    const key = panelsCheckboxes[0]?.dataset.filterKey;
+    const checked = panelsCheckboxes.length
+      ? (panelsSelectionOrder[key] || []).map((slug) => checkedBySlug.get(slug)).filter(Boolean)
+      : (genericSelectionOrder.get(select) || []).filter((checkbox) => checkbox.checked);
+    const selectedLabel = checked[0]?.nextElementSibling?.textContent.trim();
+
+    if (!selectInput || !selectValue) return;
+
+    selectValue.textContent = selectedLabel || 'Не выбрано';
+    selectInput.classList.toggle('empty', checked.length === 0);
+
+    if (checked.length > 1) {
+      const counter = document.createElement('span');
+      counter.textContent = `+${checked.length - 1}`;
+      selectValue.append(' ', counter);
+    }
+  };
+
+  const syncPanelsFilter = (nextFilter, nextSelectionOrder = null) => {
+    if (!panelsFilter || !nextFilter) return;
+
+    const selected = new Set(
+      Array.from(nextFilter.querySelectorAll('[data-filter-key][data-filter-slug]:checked')).map(
+        (checkbox) => `${checkbox.dataset.filterKey}:${checkbox.dataset.filterSlug}`,
+      ),
+    );
+
+    panelsFilter.querySelectorAll('[data-filter-key][data-filter-slug]').forEach((checkbox) => {
+      checkbox.checked = selected.has(`${checkbox.dataset.filterKey}:${checkbox.dataset.filterSlug}`);
+    });
+
+    panelsFilterOrder.forEach((key) => {
+      const restoredOrder = Array.isArray(nextSelectionOrder?.[key]) ? nextSelectionOrder[key] : [];
+      const selectedSlugs = Array.from(
+        nextFilter.querySelectorAll(`[data-filter-key="${key}"][data-filter-slug]:checked`),
+      ).map((checkbox) => checkbox.dataset.filterSlug);
+
+      panelsSelectionOrder[key] = restoredOrder.filter((slug) => selectedSlugs.includes(slug));
+
+      selectedSlugs.forEach((slug) => {
+        if (!panelsSelectionOrder[key].includes(slug)) panelsSelectionOrder[key].push(slug);
+      });
+    });
+
+    filterSelects.forEach(updateFilterSelect);
+  };
+
+  const syncPanelsPageMeta = (nextDocument) => {
+    if (nextDocument.title) document.title = nextDocument.title;
+
+    ['canonical'].forEach((relation) => {
+      const selector = `link[rel="${relation}"]`;
+      const current = document.head.querySelector(selector);
+      const next = nextDocument.head.querySelector(selector);
+
+      if (!next) {
+        current?.remove();
+        return;
+      }
+
+      const link = current || document.createElement('link');
+      link.rel = relation;
+      link.href = next.href;
+      if (!current) document.head.append(link);
+    });
+
+    const currentRobots = document.head.querySelector('meta[name="robots"]');
+    const nextRobots = nextDocument.head.querySelector('meta[name="robots"]');
+
+    if (!nextRobots) {
+      currentRobots?.remove();
+    } else {
+      const robots = currentRobots || document.createElement('meta');
+      robots.name = 'robots';
+      robots.content = nextRobots.content;
+      if (!currentRobots) document.head.append(robots);
+    }
+  };
+
+  const loadPanelsResults = async (url, { updateHistory = true, syncFilter = false } = {}) => {
+    if (!panelsFilter || !panelsResults) {
+      window.location.assign(url);
+      return;
+    }
+
+    panelsFilterRequest?.abort();
+
+    const request = new AbortController();
+    panelsFilterRequest = request;
+
+    if (updateHistory) window.history.pushState(getPanelsHistoryState(), '', url);
+
+    panelsResults.setAttribute('aria-busy', 'true');
+
+    try {
+      const response = await fetch(url, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        signal: request.signal,
+      });
+      const nextDocument = new DOMParser().parseFromString(await response.text(), 'text/html');
+      const nextResults = nextDocument.querySelector('[data-panels-catalog-results]');
+
+      if (!nextResults) throw new Error('Panels filter response is invalid');
+
+      panelsResults.innerHTML = nextResults.innerHTML;
+
+      const nextHeading = nextDocument.querySelector('[data-panels-catalog-heading]');
+      if (panelsHeading && nextHeading) panelsHeading.innerHTML = nextHeading.innerHTML;
+
+      syncPanelsPageMeta(nextDocument);
+
+      if (response.url !== window.location.href) {
+        window.history.replaceState(window.history.state, '', response.url);
+      }
+
+      if (syncFilter) {
+        syncPanelsFilter(
+          nextDocument.querySelector('[data-panels-filter]'),
+          window.history.state?.panelsSelectionOrder,
+        );
+      }
+    } catch (error) {
+      if (error.name === 'AbortError') return;
+
+      window.location.assign(url);
+    } finally {
+      if (panelsFilterRequest === request) {
+        panelsResults.removeAttribute('aria-busy');
+        panelsFilterRequest = null;
+      }
+    }
+  };
+
+  filterSelects.forEach((select) => {
+    const selectInput = select.querySelector('.filter-group__select-input');
+
+    if (!selectInput) return;
+
+    const toggleFilterSelect = () => {
+      const isOpen = select.classList.contains('focus');
+      closeFilterSelects(select);
+      select.classList.toggle('focus', !isOpen);
+      selectInput.setAttribute('aria-expanded', String(!isOpen));
+    };
+
+    selectInput.setAttribute('role', 'button');
+    selectInput.setAttribute('tabindex', '0');
+    selectInput.setAttribute('aria-haspopup', 'listbox');
+    selectInput.setAttribute('aria-expanded', 'false');
+    select.classList.remove('focus');
+    updateFilterSelect(select);
+
+    selectInput.addEventListener('click', toggleFilterSelect);
+    selectInput.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+
+      event.preventDefault();
+      toggleFilterSelect();
+    });
+
+    select.addEventListener('change', (event) => {
+      const checkbox = event.target.closest('input[type="checkbox"]');
+
+      if (!checkbox || panelsFilter?.contains(checkbox)) return;
+
+      const selected = (genericSelectionOrder.get(select) || []).filter((item) => item !== checkbox);
+      if (checkbox.checked) selected.push(checkbox);
+      genericSelectionOrder.set(select, selected);
+      updateFilterSelect(select);
+    });
+  });
+
+  panelsFilter?.addEventListener('change', (event) => {
+    const checkbox = event.target.closest('[data-filter-key][data-filter-slug]');
+
+    if (!checkbox) return;
+
+    const key = checkbox.dataset.filterKey;
+    const slug = checkbox.dataset.filterSlug;
+
+    panelsSelectionOrder[key] = panelsSelectionOrder[key].filter((selectedSlug) => selectedSlug !== slug);
+    if (checkbox.checked) panelsSelectionOrder[key].push(slug);
+
+    updateFilterSelect(checkbox.closest('.filter-group__select'));
+
+    const filterUrl = getPanelsFilterUrl();
+    if (filterUrl) loadPanelsResults(filterUrl);
+  });
+
+  if (panelsFilter && panelsResults) {
+    window.addEventListener('popstate', () => {
+      loadPanelsResults(window.location.href, { updateHistory: false, syncFilter: true });
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.filter-group__select')) closeFilterSelects();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeFilterSelects();
+  });
+
   // const objectsCategories = document.querySelector('.objects-categories__list');
   // const objectsSections = document.querySelectorAll('.objects-section[id]');
 
