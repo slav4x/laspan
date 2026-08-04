@@ -1,8 +1,9 @@
 .filter
 	padding: 40px 0
-	@include flexbox
-	align-items: flex-start
-	gap: 24px
+	&-row
+		@include flexbox
+		align-items: flex-start
+		gap: 24px
 	&-group
 		flex: 1
 		max-width: 240px
@@ -31,6 +32,10 @@
 					font-size: var(--font-size-sm)
 					flex: 1
 					display: block
+					overflow: hidden
+					white-space: nowrap
+					text-overflow: ellipsis
+					width: 100%
 					span
 						color: var(--color-red)
 				&::after
@@ -99,6 +104,16 @@
 						transform: translateY(10px)
 						opacity: 1
 						pointer-events: auto
+	&-clear
+		margin-top: 12px
+		font-size: var(--font-size-sm)
+		font-weight: 500
+		color: var(--color-red)
+		cursor: pointer
+		transition: var(--transition-ms)
+		display: inline-block
+		&:hover
+			color: var(--color-red-hover)
 
 [data-panels-catalog-results]
 	transition: opacity var(--transition-ms)
@@ -108,13 +123,14 @@
 
 @media (max-width: 1600px)
 	.filter
-		gap: 16px
+		&-row
+			gap: 16px
 		&-group
-			min-width: 200px
-			max-width: initial
+			max-width: 200px
 			&:first-child
-				min-width: 260px
-				max-width: initial
+				max-width: 220px
+			&:last-child
+				max-width: 130px
 			&__title
 				margin-bottom: 8px
 				font-size: 13px
@@ -123,3 +139,14 @@
 					height: 48px
 					b
 						font-size: 14px
+
+@media (max-width: 1260px)
+	.filter
+		&-group
+			min-width: 250px
+			max-width: initial
+			&:first-child
+				min-width: 250px
+				max-width: initial
+			&:last-child
+				max-width: initial

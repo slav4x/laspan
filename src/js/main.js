@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const panelsFilter = document.querySelector('[data-panels-filter]');
   const panelsResults = document.querySelector('[data-panels-catalog-results]');
   const panelsHeading = document.querySelector('[data-panels-catalog-heading]');
-  const panelsFilterOrder = ['type', 'base', 'decor', 'cover', 'kpo'];
+  const panelsFilterOrder = ['type', 'base', 'decor', 'cover', 'size', 'kpo'];
   const panelsSelectionOrder = Object.fromEntries(panelsFilterOrder.map((key) => [key, []]));
   const genericSelectionOrder = new WeakMap();
   let panelsFilterRequest = null;
@@ -150,9 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const getPanelsHistoryState = () => ({
     ...(window.history.state || {}),
     panelsFilter: true,
-    panelsSelectionOrder: Object.fromEntries(
-      Object.entries(panelsSelectionOrder).map(([key, slugs]) => [key, [...slugs]]),
-    ),
+    panelsSelectionOrder: Object.fromEntries(Object.entries(panelsSelectionOrder).map(([key, slugs]) => [key, [...slugs]])),
   });
 
   const getPanelsFilterUrl = () => {
@@ -208,10 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectValue = selectInput?.querySelector('b');
     const panelsCheckboxes = Array.from(select.querySelectorAll('[data-filter-key][data-filter-slug]'));
     const checkedBySlug = new Map(
-      panelsCheckboxes.filter((checkbox) => checkbox.checked).map((checkbox) => [
-        checkbox.dataset.filterSlug,
-        checkbox,
-      ]),
+      panelsCheckboxes.filter((checkbox) => checkbox.checked).map((checkbox) => [checkbox.dataset.filterSlug, checkbox]),
     );
     const key = panelsCheckboxes[0]?.dataset.filterKey;
     const checked = panelsCheckboxes.length
@@ -246,9 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     panelsFilterOrder.forEach((key) => {
       const restoredOrder = Array.isArray(nextSelectionOrder?.[key]) ? nextSelectionOrder[key] : [];
-      const selectedSlugs = Array.from(
-        nextFilter.querySelectorAll(`[data-filter-key="${key}"][data-filter-slug]:checked`),
-      ).map((checkbox) => checkbox.dataset.filterSlug);
+      const selectedSlugs = Array.from(nextFilter.querySelectorAll(`[data-filter-key="${key}"][data-filter-slug]:checked`)).map(
+        (checkbox) => checkbox.dataset.filterSlug,
+      );
 
       panelsSelectionOrder[key] = restoredOrder.filter((slug) => selectedSlugs.includes(slug));
 
@@ -329,10 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (syncFilter) {
-        syncPanelsFilter(
-          nextDocument.querySelector('[data-panels-filter]'),
-          window.history.state?.panelsSelectionOrder,
-        );
+        syncPanelsFilter(nextDocument.querySelector('[data-panels-filter]'), window.history.state?.panelsSelectionOrder);
       }
     } catch (error) {
       if (error.name === 'AbortError') return;
