@@ -142,16 +142,43 @@
 				color: var(--color-red)
 		&__spec
 			width: 100%
-			li
+			& > li
 				padding: 4px 0
 				line-height: 1.3
 				font-weight: 500
 				@include flexbox
 				align-items: flex-start
 				justify-content: space-between
-				span
+				position: relative
+				& > span
 					color: #64748B
 					flex: 1
+				& > p
+					b
+						color: var(--color-red)
+						font-weight: 600
+				&:hover > ul
+					transform: translateY(0px)
+					opacity: 1
+					pointer-events: auto
+		&__sizes
+			position: absolute
+			top: 100%
+			right: 0
+			background: #fff
+			z-index: 10
+			box-shadow: 0 10px 20px rgba(0, 0, 0, .1)
+			border-radius: 6px
+			transform: translateY(-6px)
+			transition: var(--transition-ms)
+			opacity: 0
+			pointer-events: none
+			li
+				font-size: 14px
+				line-height: 16px
+				padding: 12px
+				border-bottom: 1px solid rgba(0, 0, 0, .1)
+				font-weight: 500
 		&__bottom
 			@include flexbox
 			align-items: center
