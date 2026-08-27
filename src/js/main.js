@@ -1719,6 +1719,12 @@ document.addEventListener('DOMContentLoaded', () => {
         body: formData,
       })
         .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Form submission failed: ${response.status}`);
+          }
+
+          ym(39558050, 'reachGoal', 'all_leads');
+
           window.location.href = '/thanks';
           sessionStorage.setItem('returnUrl', window.location.href);
           // Fancybox.close();
