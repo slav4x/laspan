@@ -1852,4 +1852,21 @@ document.addEventListener('DOMContentLoaded', () => {
       block: 'start',
     });
   });
+
+  document.querySelectorAll('.news-materials').forEach((carousel) => {
+    new Splide(carousel, {
+      type: 'loop',
+      perPage: 1,
+      focus: 0,
+      omitEnd: true,
+      pagination: false,
+      autoWidth: true,
+      gap: 24,
+      breakpoints: {
+        640: {
+          autoWidth: false,
+        },
+      },
+    }).mount();
+  });
 });

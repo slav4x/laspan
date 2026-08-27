@@ -132,14 +132,216 @@
 				margin: 0
 				padding: 0
 				font-weight: 700
+				line-height: 1.1
+				&:first-child
+					margin-top: 0
 			h1
 				font-size: 2em
+			h2
+				margin-top: 40px
 			a
 				border-bottom: 1px solid var(--color-red)
 				color: var(--color-red)
 			ul, ol
 				margin: 0
 				padding: 0
-				padding-left: 15px
+				padding-left: 20px
 			ul
 				list-style: disc
+			table
+				width: 100%
+				border-collapse: collapse
+				font-size: 16px
+				letter-spacing: -0.02em
+				border-radius: 4px
+				overflow: hidden
+				td,
+				th
+					padding: 12px
+					border: 1px solid #EFF1F3
+					vertical-align: top
+				tr:first-child
+					td, th
+						background: #F7F7F7
+			.wp-caption
+				width: 100% !important
+				img
+					width: 100% !important
+					height: auto !important
+				&-text
+					margin-top: 12px
+	&-cta
+		width: 100%
+		height: 520px
+		padding: 32px
+		background: #0F1F25 url(../img/news-cta-bg.png) top right no-repeat / auto 100%
+		@include flexbox
+		flex-direction: column
+		align-items: flex-start
+		gap: 24px
+		margin-top: 64px
+		position: relative
+		overflow: hidden
+		&__top
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 24px
+			color: var(--color-white)
+			max-width: 490px
+			position: relative
+			z-index: 10
+			svg
+				display: block
+		&__title
+			font-size: 42px
+			font-weight: 700
+			line-height: 1.2
+		&__description
+			line-height: 1.2
+			font-size: 16px
+		&__bottom
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 12px
+			max-width: 290px
+			width: 100%
+			margin-top: auto
+			position: relative
+			z-index: 10
+		&__btn
+			width: 100%
+			font-weight: 600
+			font-size: 20px
+			line-height: 1
+			padding: 12px
+			color: var(--color-black)
+			background: var(--color-white)
+			text-align: center
+			transition: var(--transition-ms)
+			&:hover
+				background: var(--color-yellow)
+			&-yellow
+				background: var(--color-yellow)
+				&:hover
+					background: var(--color-yellow-hover)
+			&-red
+				background: var(--color-red)
+				color: var(--color-white)
+				&:hover
+					background: var(--color-red-hover)
+		&__panels
+			position: absolute
+			bottom: -1px
+			right: 54px
+	&-materials
+		width: 100%
+		&__slider
+			width: 100%
+			margin-top: 24px
+		&__item
+			width: 650px
+			height: 380px
+			background: #F5F5F5
+			position: relative
+			@include flexbox
+			&-content
+				height: 100%
+				width: calc(100% - 180px)
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				gap: 24px
+				padding: 24px
+			&-title
+				font-size: 28px
+				font-weight: 700
+				line-height: 1.3
+				max-width: 370px
+			&-bg
+				width: 180px
+				height: 100%
+				margin-left: auto
+				object-fit: cover
+				object-position: center
+			&-panel
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+				right: 80px
+				width: 136px
+			&-btn
+				margin-top: auto
+				width: 162px
+				height: 50px
+				border: 0 !important
+				color: var(--color-black) !important
+				background: var(--color-yellow)
+				@include flexbox
+				align-items: center
+				justify-content: center
+				font-size: 16px
+				font-weight: 600
+				transition: var(--transition-ms)
+				&:hover
+					background: var(--color-yellow-hover)
+			&-list
+				padding: 0 !important
+				list-style: none !important
+				font-size: 14px
+				font-weight: 600
+				line-height: 20px
+				li
+					margin-top: 8px
+					position: relative
+					padding-left: 28px
+					&::before
+						content: ''
+						position: absolute
+						top: 0
+						left: 0
+						width: 20px
+						height: 20px
+						background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.4592 2.19022C10.2056 1.93659 9.79439 1.93659 9.54077 2.19022L8.0002 3.73079C7.63481 4.09617 7.13924 4.30145 6.62251 4.30145H4.95142C4.59273 4.30145 4.30196 4.59222 4.30196 4.9509V6.62199C4.30196 7.13873 4.09669 7.6343 3.7313 7.99969L2.19022 9.54077C1.93659 9.79439 1.93659 10.2056 2.19022 10.4592L3.7313 12.0003C4.09669 12.3657 4.30196 12.8613 4.30196 13.378V15.0494C4.30196 15.4081 4.59273 15.6989 4.95142 15.6989H6.62284C7.13957 15.6989 7.63515 15.9042 8.00053 16.2695L9.54077 17.8098C9.79439 18.0634 10.2056 18.0634 10.4592 17.8098L11.9995 16.2695C12.3649 15.9042 12.8604 15.6989 13.3772 15.6989H15.0499C15.4086 15.6989 15.6994 15.4081 15.6994 15.0494V13.3766C15.6994 12.8599 15.9047 12.3643 16.2701 11.999L17.8098 10.4592C18.0634 10.2056 18.0634 9.79439 17.8098 9.54077L16.2701 8.00105C15.9047 7.63566 15.6994 7.14009 15.6994 6.62335V4.9509C15.6994 4.59222 15.4086 4.30145 15.0499 4.30145H13.3775C12.8608 4.30145 12.3652 4.09618 11.9998 3.73079L10.4592 2.19022Z' fill='%23E31E24'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.8284 8.2913L9.00427 13.076L6.18021 10.3802L7.07709 9.44067L8.98693 11.2638L12.9137 7.36908L13.8284 8.2913Z' fill='white'/%3E%3C/svg%3E%0A")
+					&:first-child
+						margin: 0
+			&-subtitle
+				max-width: 280px
+				font-size: 14px
+				line-height: 1.3
+				font-weight: 600
+		&__top
+			@include flexbox
+			align-items: center
+			justify-content: space-between
+		&__control
+			position: relative
+			@include flexbox
+			align-items: center
+			.splide__arrow
+				position: relative
+				top: 0
+				right: 0
+				bottom: 0
+				left: 0
+				transform: none
+				opacity: 1 !important
+				border-radius: 0
+				background: #F2F2F2
+				width: 44px
+				height: 44px
+				transition: var(--transition-ms)
+				svg
+					display: block
+					width: auto
+					height: auto
+				&--prev
+					transform: rotate(180deg)
+					&:hover
+						background: #e0e0e0
+				&--next
+					background: var(--color-red)
+					color: var(--color-white)
+					&:hover
+						background: var(--color-red-hover)
