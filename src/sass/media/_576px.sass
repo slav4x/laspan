@@ -462,8 +462,14 @@
 			display: none
 
 	.news
-		&-item
-			width: 100%
+		&-grid
+			.news-item:nth-child(n)
+				grid-column: span 12
+				grid-row: auto
+				.news-item__title
+					font-size: 16px
+				.news-item__content
+					margin-top: 12px
 
 	.help
 		padding: 32px 0

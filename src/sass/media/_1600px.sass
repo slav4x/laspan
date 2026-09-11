@@ -1289,9 +1289,7 @@
 				left: 800px
 				width: 1020px
 		&-categories
-			li
-				a
-					padding: 16px
+			margin-bottom: 32px
 		&-spec
 			&-image
 				padding: 40px
@@ -1325,18 +1323,6 @@
 					padding: 16px
 					&::before
 						top: 16px
-
-	.news
-		&-grid
-			gap: 32px 16px
-		&-item
-			width: calc((100% - (2 * 16px)) / 3)
-			&__tags
-				top: 12px
-				left: 12px
-				gap: 6px
-			&__poster
-				height: 240px
 
 	.help
 		&-section
@@ -1492,3 +1478,18 @@
 			&.open
 				.faq-accordion__text
 					padding-top: 16px
+
+	.news
+		&-grid
+			.news-item
+				&__poster
+					height: 240px
+				&:nth-child(11n + 1)
+					.news-item__poster
+						height: 400px
+				&:nth-child(11n + 2),
+				&:nth-child(11n + 3),
+				&:nth-child(11n + 4),
+				&:nth-child(11n + 5)
+					.news-item__poster
+						height: 160px
