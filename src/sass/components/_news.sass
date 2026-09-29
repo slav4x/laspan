@@ -1,6 +1,6 @@
 .news
 	&-categories
-		margin-bottom: 44px
+		margin-top: 16px
 		@include flexbox
 		align-items: flex-start
 		gap: 8px 16px
@@ -28,7 +28,7 @@
 				grid-column: span 6
 				grid-row: span 2
 				.news-item__poster
-					height: 600px
+					height: 500px
 				.news-item__title
 					font-size: 22px
 					font-weight: 600
@@ -43,6 +43,8 @@
 				grid-column: span 3
 				.news-item__poster
 					height: 230px
+				.news-item__title
+					-webkit-line-clamp: 2
 			&:nth-child(11n + 6),
 			&:nth-child(11n + 7),
 			&:nth-child(11n + 8)
@@ -58,8 +60,11 @@
 					font-weight: 600
 				.news-item__content
 					padding: 20px 16px
+					transition: var(--transition-ms)
 				.news-item__angle
 					opacity: 1
+				&:hover .news-item__content
+					background: rgba(0,0,0,.03)
 			&:nth-child(11n + 10),
 			&:nth-child(11n + 11)
 				grid-column: span 6
@@ -79,7 +84,7 @@
 				object-position: center
 				transition: var(--transition-ms)
 		&__content
-			margin-top: 24px
+			margin-top: 12px
 			@include flexbox
 			flex-direction: column
 			align-items: flex-start
@@ -90,10 +95,10 @@
 		&__tags
 			@include flexbox
 			align-items: flex-start
-			gap: 8px
-			font-size: 12px
-			text-transform: uppercase
-			font-weight: 600
+			gap: 8px 16px
+			font-size: 14px
+			// text-transform: uppercase
+			font-weight: 500
 			line-height: 1.7
 			letter-spacing: 0.04em
 			color: var(--color-red)
@@ -106,6 +111,10 @@
 			text-underline-offset: 3px
 			text-decoration-skip-ink: none
 			transition: var(--transition-ms)
+			overflow: hidden
+			display: -webkit-box
+			-webkit-line-clamp: 3
+			-webkit-box-orient: vertical
 		&__description
 			font-size: 16px
 			font-weight: 400

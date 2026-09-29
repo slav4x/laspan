@@ -690,7 +690,7 @@
 
 	.news
 		&-categories
-			margin-bottom: 24px
+			margin-top: 8px
 		&-grid
 			.news-item:nth-child(n)
 				grid-column: span 6
@@ -711,6 +711,8 @@
 			width: calc((100% - (1 * 16px)) / 2)
 			&__btn
 				padding: 16px 20px
+			&__title
+				-webkit-line-clamp: initial !important
 
 	.help
 		&-section

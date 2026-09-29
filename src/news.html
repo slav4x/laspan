@@ -3,18 +3,15 @@
 
 {% block content %}
 
+<style>
+	@media (min-width: 974px) {
+		.header-top { display: none; }
+	}
+</style>
+
 <section class="breadcrumbs breadcrumbs-white">
 	<div class="container">
-		<ul class="breadcrumbs-nav">
-			<li><a href="#">Главная</a></li>
-			<li><a href="#">Новости</a></li>
-		</ul>
-		<h2 class="breadcrumbs-title section-title">Новости</h2>
-	</div>
-</section>
-
-<section class="section section-top-0 news">
-	<div class="container">
+		<h2 class="breadcrumbs-title section-title" style="margin: 0;">Полезная информация об отделочных материалах Laspan</h2>
 		<ul class="news-categories">
 			<li><a href="#">Панели</a></li>
 			<li><a href="#">Потолки</a></li>
@@ -25,6 +22,11 @@
 			<li><a href="#">Отделка</a></li>
 			<li><a href="#">Законы</a></li>
 		</ul>
+	</div>
+</section>
+
+<section class="section section-top-0 news">
+	<div class="container">
 		<div class="news-grid">
 			{% include 'components/news-item.html' %}
 			{% include 'components/news-item.html' %}

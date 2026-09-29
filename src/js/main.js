@@ -1362,7 +1362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const normalize = (i, n) => ((i % n) + n) % n;
 
     const splide = new Splide(objectsOthersCarousel, {
-      type: 'loop',
+      // type: 'loop',
       perPage: 3,
       focus: 0,
       omitEnd: true,
