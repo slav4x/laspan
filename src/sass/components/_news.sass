@@ -1,9 +1,10 @@
 .news
 	&-categories
-		margin-top: 16px
+		margin-top: 12px
 		@include flexbox
 		align-items: flex-start
-		gap: 8px 16px
+		gap: 8px 12px
+		font-size: 14px
 		li
 			a
 				display: block
@@ -12,7 +13,7 @@
 				transition: var(--transition-ms)
 				border-bottom: 1px solid transparent
 				&:hover
-					color: var(--color-black)
+					color: var(--color-red)
 		li.active a
 			color: var(--color-black)
 			border-color: var(--color-black)
@@ -36,6 +37,8 @@
 					padding: 20px 16px
 				.news-item__angle
 					opacity: 1
+				.news-item__description
+					display: -webkit-box
 			&:nth-child(11n + 2),
 			&:nth-child(11n + 3),
 			&:nth-child(11n + 4),
@@ -54,7 +57,7 @@
 				.news-item__poster
 					display: none
 				.news-item__description
-					display: block
+					display: -webkit-box
 				.news-item__title
 					font-size: 22px
 					font-weight: 600
@@ -122,6 +125,9 @@
 			letter-spacing: 0.04em
 			color: #38404B
 			display: none
+			overflow: hidden
+			-webkit-line-clamp: 3
+			-webkit-box-orient: vertical
 		&__date
 			margin-top: auto
 			font-size: 14px
@@ -248,6 +254,18 @@
 					height: auto !important
 				&-text
 					margin-top: 12px
+			[class^="wp-image-"],
+			[class*=" wp-image-"]
+					width: 100% !important
+					height: auto !important
+			iframe
+				display: block
+				width: 100% !important
+				height: 100% !important
+			p:has(> iframe)
+				width: 100%
+				height: auto !important
+				aspect-ratio: 16 / 9
 	&-cta
 		width: 100%
 		height: 520px
