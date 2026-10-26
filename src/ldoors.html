@@ -1,0 +1,246 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Главная' %}
+
+{% block content %}
+
+<section class="ldoors-hero">
+	<div class="ldoors-hero__video">
+		<video autoplay muted loop playsinline preload="none">
+			<source src="video/about.mp4" type="video/mp4">
+		</video>
+	</div>
+	<div class="container">
+		<div class="ldoors-hero__content">
+			<div class="ldoors-hero__text">
+				<h1 class="ldoors-hero__title">Межкомнатные<br> двери для коммерческих пространств нового поколения</h1>
+				<p class="ldoors-hero__description">Монтаж за 22 минуты, надежность для регулярной эксплуатации и единая интерьерная концепция с панельными решениями Laspan</p>
+			</div>
+			<a href="#" class="btn btn-sm btn-red btn-arrow">Смотреть видео-презентацию</a>
+		</div>
+	</div>
+</section>
+
+<section class="ldoors-tech">
+	<div class="container">
+		<div class="ldoors-head">
+			<h2 class="ldoors-head__title">Laspan DOORS - технология надежности</h2>
+			<div class="ldoors-head__text">Разработаны для длительной и активной эксплуатации на коммерческих и административных объектах, включая медицинские учреждения, простой и быстрый монтаж</div>
+		</div>
+		<div class="ldoors-tech__grid">
+			<div class="ldoors-tech__row">
+				<div class="ldoors-tech__col">
+					<div class="ldoors-tech__item ldoors-tech__item--v1">
+						<div class="ldoors-tech__item-content">
+							<div class="ldoors-tech__item-title">Жесткая конструкция</div>
+							<div class="ldoors-tech__item-text">Алюминиевая коробка с возможностью крепления по всему периметру, что значительно увеличивает жесткость дверной коробки, в сравнении с МДФ и ДПК</div>
+						</div>
+						<img src="img/tech-1.png" alt="" loading="lazy" class="ldoors-tech__item-image">
+					</div>
+				</div>
+				<div class="ldoors-tech__col">
+					<div class="ldoors-tech__item ldoors-tech__item--v2">
+						<div class="ldoors-tech__item-content">
+							<div class="ldoors-tech__item-title">Надежное дверное полотно</div>
+							<div class="ldoors-tech__item-text">Каркас из LVL-бруса обеспечивает жесткость и надежное крепление петель. МДФ 6 мм с покрытием PVC/CPL устойчив к уборке и механическим воздействиям.</div>
+						</div>
+						<img src="img/tech-2.png" alt="" loading="lazy" class="ldoors-tech__item-image">
+					</div>
+				</div>
+			</div>
+			<div class="ldoors-tech__row">
+				<div class="ldoors-tech__col">
+					<div class="ldoors-tech__item ldoors-tech__item--v3">
+						<div class="ldoors-tech__item-content">
+							<div class="ldoors-tech__item-title">Идеальная геометрия рамы</div>
+							<div class="ldoors-tech__item-text">Профиль поставляется в нужном размере с готовыми спилами под 45°. Угловые соединители с резьбовой фиксацией обеспечивают точную сборку рамы.</div>
+						</div>
+						<img src="img/tech-3.png" alt="" loading="lazy" class="ldoors-tech__item-image">
+					</div>
+					<div class="ldoors-tech__item ldoors-tech__item--v4">
+						<div class="ldoors-tech__item-content">
+							<div class="ldoors-tech__item-title">Экономия на доборных элементах</div>
+							<div class="ldoors-tech__item-text">Профиль коробки рассчитан на панели ЛГКЛ 12,5 мм и позволяет изготавливать доборы до 1,2м из остатков материала прямо на объекте.</div>
+						</div>
+						<img src="img/tech-4.png" alt="" loading="lazy" class="ldoors-tech__item-image">
+					</div>
+				</div>
+				<div class="ldoors-tech__col">
+					<div class="ldoors-tech__item ldoors-tech__item--v5">
+						<div class="ldoors-tech__item-content">
+							<div class="ldoors-tech__item-title">Усиленные петли с креплением «шип-паз»</div>
+							<div class="ldoors-tech__item-text">Специальный паз обеспечивает надёжную фиксацию петли и позволяет установить дополнительную петлю без доработок.</div>
+						</div>
+						<img src="img/tech-5.png" alt="" loading="lazy" class="ldoors-tech__item-image">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% set interior_categories = ['Wood', 'White', 'Blue', 'Graphite', 'Amber', 'Coral', 'Cobalt', 'Olive', 'Walnut', 'Sand', 'Concrete'] %}
+<section class="ldoors-interior">
+	<div class="container">
+		<div class="ldoors-head">
+			<h2 class="ldoors-head__title">Выберите дверь под свой интерьер</h2>
+			<div class="ldoors-head__text">Laspan DOORS — от спокойных нейтральных декоров до выразительных цветовых акцентов</div>
+		</div>
+	</div>
+	<div class="ldoors-interior__top">
+		<div class="container">
+			<ul class="ldoors-interior__categories">
+				{% for name in interior_categories %}
+				<li data-name="{{ name }}"{% if loop.first %} class="active"{% endif %}>{{ name }}</li>
+				{% endfor %}
+			</ul>
+			<div class="ldoors-interior__categories-control">
+				<div class="ldoors-interior__categories-arrow ldoors-interior__categories-arrow--prev"></div>
+				<div class="ldoors-interior__categories-arrow ldoors-interior__categories-arrow--next"></div>
+			</div>
+		</div>
+	</div>
+	<div class="ldoors-interior__carousel splide" aria-label="Двери под интерьер">
+		<div class="splide__track">
+			<div class="splide__list">
+				{% for name in interior_categories %}
+				<div class="ldoors-interior__slide splide__slide" data-name="{{ name }}">
+					<div class="container">
+						<div class="ldoors-interior__door">
+							<img src="img/door-1.jpg" alt="" loading="lazy" class="ldoors-interior__door-image">
+							<div class="ldoors-interior__door-content">
+								<div class="ldoors-interior__door-title">Laspan DOORS Wood</div>
+								<div class="ldoors-interior__door-desc">Тёплый древесный декор</div>
+								<div class="ldoors-interior__door-text">Натуральная эстетика дерева, надёжность для регулярной эксплуатации и быстрый монтаж за 22 минуты.</div>
+								<ul class="ldoors-interior__door-list">
+									<li>
+										<span>Декор полотна и коробки</span>
+										<p>Белый, Белый</p>
+									</li>
+									<li>
+										<span>Высота, мм</span>
+										<p>2000, 2300</p>
+									</li>
+									<li>
+										<span>Ширина, мм</span>
+										<p>600, 700, 800, 900, 1000</p>
+									</li>
+									<li>
+										<span>Добор</span>
+										<p>ЛГКЛ Белый</p>
+									</li>
+									<li>
+										<span>Тип кромки</span>
+										<p>PVC под цвет, алюминий по RAL</p>
+									</li>
+								</ul>
+								<div class="ldoors-interior__door-price">От <b>24 990  руб</b></div>
+								<a href="#" class="btn btn-xs btn-red btn-arrow">Заказать расчет</a>
+							</div>
+							<a href="#" class="btn btn-xs btn-red btn-arrow ldoors-interior__door-btn">Заказать расчет</a>
+						</div>
+					</div>
+					<div class="ldoors-interior__slide-image"><img src="img/interior-1.jpg" alt="" loading="lazy"></div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ldoors-furnitura">
+	<div class="container">
+		<div class="ldoors-head">
+			<h2 class="ldoors-head__title">Надежная<br> и долговечная фурнитура</h2>
+			<div class="ldoors-head__text">В складской программе подобраны ручки и замки рассчитанные на активную ежедневную эксплуатацию, в различных цветах и исполнениях. Под заказ возможно использование фурнитуры по выбору Заказчик</div>
+		</div>
+		<div class="ldoors-furnitura__carousel">
+			<div class="ldoors-furnitura__carousel-arrow ldoors-furnitura__carousel-arrow--prev"></div>
+			<div class="ldoors-furnitura__slider splide" aria-label="Дверная фурнитура">
+				<div class="splide__track">
+					<div class="splide__list">
+						{% for i in range(6) %}
+						<div class="ldoors-furnitura__slider-item splide__slide">
+							<div class="ldoors-furnitura__slider-name">Ручка офисная стандарт</div>
+							<div class="ldoors-furnitura__slider-image"><img src="img/furnitura-1.png" alt="" loading="lazy"></div>
+							<div class="ldoors-furnitura__slider-price">1 500  руб</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="ldoors-furnitura__carousel-arrow ldoors-furnitura__carousel-arrow--next"></div>
+		</div>
+	</div>
+</section>
+
+calc
+
+<section class="ldoors-install">
+	<div class="container">
+		<div class="ldoors-install__content">
+			<div class="ldoors-head">
+				<h2 class="ldoors-head__title">Монтаж двери<br> <b>за 22 минуты</b></h2>
+				<div class="ldoors-head__text">Разработанный конструктив позволяет устанавливать двери с минимальным количеством инструмента.</div>
+			</div>
+			<ul class="ldoors-install__list">
+				<li>Собрать дверную коробку</li>
+				<li>Закрепить петли</li>
+				<li>Установить коробку</li>
+				<li>Смонтировать ответную планку и заглушку под язычок</li>
+				<li>Нарезать крышку в нужные размеры и защёлкнуть</li>
+				<li>Нарезать доборные элементы</li>
+				<li>Установить добор и наличник / F‑профиль</li>
+			</ul>
+			<div class="ldoors-install__note">
+				<div class="ldoors-install__note-title">Сноска</div>
+				<ul class="ldoors-install__note-list">
+					<li>Уплотнитель</li>
+					<li>Дверная коробка</li>
+					<li>Добор из ЛГКЛ</li>
+					<li>Заглушка</li>
+					<li>Петли</li>
+					<li>Дверное полотно</li>
+				</ul>
+			</div>
+			<a href="#" class="btn btn-xs btn-red btn-arrow">Скачать инструкции по монтажу</a>
+		</div>
+		<img src="img/install-note.png" alt="" loading="lazy" class="ldoors-install__image">
+	</div>
+</section>
+
+<section class="ldoors-project" style="background-image: url(../img/ldoors-project.jpg);">
+	<div class="container">
+		<div class="ldoors-project__content">
+			<h2 class="ldoors-project__title">Laspan — создаём современные интерьерные решения в единой интерьерной концепции для длительной эксплуатации без переплат</h2>
+			<div class="ldoors-project__text">
+				<p class="ldoors-project__description">Произведем подбор оптимальных интерьерных решений под различный бюджет по Вашему проекту или планировкам</p>
+				<a href="#" class="btn btn-xs btn-red btn-arrow">Отправить проект</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ldoors-build">
+	<div class="container">
+		<div class="ldoors-head">
+			<h2 class="ldoors-head__title">Сюда бы заголовок в одну строку</h2>
+			<div class="ldoors-head__text">Какой-то текст</div>
+		</div>
+		<div class="ldoors-build__grid">
+			<div class="ldoors-build__item">
+				<div class="ldoors-build__item-title">Типовая сборка с наличником</div>
+				<img src="img/build-1.jpg" alt="" class="ldoors-build__item-image">
+			</div>
+			<div class="ldoors-build__item">
+				<div class="ldoors-build__item-title">Типовая сборка с F-профилем</div>
+				<img src="img/build-2.jpg" alt="" class="ldoors-build__item-image">
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include 'sections/about.html' %}
+
+{% include 'sections/specialists.html' %}
+
+{% endblock %}

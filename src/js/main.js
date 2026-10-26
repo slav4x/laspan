@@ -1853,6 +1853,95 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  document.querySelectorAll('.ldoors-interior').forEach((interior) => {
+    const carousel = interior.querySelector('.ldoors-interior__carousel');
+    if (!carousel) return;
+
+    const categories = Array.from(interior.querySelectorAll('.ldoors-interior__categories li'));
+    const slides = Array.from(carousel.querySelectorAll('.ldoors-interior__slide'));
+    const prev = interior.querySelector('.ldoors-interior__categories-arrow--prev');
+    const next = interior.querySelector('.ldoors-interior__categories-arrow--next');
+    const arrowActiveClass = 'ldoors-interior__categories-arrow--active';
+    const activeName = categories.find((category) => category.classList.contains('active'))?.dataset.name;
+    const splide = new Splide(carousel, {
+      type: 'slide',
+      perPage: 1,
+      perMove: 1,
+      start: Math.max(
+        0,
+        slides.findIndex((slide) => slide.dataset.name === activeName),
+      ),
+      arrows: false,
+      pagination: false,
+      speed: 1000,
+      drag: true,
+      waitForTransition: false,
+    });
+
+    const updateCategories = () => {
+      const activeSlide = slides[splide.index];
+      categories.forEach((category) => {
+        category.classList.toggle('active', category.dataset.name === activeSlide?.dataset.name);
+      });
+      prev?.classList.toggle(arrowActiveClass, splide.index > 0);
+      next?.classList.toggle(arrowActiveClass, splide.index < slides.length - 1);
+    };
+
+    categories.forEach((category) => {
+      category.addEventListener('click', () => {
+        const index = slides.findIndex((slide) => slide.dataset.name === category.dataset.name);
+        if (index !== -1) splide.go(index);
+      });
+    });
+    prev?.addEventListener('click', () => splide.go('<'));
+    next?.addEventListener('click', () => splide.go('>'));
+
+    splide.on('mounted move', updateCategories);
+    splide.mount();
+  });
+
+  document.querySelectorAll('.ldoors-furnitura__carousel').forEach((carousel) => {
+    const slider = carousel.querySelector('.ldoors-furnitura__slider');
+    if (!slider) return;
+
+    const prev = carousel.querySelector('.ldoors-furnitura__carousel-arrow--prev');
+    const next = carousel.querySelector('.ldoors-furnitura__carousel-arrow--next');
+    const arrowActiveClass = 'ldoors-furnitura__carousel-arrow--active';
+    const splide = new Splide(slider, {
+      type: 'slide',
+      perPage: 3,
+      perMove: 1,
+      gap: 10,
+      arrows: false,
+      pagination: false,
+      speed: 600,
+      drag: true,
+      waitForTransition: false,
+      breakpoints: {
+        1260: {
+          perPage: 2,
+        },
+        974: {
+          perPage: 3,
+        },
+        768: {
+          perPage: 2,
+        },
+      },
+    });
+
+    const updateArrows = () => {
+      prev?.classList.toggle(arrowActiveClass, splide.index > 0);
+      next?.classList.toggle(arrowActiveClass, splide.index < splide.Components.Controller.getEnd());
+    };
+
+    prev?.addEventListener('click', () => splide.go('<'));
+    next?.addEventListener('click', () => splide.go('>'));
+
+    splide.on('mounted move resized updated', updateArrows);
+    splide.mount();
+  });
+
   document.querySelectorAll('.news-materials').forEach((carousel) => {
     new Splide(carousel, {
       type: 'loop',

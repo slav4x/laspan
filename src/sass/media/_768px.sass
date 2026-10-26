@@ -559,3 +559,86 @@
 
 	.products-item__title
 		padding-right: 100px
+
+	.ldoors
+		&-hero
+			height: calc(100svh - 61px)
+			&__content
+				padding-bottom: 40px
+		&-project
+			height: calc(100svh - 61px)
+		&-build
+			&__grid
+				grid-template-columns: repeat(1, 1fr)
+			&__item
+				&-image
+					height: 310px
+		&-install
+			&__note
+				&-list
+					@include flexbox
+					align-items: flex-start
+			.btn
+				max-width: 100%
+		&-tech
+			&__row, &__col
+				display: contents
+			&__grid
+				flex-wrap: nowrap
+				overflow: auto
+				margin-left: var(--pos-right)
+				width: calc(100% + (var(--pos-right) * -2))
+				padding: 0 calc(var(--pos-right) * -1)
+				&::-webkit-scrollbar
+					display: none
+			&__item
+				width: 360px
+				min-width: 360px
+				height: 440px
+				&--v3 .ldoors-tech__item-image
+					height: 270px
+		&-interior
+			&__categories
+				&-control
+					display: none
+			&__slide
+				height: auto
+				padding: 20px 0 60px
+			&__door
+				max-width: 100%
+				align-items: flex-start
+				img
+					height: auto
+					width: 190px
+					order: 1
+				&-content
+					max-width: 100%
+					width: calc(100% - 190px - 12px)
+					margin-right: auto
+					.btn
+						display: none
+				&-title
+					font-size: 18px
+				&-desc
+					display: none
+				&-text
+					font-size: 12px
+					margin-top: 16px
+				&-list
+					margin-top: 24px
+					li
+						margin-top: 12px
+						flex-direction: column
+						align-items: flex-start
+						gap: 4px
+						span
+							width: 100%
+						p
+							font-size: 13px
+				&-price
+					margin-top: 24px
+				&-btn
+					display: flex
+					width: 100%
+					order: 10
+					margin-top: 20px !important

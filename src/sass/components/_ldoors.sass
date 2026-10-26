@@ -1,0 +1,556 @@
+.ldoors
+	&-hero
+		height: calc(100svh - 111px)
+		position: relative
+		overflow: hidden
+		background: #000
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+		color: #fff
+		&__video
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				background: linear-gradient(223.19deg, rgba(0, 0, 0, 0) 24.21%, rgba(0, 0, 0, 0.4) 81.74%)
+			video
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				object-fit: cover
+				object-position: center
+		.container
+			height: 100%
+			@include flexbox
+			flex-direction: column
+			justify-content: flex-end
+		&__content
+			width: 100%
+			@include flexbox
+			align-items: flex-end
+			justify-content: space-between
+			padding-bottom: 64px
+			.btn
+				width: auto
+				padding: 0 24px
+		&__text
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 32px
+		&__title
+			font-size: 52px
+			font-weight: 700
+			line-height: 1.1
+			letter-spacing: -0.02em
+			max-width: 800px
+		&__description
+			font-weight: 500
+			line-height: 1.4
+			max-width: 600px
+	&-head
+		@include flexbox
+		flex-direction: column
+		align-items: flex-start
+		gap: 24px
+		&__title
+			font-weight: 700
+			font-size: 46px
+			line-height: 1.1
+			letter-spacing: -0.02em
+		&__text
+			font-weight: 500
+			line-height: 1.4
+	&-tech
+		padding: 120px 0
+		.ldoors-head
+			max-width: 560px
+		&__grid
+			--gap: 16px
+			@include flexbox
+			align-items: flex-start
+			gap: var(--gap)
+			margin-top: 62px
+		&__row
+			width: 100%
+			@include flexbox
+			gap: var(--gap)
+		&__col
+			@include flexbox
+			gap: var(--gap)
+			flex: 1
+			&:nth-child(2)
+				flex: initial
+				width: 40%
+		&__item
+			flex: 1
+			padding: 24px 24px 32px
+			color: #fff
+			height: 400px
+			@include flexbox
+			position: relative
+			overflow: hidden
+			&-content
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				gap: 16px
+				position: relative
+				z-index: 5
+			&-title
+				font-size: 28px
+				font-weight: 700
+				line-height: 1.1
+				letter-spacing: -0.02em
+			&-text
+				font-weight: 500
+				line-height: 1.4
+				font-size: 16px
+			&-image
+				position: absolute
+			&--v1
+				background: #0F1F25
+				.ldoors-tech__item-content
+					max-width: 420px
+				.ldoors-tech__item-image
+					bottom: 0
+					right: 0
+					height: 404px
+			&--v2
+				background: #E31E24
+				.ldoors-tech__item-content
+					max-width: 320px
+				.ldoors-tech__item-image
+					bottom: 0
+					right: 16px
+					height: 388px
+			&--v3
+				background: #2B3339
+				.ldoors-tech__item-content
+					max-width: 340px
+					margin-top: auto
+					margin-left: auto
+				.ldoors-tech__item-image
+					top: 0
+					left: 0
+					height: 365px
+			&--v4
+				background: #FADF4B
+				.ldoors-tech__item-content
+					max-width: 300px
+					color: #000
+				.ldoors-tech__item-image
+					bottom: -28px
+					right: -40px
+					height: 260px
+			&--v5
+				background: #4E565C
+				.ldoors-tech__item-content
+					max-width: 270px
+				.ldoors-tech__item-image
+					bottom: 0
+					right: 0
+					height: 404px
+	&-interior
+		padding-bottom: 60px
+		.ldoors-head
+			&__title
+				max-width: 440px
+			&__text
+				max-width: 480px
+		&__top
+			box-shadow: 0px 10px 30px rgba(100, 116, 139, 0.07)
+			padding: 16px 0
+			margin-top: 55px
+			.container
+				@include flexbox
+				align-items: center
+				justify-content: space-between
+		&__categories
+			@include flexbox
+			align-items: center
+			gap: 22px
+			li
+				line-height: 1
+				padding-top: 2px
+				padding-bottom: 1px
+				border-bottom: 1px solid transparent
+				cursor: pointer
+				transition: var(--transition-ms)
+				&.active
+					border-color: #000
+					font-weight: 600
+				&:hover
+					border-color: rgba(0,0,0,.3)
+			&-control
+				@include flexbox
+				align-items: center
+				gap: 8px
+			&-arrow
+				width: 36px
+				height: 36px
+				background: rgba(0,0,0,.03)
+				cursor: default
+				position: relative
+				transition: var(--transition-ms)
+				&::before
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
+					margin: auto
+					width: 12px
+					height: 10px
+					background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.22594 9.80113L0.229934 5.48011C-0.0766454 5.21495 -0.0766454 4.78505 0.229934 4.51989L5.22594 0.198869C5.53252 -0.0662895 6.02959 -0.0662895 6.33617 0.198869C6.64275 0.464029 6.64275 0.893937 6.33617 1.1591L2.68032 4.32102L12 4.32102L12 5.67898L2.68032 5.67898L6.33617 8.8409C6.64275 9.10606 6.64275 9.53597 6.33617 9.80113C6.02958 10.0663 5.53252 10.0663 5.22594 9.80113Z' fill-rule='evenodd' clip-rule='evenodd' fill='%23A2A2A2'/%3E%3C/svg%3E%0A")
+					transition: var(--transition-ms)
+				&--next
+					&::before
+						transform: rotate(180deg)
+				&--active
+					cursor: pointer
+					background: var(--color-red)
+					&::before
+						background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.22594 9.80113L0.229934 5.48011C-0.0766454 5.21495 -0.0766454 4.78505 0.229934 4.51989L5.22594 0.198869C5.53252 -0.0662895 6.02959 -0.0662895 6.33617 0.198869C6.64275 0.464029 6.64275 0.893937 6.33617 1.1591L2.68032 4.32102L12 4.32102L12 5.67898L2.68032 5.67898L6.33617 8.8409C6.64275 9.10606 6.64275 9.53597 6.33617 9.80113C6.02958 10.0663 5.53252 10.0663 5.22594 9.80113Z' fill-rule='evenodd' clip-rule='evenodd' fill='%23FFFFFF'/%3E%3C/svg%3E%0A")
+		&__carousel
+			overflow: hidden
+		&__slide
+			position: relative
+			height: 910px
+			@include flexbox
+			align-items: center
+			&-image
+				position: absolute
+				top: 0
+				right: 0
+				bottom: 0
+				width: 46%
+				padding: 20px
+				img
+					width: 100%
+					height: 100%
+					object-fit: cover
+					object-position: center
+		&__door
+			max-width: 800px
+			width: 100%
+			@include flexbox
+			justify-content: space-between
+			&-image
+				width: 294px
+			&-content
+				max-width: 456px
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+			&-title
+				font-size: 36px
+				font-weight: 700
+				line-height: 1.1
+				letter-spacing: -0.02em
+			&-desc
+				font-size: 22px
+				font-weight: 500
+				line-height: 1.1
+				margin-top: 8px
+			&-text
+				font-size: 16px
+				line-height: 1.4
+				margin-top: 20px
+			&-list
+				margin-top: 44px
+				width: 100%
+				margin-bottom: auto
+				li
+					@include flexbox
+					align-items: flex-start
+					gap: 12px
+					margin-top: 20px
+					&:first-child
+						margin-top: 0
+					span
+						width: 130px
+						font-size: 12px
+						font-weight: 500
+						text-transform: uppercase
+						display: block
+						opacity: 0.6
+						line-height: 1
+					p
+						flex: 1
+						line-height: 1
+						font-weight: 600
+						letter-spacing: -0.03em
+						font-size: 16px
+			&-price
+				font-size: 24px
+				font-weight: 600
+				line-height: 1.2
+				letter-spacing: -0.03em
+				b
+					font-size: 36px
+					font-weight: 700
+			.btn
+				margin-top: 24px
+				width: 260px
+			&-btn
+				display: none
+	&-furnitura
+		padding: 60px 0
+		height: 470px
+		background: rgba(0,0,0,.03)
+		position: relative
+		.container
+			@include flexbox
+			align-items: center
+			height: 100%
+			position: initial
+		.ldoors-head
+			max-width: 580px
+			&__text
+				max-width: 520px
+		&__carousel
+			@include flexbox
+			align-items: center
+			gap: 10px
+			position: absolute
+			z-index: 6
+			right: 0
+			top: 0
+			bottom: 0
+			padding: 20px
+			width: calc(46% + 36px + 10px)
+			&-arrow
+				width: 36px
+				height: 36px
+				background: rgba(0,0,0,.03)
+				cursor: default
+				position: relative
+				transition: var(--transition-ms)
+				&::before
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
+					margin: auto
+					width: 12px
+					height: 10px
+					background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.22594 9.80113L0.229934 5.48011C-0.0766454 5.21495 -0.0766454 4.78505 0.229934 4.51989L5.22594 0.198869C5.53252 -0.0662895 6.02959 -0.0662895 6.33617 0.198869C6.64275 0.464029 6.64275 0.893937 6.33617 1.1591L2.68032 4.32102L12 4.32102L12 5.67898L2.68032 5.67898L6.33617 8.8409C6.64275 9.10606 6.64275 9.53597 6.33617 9.80113C6.02958 10.0663 5.53252 10.0663 5.22594 9.80113Z' fill-rule='evenodd' clip-rule='evenodd' fill='%23A2A2A2'/%3E%3C/svg%3E%0A")
+					transition: var(--transition-ms)
+				&--next
+					&::before
+						transform: rotate(180deg)
+				&--active
+					cursor: pointer
+					background: var(--color-red)
+					&::before
+						background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.22594 9.80113L0.229934 5.48011C-0.0766454 5.21495 -0.0766454 4.78505 0.229934 4.51989L5.22594 0.198869C5.53252 -0.0662895 6.02959 -0.0662895 6.33617 0.198869C6.64275 0.464029 6.64275 0.893937 6.33617 1.1591L2.68032 4.32102L12 4.32102L12 5.67898L2.68032 5.67898L6.33617 8.8409C6.64275 9.10606 6.64275 9.53597 6.33617 9.80113C6.02958 10.0663 5.53252 10.0663 5.22594 9.80113Z' fill-rule='evenodd' clip-rule='evenodd' fill='%23FFFFFF'/%3E%3C/svg%3E%0A")
+		&__slider
+			width: calc(100% - 20px - 36px - 36px)
+			&-item
+				background: #fff
+				padding: 12px 18px 18px
+				height: 350px
+				@include flexbox
+				flex-direction: column
+				align-items: flex-start
+				justify-content: space-between
+				position: relative
+			&-name
+				font-size: 16px
+				font-weight: 500
+				line-height: 1.4
+			&-image
+				position: absolute
+				top: 0
+				bottom: 0
+				left: 10px
+				right: 10px
+				height: 220px
+				margin: auto 0
+				@include flexbox
+				align-items: center
+				justify-content: center
+				img
+					max-height: 100%
+			&-price
+				font-size: 16px
+				font-weight: 600
+				line-height: 1.4
+				letter-spacing: -0.02em
+	&-install
+		background: rgba(0,0,0,.03)
+		padding: 100px 0 120px
+		.container
+			@include flexbox
+			align-items: center
+			justify-content: space-between
+			gap: 64px
+		&__image
+			width: calc(100% - 620px - 64px)
+			max-width: 996px
+		&__content
+			max-width: 620px
+		.ldoors-head
+			max-width: 480px
+			&__title
+				b
+					color: var(--color-red)
+					font-size: 56px
+					line-height: 1.1
+		&__list
+			margin-top: 50px
+			list-style: none
+			counter-reset: install-step
+			font-size: 22px
+			font-weight: 600
+			line-height: 1.4
+			letter-spacing: -0.02em
+			li
+				margin-top: 12px
+				position: relative
+				padding-left: 24px
+				counter-increment: install-step
+				&::before
+					content: counter(install-step)
+					position: absolute
+					left: 0
+					color: var(--color-red)
+		&__note
+			margin-top: 80px
+			border-top: 1px solid rgba(0,0,0,.1)
+			padding-top: 20px
+			max-width: 480px
+			&-title
+				font-size: 16px
+				font-weight: 500
+				line-height: 1.4
+			&-list
+				display: grid
+				grid-template-columns: repeat(3, 1fr)
+				gap: 5px 10px
+				margin-top: 14px
+				counter-reset: note-step
+				li
+					position: relative
+					font-size: 14px
+					line-height: 22px
+					padding-left: 26px
+					font-weight: 500
+					counter-increment: note-step
+					&::before
+						content: counter(note-step)
+						position: absolute
+						top: 0
+						left: 0
+						width: 22px
+						height: 22px
+						@include flexbox
+						align-items: center
+						justify-content: center
+						text-align: center
+						font-size: 12px
+						background: #fff
+						border-radius: 100%
+		.btn
+			max-width: 480px
+			margin-top: 50px
+	&-project
+		height: 100svh
+		position: relative
+		overflow: hidden
+		background: #000
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+		color: #fff
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			background: linear-gradient(39.35deg, rgba(0, 0, 0, 0.5964) 29.99%, rgba(0, 0, 0, 0) 65.68%)
+		&__video
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				background: linear-gradient(39.35deg, rgba(0, 0, 0, 0.5964) 29.99%, rgba(0, 0, 0, 0) 65.68%)
+			video
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				object-fit: cover
+				object-position: center
+		.container
+			height: 100%
+			@include flexbox
+			flex-direction: column
+			justify-content: flex-end
+		&__content
+			width: 100%
+			@include flexbox
+			align-items: flex-end
+			justify-content: space-between
+			padding-bottom: 64px
+		&__title
+			font-size: 44px
+			font-weight: 700
+			line-height: 1.1
+			letter-spacing: -0.02em
+			max-width: 880px
+		&__text
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 32px
+			max-width: 490px
+		&__description
+			font-weight: 500
+			line-height: 1.4
+			font-size: 22px
+	&-build
+		padding: 120px 0
+		&__grid
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+			gap: 24px
+			margin-top: 46px
+		&__item
+			&-title
+				font-size: 22px
+				font-weight: 600
+				line-height: 1.4
+				letter-spacing: -0.02em
+			&-image
+				width: 100%
+				height: 670px
+				object-fit: cover
+				object-position: center
+				margin-top: 16px
