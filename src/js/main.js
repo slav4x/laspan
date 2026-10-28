@@ -578,9 +578,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }).mount();
   });
 
-  const objectsCarousel = document.querySelector('.objects-carousel');
-  if (objectsCarousel) {
-    const thumbs = new Splide('.objects-carousel__thumbs', {
+  const createCarouselThumbs = (element, options = {}) =>
+    new Splide(element, {
       type: 'loop',
       rewind: true,
       pagination: false,
@@ -597,8 +596,12 @@ document.addEventListener('DOMContentLoaded', () => {
           autoWidth: false,
         },
       },
+      ...options,
     });
 
+  const objectsCarousel = document.querySelector('.objects-carousel');
+  if (objectsCarousel) {
+    const thumbs = createCarouselThumbs(objectsCarousel.querySelector('.objects-carousel__thumbs'));
     const main = new Splide('.objects-carousel__main', {
       type: 'loop',
       rewind: true,
@@ -1855,22 +1858,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.ldoors-interior').forEach((interior) => {
     const carousel = interior.querySelector('.ldoors-interior__carousel');
-    if (!carousel) return;
+    const categories = interior.querySelector('.ldoors-interior__categories');
+    if (!carousel || !categories) return;
 
-    const categories = Array.from(interior.querySelectorAll('.ldoors-interior__categories li'));
-    const slides = Array.from(carousel.querySelectorAll('.ldoors-interior__slide'));
-    const prev = interior.querySelector('.ldoors-interior__categories-arrow--prev');
-    const next = interior.querySelector('.ldoors-interior__categories-arrow--next');
-    const arrowActiveClass = 'ldoors-interior__categories-arrow--active';
-    const activeName = categories.find((category) => category.classList.contains('active'))?.dataset.name;
-    const splide = new Splide(carousel, {
+    const thumbs = createCarouselThumbs(categories, {
       type: 'slide',
+      rewindByDrag: true,
+      breakpoints: {},
+    });
+    const splide = new Splide(carousel, {
+      type: 'loop',
+      rewind: true,
       perPage: 1,
       perMove: 1,
-      start: Math.max(
-        0,
-        slides.findIndex((slide) => slide.dataset.name === activeName),
-      ),
       arrows: false,
       pagination: false,
       speed: 1000,
@@ -1878,26 +1878,9 @@ document.addEventListener('DOMContentLoaded', () => {
       waitForTransition: false,
     });
 
-    const updateCategories = () => {
-      const activeSlide = slides[splide.index];
-      categories.forEach((category) => {
-        category.classList.toggle('active', category.dataset.name === activeSlide?.dataset.name);
-      });
-      prev?.classList.toggle(arrowActiveClass, splide.index > 0);
-      next?.classList.toggle(arrowActiveClass, splide.index < slides.length - 1);
-    };
-
-    categories.forEach((category) => {
-      category.addEventListener('click', () => {
-        const index = slides.findIndex((slide) => slide.dataset.name === category.dataset.name);
-        if (index !== -1) splide.go(index);
-      });
-    });
-    prev?.addEventListener('click', () => splide.go('<'));
-    next?.addEventListener('click', () => splide.go('>'));
-
-    splide.on('mounted move', updateCategories);
+    splide.sync(thumbs);
     splide.mount();
+    thumbs.mount();
   });
 
   document.querySelectorAll('.ldoors-furnitura__carousel').forEach((carousel) => {

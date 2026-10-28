@@ -183,79 +183,23 @@
 	&-interior
 		padding-bottom: 60px
 		.ldoors-head
-			&__title
-				max-width: 440px
 			&__text
 				max-width: 480px
 		&__top
-			box-shadow: 0px 10px 30px rgba(100, 116, 139, 0.07)
-			padding: 16px 0
 			margin-top: 55px
-			.container
-				@include flexbox
-				align-items: center
-				justify-content: space-between
 		&__categories
-			@include flexbox
-			align-items: center
-			gap: 22px
-			li
-				line-height: 1
-				padding-top: 2px
-				padding-bottom: 1px
-				border-bottom: 1px solid transparent
-				cursor: pointer
-				transition: var(--transition-ms)
-				&.active
-					border-color: #000
-					font-weight: 600
-				&:hover
-					border-color: rgba(0,0,0,.3)
-			&-control
-				@include flexbox
-				align-items: center
-				gap: 8px
-			&-arrow
-				width: 36px
-				height: 36px
-				background: rgba(0,0,0,.03)
-				cursor: default
-				position: relative
-				transition: var(--transition-ms)
-				&::before
-					content: ''
-					position: absolute
-					top: 0
-					left: 0
-					right: 0
-					bottom: 0
-					margin: auto
-					width: 12px
-					height: 10px
-					background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.22594 9.80113L0.229934 5.48011C-0.0766454 5.21495 -0.0766454 4.78505 0.229934 4.51989L5.22594 0.198869C5.53252 -0.0662895 6.02959 -0.0662895 6.33617 0.198869C6.64275 0.464029 6.64275 0.893937 6.33617 1.1591L2.68032 4.32102L12 4.32102L12 5.67898L2.68032 5.67898L6.33617 8.8409C6.64275 9.10606 6.64275 9.53597 6.33617 9.80113C6.02958 10.0663 5.53252 10.0663 5.22594 9.80113Z' fill-rule='evenodd' clip-rule='evenodd' fill='%23A2A2A2'/%3E%3C/svg%3E%0A")
-					transition: var(--transition-ms)
-				&--next
-					&::before
-						transform: rotate(180deg)
-				&--active
-					cursor: pointer
-					background: var(--color-red)
-					&::before
-						background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.22594 9.80113L0.229934 5.48011C-0.0766454 5.21495 -0.0766454 4.78505 0.229934 4.51989L5.22594 0.198869C5.53252 -0.0662895 6.02959 -0.0662895 6.33617 0.198869C6.64275 0.464029 6.64275 0.893937 6.33617 1.1591L2.68032 4.32102L12 4.32102L12 5.67898L2.68032 5.67898L6.33617 8.8409C6.64275 9.10606 6.64275 9.53597 6.33617 9.80113C6.02958 10.0663 5.53252 10.0663 5.22594 9.80113Z' fill-rule='evenodd' clip-rule='evenodd' fill='%23FFFFFF'/%3E%3C/svg%3E%0A")
+			margin: 0 !important
 		&__carousel
 			overflow: hidden
 		&__slide
 			position: relative
-			height: 910px
+			height: 768px
 			@include flexbox
-			align-items: center
+			align-items: flex-end
+			justify-content: space-between
 			&-image
-				position: absolute
-				top: 0
-				right: 0
-				bottom: 0
-				width: 46%
-				padding: 20px
+				width: 44%
+				height: 100%
 				img
 					width: 100%
 					height: 100%
@@ -269,7 +213,7 @@
 			&-image
 				width: 294px
 			&-content
-				max-width: 456px
+				max-width: 460px
 				@include flexbox
 				flex-direction: column
 				align-items: flex-start
@@ -279,10 +223,23 @@
 				line-height: 1.1
 				letter-spacing: -0.02em
 			&-desc
-				font-size: 22px
+				font-size: 20px
 				font-weight: 500
-				line-height: 1.1
+				line-height: 20px
 				margin-top: 8px
+				&.red
+					color: var(--color-red)
+					padding-left: 28px
+					position: relative
+					&::before
+						content: ''
+						position: absolute
+						top: 0
+						left: 0
+						width: 20px
+						height: 20px
+						background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5472 1.00922C9.92186 1.09682 8.84506 1.36354 8.24186 1.5802C7.13602 1.97738 5.86383 2.70318 4.96913 3.44733C2.92247 5.14954 1.63749 7.32098 1.09852 9.98811C0.987801 10.5358 0.968489 10.7616 0.949177 11.7334C0.920249 13.1906 1.0021 13.8544 1.36795 15.1309C2.22202 18.11 4.43236 20.6879 7.28761 22.0348C8.21058 22.47 9.43802 22.8343 10.5064 22.99C11.1788 23.0879 12.8211 23.088 13.4944 22.9901C18.2303 22.3016 21.9177 18.8089 22.8767 14.1027C23.0307 13.3471 23.0757 12.7056 23.0488 11.6484C23.0212 10.5632 22.9475 10.0564 22.6701 9.04691C22.2696 7.58882 21.4997 6.10218 20.5702 4.99218C18.7983 2.8762 16.4975 1.54195 13.8225 1.07902C13.0467 0.944759 11.2765 0.907031 10.5472 1.00922ZM9.97938 4.76733C9.91202 4.77774 9.80066 4.84495 9.73186 4.91672L9.60682 5.04722L9.57898 7.15251L9.55114 9.25779L9.4145 9.40259L9.27786 9.54739L7.16292 9.57675L5.04792 9.60611L4.9148 9.73371L4.78163 9.86131V12V14.1388L4.91461 14.2661L5.04759 14.3936L7.1529 14.4214L9.25818 14.4492L9.40298 14.5859L9.54778 14.7225L9.57714 16.8375L9.6065 18.9524L9.7341 19.0856L9.8617 19.2188H12.0004H14.1391L14.2667 19.0856L14.3943 18.9524L14.4236 16.8375L14.453 14.7225L14.5978 14.5859L14.7426 14.4492L16.8479 14.4214L18.9531 14.3936L19.0862 14.2661L19.2191 14.1388V12V9.86131L19.0755 9.72363L18.9319 9.58595L16.8371 9.57195L14.7426 9.55803L14.5978 9.41771L14.453 9.27747L14.4237 7.16962L14.3944 5.06179L14.2639 4.89806L14.1332 4.73438L12.1175 4.74141C11.009 4.74525 10.0468 4.75692 9.97938 4.76733Z' fill-rule='evenodd' clip-rule='evenodd' fill='%23E31E24'/%3E%3C/svg%3E%0A")
+						background-size: cover
 			&-text
 				font-size: 16px
 				line-height: 1.4
@@ -444,7 +401,7 @@
 				padding-left: 24px
 				counter-increment: install-step
 				&::before
-					content: counter(install-step)
+					content: counter(install-step) '.'
 					position: absolute
 					left: 0
 					color: var(--color-red)

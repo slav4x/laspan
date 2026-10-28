@@ -85,31 +85,40 @@
 			<h2 class="ldoors-head__title">Выберите дверь под свой интерьер</h2>
 			<div class="ldoors-head__text">Laspan DOORS — от спокойных нейтральных декоров до выразительных цветовых акцентов</div>
 		</div>
-	</div>
-	<div class="ldoors-interior__top">
-		<div class="container">
-			<ul class="ldoors-interior__categories">
-				{% for name in interior_categories %}
-				<li data-name="{{ name }}"{% if loop.first %} class="active"{% endif %}>{{ name }}</li>
-				{% endfor %}
-			</ul>
-			<div class="ldoors-interior__categories-control">
-				<div class="ldoors-interior__categories-arrow ldoors-interior__categories-arrow--prev"></div>
-				<div class="ldoors-interior__categories-arrow ldoors-interior__categories-arrow--next"></div>
+		<div class="ldoors-interior__top">
+			<div class="ldoors-interior__categories objects-carousel__thumbs splide" aria-label="Декоры дверей">
+				<div class="splide__track">
+					<ul class="splide__list">
+						{% for name in interior_categories %}
+						<li class="splide__slide" data-name="{{ name }}"><span>{{ name }}</span></li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="splide__arrows">
+					<button class="splide__arrow splide__arrow--prev" type="button">
+						<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M6.88224 4.25565e-07L8 1.13697L2.23553 7.00048L8 12.863L6.88224 14L3.05965e-07 7.00048L6.88224 4.25565e-07Z" fill="currentColor"/>
+						</svg>
+					</button>
+					<button class="splide__arrow splide__arrow--next" type="button">
+						<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1.11776 14L-2.57602e-07 12.863L5.76447 6.99952L2.5496e-07 1.13697L1.11776 -3.00821e-07L8 6.99952L1.11776 14Z" fill="currentColor"/>
+						</svg>
+					</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="ldoors-interior__carousel splide" aria-label="Двери под интерьер">
-		<div class="splide__track">
-			<div class="splide__list">
-				{% for name in interior_categories %}
-				<div class="ldoors-interior__slide splide__slide" data-name="{{ name }}">
-					<div class="container">
+		<div class="ldoors-interior__carousel splide" aria-label="Двери под интерьер">
+			<div class="splide__track">
+				<div class="splide__list">
+					{% for name in interior_categories %}
+					<div class="ldoors-interior__slide splide__slide" data-name="{{ name }}">
 						<div class="ldoors-interior__door">
 							<img src="img/door-1.jpg" alt="" loading="lazy" class="ldoors-interior__door-image">
 							<div class="ldoors-interior__door-content">
 								<div class="ldoors-interior__door-title">Laspan DOORS Wood</div>
 								<div class="ldoors-interior__door-desc">Тёплый древесный декор</div>
+								<div class="ldoors-interior__door-desc red">Соответствует требованиям СП 2.1.3678-20</div>
 								<div class="ldoors-interior__door-text">Натуральная эстетика дерева, надёжность для регулярной эксплуатации и быстрый монтаж за 22 минуты.</div>
 								<ul class="ldoors-interior__door-list">
 									<li>
@@ -138,10 +147,10 @@
 							</div>
 							<a href="#" class="btn btn-xs btn-red btn-arrow ldoors-interior__door-btn">Заказать расчет</a>
 						</div>
+						<div class="ldoors-interior__slide-image"><img src="img/interior-1.jpg" alt="" loading="lazy"></div>
 					</div>
-					<div class="ldoors-interior__slide-image"><img src="img/interior-1.jpg" alt="" loading="lazy"></div>
+					{% endfor %}
 				</div>
-				{% endfor %}
 			</div>
 		</div>
 	</div>
