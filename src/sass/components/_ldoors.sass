@@ -491,7 +491,7 @@
 		height: 100svh
 		position: relative
 		overflow: hidden
-		background: #000
+		background: #0F1F25
 		background-size: cover
 		background-repeat: no-repeat
 		background-position: center
@@ -503,7 +503,8 @@
 			left: 0
 			right: 0
 			bottom: 0
-			background: linear-gradient(39.35deg, rgba(0, 0, 0, 0.5964) 29.99%, rgba(0, 0, 0, 0) 65.68%)
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0.4536) 20.81%, rgba(0, 0, 0, 0) 50.46%)
+			z-index: 2
 		&__video
 			position: absolute
 			top: 0
@@ -531,12 +532,22 @@
 			@include flexbox
 			flex-direction: column
 			justify-content: flex-end
+		&__bg
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			object-fit: cover
+			object-position: center
 		&__content
 			width: 100%
 			@include flexbox
-			align-items: flex-end
+			flex-direction: column
+			align-items: flex-start
 			justify-content: space-between
-			padding-bottom: 64px
+			padding: 64px 0
+			height: 100%
 		&__title
 			font-size: 44px
 			font-weight: 700
