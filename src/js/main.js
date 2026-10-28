@@ -70,6 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
+  Fancybox.bind('[data-fancybox="ldoors-presentation"]', {
+    mainClass: 'fancybox--ldoors-presentation',
+    dragToClose: false,
+    Thumbs: false,
+    Toolbar: {
+      enabled: true,
+      absolute: true,
+      display: {
+        left: [],
+        middle: [],
+        right: ['close'],
+      },
+    },
+  });
+
   function extractVkIds(url) {
     return parse(url) || parse(tryDecode(url));
 
@@ -1891,7 +1906,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const next = carousel.querySelector('.ldoors-furnitura__carousel-arrow--next');
     const arrowActiveClass = 'ldoors-furnitura__carousel-arrow--active';
     const splide = new Splide(slider, {
-      type: 'slide',
+      type: 'loop',
       perPage: 3,
       perMove: 1,
       gap: 10,
@@ -1913,15 +1928,12 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
 
-    const updateArrows = () => {
-      prev?.classList.toggle(arrowActiveClass, splide.index > 0);
-      next?.classList.toggle(arrowActiveClass, splide.index < splide.Components.Controller.getEnd());
-    };
+    prev?.classList.add(arrowActiveClass);
+    next?.classList.add(arrowActiveClass);
 
     prev?.addEventListener('click', () => splide.go('<'));
     next?.addEventListener('click', () => splide.go('>'));
 
-    splide.on('mounted move resized updated', updateArrows);
     splide.mount();
   });
 
