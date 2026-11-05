@@ -1886,6 +1886,7 @@ document.addEventListener('DOMContentLoaded', () => {
       rewind: true,
       perPage: 1,
       perMove: 1,
+      gap: 15,
       arrows: false,
       pagination: false,
       speed: 1000,

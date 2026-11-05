@@ -563,8 +563,18 @@
 	.ldoors
 		&-hero
 			height: calc(100svh - 61px)
+			@include flexbox
+			flex-direction: column
+			&__video
+				position: relative
+				flex: 1
 			&__content
-				padding-bottom: 40px
+				padding: 0
+				gap: 32px
+			.container
+				padding: 20px 15px
+				background: #0F1F25
+				height: auto
 		&-project
 			height: auto
 			&::after
@@ -611,6 +621,7 @@
 			&__slide
 				height: auto
 				padding-top: 20px
+				align-items: flex-start
 			&__door
 				max-width: 100%
 				align-items: flex-start
@@ -628,6 +639,12 @@
 					font-size: 18px
 				&-desc
 					font-size: 14px
+					&.red
+						padding-left: 22px
+						line-height: 16px
+						&::before
+							width: 16px
+							height: 16px
 				&-text
 					font-size: 12px
 					margin-top: 16px
