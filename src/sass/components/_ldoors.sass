@@ -204,7 +204,7 @@
 			overflow: hidden
 		&__slide
 			position: relative
-			height: 768px
+			height: 668px
 			@include flexbox
 			align-items: flex-end
 			justify-content: space-between
@@ -222,7 +222,7 @@
 			@include flexbox
 			justify-content: space-between
 			&-image
-				width: 294px
+				width: 264px
 			&-content
 				max-width: 460px
 				@include flexbox
@@ -360,6 +360,8 @@
 				font-size: 16px
 				font-weight: 500
 				line-height: 1.4
+				position: relative
+				z-index: 5
 			&-image
 				position: absolute
 				top: 0
@@ -379,7 +381,7 @@
 				line-height: 1.4
 				letter-spacing: -0.02em
 	&-install
-		background: rgba(0,0,0,.03)
+		background: #fff
 		padding: 100px 0 120px
 		.container
 			@include flexbox
@@ -450,7 +452,7 @@
 						justify-content: center
 						text-align: center
 						font-size: 12px
-						background: #fff
+						background: rgba(0,0,0,.03)
 						border-radius: 100%
 		.btn
 			max-width: 480px
