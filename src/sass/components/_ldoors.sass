@@ -381,7 +381,7 @@
 				line-height: 1.4
 				letter-spacing: -0.02em
 	&-install
-		background: #fff
+		background: #F7F7F7
 		padding: 100px 0 120px
 		.container
 			@include flexbox
@@ -452,7 +452,7 @@
 						justify-content: center
 						text-align: center
 						font-size: 12px
-						background: rgba(0,0,0,.03)
+						background: #fff
 						border-radius: 100%
 		.btn
 			max-width: 480px
@@ -553,3 +553,136 @@
 				object-fit: cover
 				object-position: center
 				margin-top: 16px
+	&-uniq
+		padding: 100px 0
+		counter-reset: uniqItem
+		.container
+			@include flexbox
+			align-items: flex-start
+		&__sidebar
+			width: 408px
+			padding-right: 76px
+			position: sticky
+			top: 24px
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			gap: 40px
+			.btn
+				width: auto
+				padding: 0 24px
+		&__main
+			width: calc(100% - 408px)
+			margin-left: auto
+			padding-left: 64px
+			border-left: 1px solid rgba(0,0,0,.1)
+		&__card
+			@include flexbox
+			align-items: flex-start
+			gap: 44px
+			margin-top: 16px
+			counter-increment: uniqItem
+			&:first-child
+				margin-top: 0
+			&-content
+				width: calc(100% - 624px - 44px)
+				padding-top: 44px
+				&::after
+					content: counter(uniqItem)
+					display: block
+					width: 36px
+					height: 36px
+					text-align: center
+					line-height: 36px
+					font-size: 16px
+					font-weight: 500
+					color: #fff
+					background: #1D2C34
+					margin-top: 22px
+			&-title
+				font-size: 26px
+				font-weight: 700
+				line-height: 1.1
+				letter-spacing: -0.02em
+			&-text
+				font-size: 26px
+				line-height: 1.1
+				font-weight: 400
+				letter-spacing: -0.02em
+			&-image
+				width: 624px
+				height: 374px
+				background: linear-gradient(148.55deg, #1D2C34 2.53%, #1C3340 90.88%)
+				img
+					width: 100%
+					height: 100%
+					object-fit: cover
+					object-position: center
+				&--gray
+					background: #F3F3F3
+		&__carousel
+			position: relative
+			overflow: hidden
+			@include flexbox
+			align-items: center
+			padding: 0 68px
+			height: 440px
+			&-arrow
+				width: 36px
+				height: 36px
+				background: var(--color-red)
+				cursor: default
+				position: absolute
+				top: calc(50% - 18px)
+				transition: var(--transition-ms)
+				&::before
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
+					margin: auto
+					width: 12px
+					height: 10px
+					background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.22594 9.80113L0.229934 5.48011C-0.0766454 5.21495 -0.0766454 4.78505 0.229934 4.51989L5.22594 0.198869C5.53252 -0.0662895 6.02959 -0.0662895 6.33617 0.198869C6.64275 0.464029 6.64275 0.893937 6.33617 1.1591L2.68032 4.32102L12 4.32102L12 5.67898L2.68032 5.67898L6.33617 8.8409C6.64275 9.10606 6.64275 9.53597 6.33617 9.80113C6.02958 10.0663 5.53252 10.0663 5.22594 9.80113Z' fill-rule='evenodd' clip-rule='evenodd' fill='white'/%3E%3C/svg%3E%0A")
+					transition: var(--transition-ms)
+				&--prev
+					left: 16px
+				&--next
+					right: 16px
+					&::before
+						transform: rotate(180deg)
+		&__slider
+			width: 100%
+			height: 100%
+			.splide__track
+				height: 100%
+			&-item
+				@include flexbox
+				flex-direction: column
+				align-items: center
+				height: 100%
+			&-image
+				width: 100%
+				flex: 1
+				position: relative
+				img
+					position: absolute
+					top: 0
+					left: 0
+			&-content
+				padding: 12px 0
+				@include flexbox
+				flex-direction: column
+				align-items: center
+				gap: 4px
+				text-align: center
+			&-name
+				font-size: 16px
+				font-weight: 500
+				line-height: 1.4
+			&-price
+				font-size: 14px
+				font-weight: 600
+				line-height: 1.4

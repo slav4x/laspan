@@ -1938,6 +1938,29 @@ document.addEventListener('DOMContentLoaded', () => {
     splide.mount();
   });
 
+  document.querySelectorAll('.ldoors-uniq__carousel').forEach((carousel) => {
+    const slider = carousel.querySelector('.ldoors-uniq__slider');
+    if (!slider) return;
+
+    const prev = carousel.querySelector('.ldoors-uniq__carousel-arrow--prev');
+    const next = carousel.querySelector('.ldoors-uniq__carousel-arrow--next');
+
+    const splide = new Splide(slider, {
+      type: 'loop',
+      gap: 10,
+      arrows: false,
+      pagination: false,
+      speed: 600,
+      drag: true,
+      waitForTransition: false,
+    });
+
+    prev?.addEventListener('click', () => splide.go('<'));
+    next?.addEventListener('click', () => splide.go('>'));
+
+    splide.mount();
+  });
+
   document.querySelectorAll('.news-materials').forEach((carousel) => {
     new Splide(carousel, {
       type: 'loop',

@@ -1,12 +1,13 @@
 {% extends 'components/_layout.html' %}
 {% set site_title = 'Главная' %}
+{% set ldoors = true %}
 
 {% block content %}
 
 <section class="ldoors-hero">
 	<div class="ldoors-hero__video">
 		<video autoplay muted loop playsinline preload="none">
-			<source src="video/about.mp4" type="video/mp4">
+			<source src="https://novosibirsk.laspan.ru/wp-content/uploads/2026/10/23432143.mp4" type="video/mp4">
 		</video>
 	</div>
 	<div class="container">
@@ -20,7 +21,81 @@
 	</div>
 </section>
 
-<section class="ldoors-tech">
+<section class="ldoors-uniq">
+	<div class="container">
+		<div class="ldoors-uniq__sidebar">
+			<div class="ldoors-head">
+				<h2 class="ldoors-head__title">Laspan DOORS<br>- уникальная технология сборки</h2>
+				<div class="ldoors-head__text">Разработаны для длительной и активной эксплуатации на коммерческих и административных объектах, включая медицинские учреждения, простой и быстрый монтаж.</div>
+			</div>
+			<a href="#" class="btn btn-sm btn-red btn-arrow">Кнопка</a>
+		</div>
+		<div class="ldoors-uniq__main">
+			<div class="ldoors-uniq__card">
+				<div class="ldoors-uniq__card-content">
+					<div class="ldoors-uniq__card-title">Жесткая конструкция</div>
+					<div class="ldoors-uniq__card-text">Алюминиевая коробка с возможностью крепления по всему периметру, что значительно увеличивает жесткость дверной коробки, в сравнении с МДФ и ДПК</div>
+				</div>
+				<div class="ldoors-uniq__card-image"><img src="img/uniq-01.png" alt="" loading="lazy"></div>
+			</div>
+			<div class="ldoors-uniq__card">
+				<div class="ldoors-uniq__card-content">
+					<div class="ldoors-uniq__card-title">Идеальная геометрия рамы</div>
+					<div class="ldoors-uniq__card-text">Профиль поставляется в нужном размере с готовыми спилами под 45°. Угловые соединители с резьбовой фиксацией обеспечивают точную сборку рамы.</div>
+				</div>
+				<div class="ldoors-uniq__card-image"><img src="img/uniq-02.png" alt="" loading="lazy"></div>
+			</div>
+			<div class="ldoors-uniq__card">
+				<div class="ldoors-uniq__card-content">
+					<div class="ldoors-uniq__card-title">Надежное дверное полотно</div>
+					<div class="ldoors-uniq__card-text">Каркас из LVL-бруса обеспечивает жесткость и надежное крепление петель. МДФ 6 мм с покрытием PVC/CPL устойчив к уборке и механическим воздействиям.</div>
+				</div>
+				<div class="ldoors-uniq__card-image"><img src="img/uniq-03.png" alt="" loading="lazy"></div>
+			</div>
+			<div class="ldoors-uniq__card">
+				<div class="ldoors-uniq__card-content">
+					<div class="ldoors-uniq__card-title">Усиленные петли<br> с креплением «шип-паз»</div>
+					<div class="ldoors-uniq__card-text">Специальный паз обеспечивает надёжную фиксацию петли и позволяет установить дополнительную петлю без доработок.</div>
+				</div>
+				<div class="ldoors-uniq__card-image"><img src="img/uniq-04.png" alt="" loading="lazy"></div>
+			</div>
+			<div class="ldoors-uniq__card">
+				<div class="ldoors-uniq__card-content">
+					<div class="ldoors-uniq__card-title">Усиленные петли<br> с креплением «шип-паз»</div>
+					<div class="ldoors-uniq__card-text">Специальный паз обеспечивает надёжную фиксацию петли и позволяет установить дополнительную петлю без доработок.</div>
+				</div>
+				<div class="ldoors-uniq__card-image"><img src="img/uniq-05.png" alt="" loading="lazy"></div>
+			</div>
+			<div class="ldoors-uniq__card">
+				<div class="ldoors-uniq__card-content">
+					<div class="ldoors-uniq__card-title">Надежная и долговечная фурнитура</div>
+					<div class="ldoors-uniq__card-text">В складской программе подобраны ручки и замки расчтитанные на активную ежедневную эксплуатацию, в различных цветах и исполнениях. Под заказ возможно использование фурнитуры по выбору Заказчик</div>
+				</div>
+				<div class="ldoors-uniq__card-image ldoors-uniq__card-image--gray ldoors-uniq__carousel">
+					<div class="ldoors-uniq__carousel-arrow ldoors-uniq__carousel-arrow--prev"></div>
+					<div class="ldoors-uniq__slider splide">
+						<div class="splide__track">
+							<div class="splide__list">
+								{% for i in range(6) %}
+								<div class="ldoors-uniq__slider-item splide__slide">
+									<div class="ldoors-uniq__slider-image"><img src="img/furnitura-01.png" alt="" loading="lazy"></div>
+									<div class="ldoors-uniq__slider-content">
+										<div class="ldoors-uniq__slider-name">Ручка офисная стандарт</div>
+										<div class="ldoors-uniq__slider-price">1 500  руб</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="ldoors-uniq__carousel-arrow ldoors-uniq__carousel-arrow--next"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{# <section class="ldoors-tech">
 	<div class="container">
 		<div class="ldoors-head">
 			<h2 class="ldoors-head__title">Laspan DOORS - технология надежности</h2>
@@ -76,7 +151,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> #}
 
 {% set interior_categories = ['Wood', 'White', 'Blue', 'Graphite', 'Amber', 'Coral', 'Cobalt', 'Olive', 'Walnut', 'Sand', 'Concrete'] %}
 <section class="ldoors-interior">
@@ -156,7 +231,7 @@
 	</div>
 </section>
 
-<section class="ldoors-furnitura">
+{# <section class="ldoors-furnitura">
 	<div class="container">
 		<div class="ldoors-head">
 			<h2 class="ldoors-head__title">Надежная<br> и долговечная фурнитура</h2>
@@ -180,9 +255,9 @@
 			<div class="ldoors-furnitura__carousel-arrow ldoors-furnitura__carousel-arrow--next"></div>
 		</div>
 	</div>
-</section>
+</section> #}
 
-calc
+Калькулятор
 
 <section class="ldoors-install">
 	<div class="container">

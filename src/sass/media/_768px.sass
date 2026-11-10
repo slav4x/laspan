@@ -80,6 +80,8 @@
 			width: 60px
 			height: 60px
 			border-left: 1px solid var(--color-border)
+		&-black .header-burger span
+			background: #fff
 
 	.promo
 		height: auto
@@ -666,3 +668,39 @@
 					width: 100%
 					order: 10
 					margin-top: 20px !important
+		&-uniq
+			padding: 44px 0 60px
+			&__sidebar
+				flex-direction: column
+				.btn
+					width: auto !important
+			&__main
+				display: flex
+				flex-wrap: nowrap
+				align-items: flex-start
+				overflow: auto
+				width: calc(100% + (var(--pos-right) * -2))
+				margin-left: var(--pos-right)
+				margin-right: var(--pos-right)
+				padding: 0 calc(var(--pos-right) * -1)
+				gap: 16px
+				&::-webkit-scrollbar
+					display: none
+			&__card
+				min-width: 360px
+				flex-direction: column
+				margin: 0
+				gap: 0
+				&-image
+					width: 100%
+					order: -1
+				&-content
+					width: 100%
+					padding-top: 32px
+					&::after
+						display: none
+				&-title
+					line-height: 18px
+				&-text
+					line-height: 18px
+					padding-bottom: 2px
